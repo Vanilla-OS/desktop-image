@@ -12,3 +12,4 @@ RUN apt-get update && \
 
 # Set default PATH
 RUN echo 'PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"' > /etc/environment
+RUN sed -i '4,10d' /etc/profile
