@@ -7,5 +7,6 @@ Vanilla OS Desktop experience with GNOME.
 ## Build
 
 ```bash
+sh prepare.sh
 podman image build -t vanillaos/desktop .
 ```
