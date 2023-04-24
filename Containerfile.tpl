@@ -17,3 +17,9 @@ RUN sed -i '4,10d' /etc/profile
 # --- BEGIN GENERATED CODE ---
 @@PKGS_INST@@
 # --- END GENERATED CODE ---
+
+# Remove apt binaries, index and cache
+RUN apt-get autoremove -y && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* && \
+    rm -rf /usr/bin/apt* /usr/share/man/man8/apt* /usr/share/bash-completion/completions/apt*
