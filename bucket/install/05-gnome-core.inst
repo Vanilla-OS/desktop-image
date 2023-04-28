@@ -1,0 +1,11 @@
+gnome-shell
+gnome-shell-extensions
+gnome-shell-extension-manager
+
+gnome-session
+gnome-session-canberra
+
+chrome-gnome-shell
+evolution-data-server
+mutter
+gjs
