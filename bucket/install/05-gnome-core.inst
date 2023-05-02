@@ -5,7 +5,8 @@ gnome-shell-extension-manager
 gnome-session
 gnome-session-canberra
 
-chrome-gnome-shell
+xdg-desktop-portal-gnome
+gnome-browser-connector
 evolution-data-server
 mutter
 gjs
