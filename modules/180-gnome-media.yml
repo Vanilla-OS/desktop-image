@@ -1,0 +1,7 @@
+name: gnome-media
+type: apt
+source:
+  packages:
+  - gnome-music
+  - gnome-photos
+  - totem

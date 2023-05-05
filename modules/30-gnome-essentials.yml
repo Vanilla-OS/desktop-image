@@ -1,0 +1,13 @@
+name: xorg
+type: apt
+source:
+  packages:
+  - nautilus
+  - nautilus-share
+  - gnome-console
+  - gnome-bluetooth
+  - gnome-online-accounts
+  - gnome-menus
+  - gnome-color-manager
+  - gnome-control-center
+  - gnome-settings-daemon

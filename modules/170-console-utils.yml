@@ -1,0 +1,6 @@
+name: console-utils
+type: apt
+source:
+  packages:
+  - zenity
+  - adwdialog

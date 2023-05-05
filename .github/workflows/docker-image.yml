@@ -3,8 +3,6 @@ name: Docker Image CI
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
 
 jobs:
 
@@ -15,12 +13,15 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Prepare
-      run: sh prepare.sh
+    - name: Vib
+      run: |
+        wget https://github.com/Vanilla-OS/Vib/releases/download/v0.2.2/vib
+        chmod +x vib
+        ./vib build recipe.yml
 
     - name: Build the Docker image
       run: docker image build -f Containerfile --tag vanillaos/desktop:${{ github.ref_name }} .
-      
+
     - name: Push To Registry
       uses: redhat-actions/push-to-registry@v2.7
       with:

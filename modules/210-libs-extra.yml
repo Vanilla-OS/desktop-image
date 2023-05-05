@@ -1,0 +1,15 @@
+name: gnome-common
+type: apt
+source:
+  packages:
+  - gsettings-desktop-schemas
+  - libatk-adaptor
+  - libnotify-bin
+  - ibus-gtk
+  - ibus-gtk3
+  - ibus-gtk4
+  - libglib2.0-bin
+  - libpam-gnome-keyring
+  - libproxy1-plugin-gsettings
+  - libwmf0.2-7-gtk
+  - libgdk-pixbuf2.0-bin

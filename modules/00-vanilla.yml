@@ -1,0 +1,7 @@
+name: vanilla-packages
+type: apt
+source:
+  packages:
+  - vanilla-first-setup
+  - vanilla-control-center
+  - vanilla-backgrounds

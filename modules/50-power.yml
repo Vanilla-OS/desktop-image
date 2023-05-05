@@ -1,0 +1,6 @@
+name: power
+type: apt
+source:
+  packages:
+  - power-profiles-daemon
+  - powermgmt-base

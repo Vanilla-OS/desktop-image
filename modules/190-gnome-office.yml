@@ -1,0 +1,7 @@
+name: gnome-office
+type: apt
+source:
+  packages:
+  - gnome-calculator
+  - epiphany-browser
+  - evince

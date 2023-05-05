@@ -1,0 +1,38 @@
+base: registry.vanillaos.org/vanillaos/core:main
+name: Vanilla Desktop
+labels:
+  maintainer: Vanilla OS Contributors
+args:
+  DEBIAN_FRONTEND: noninteractive
+runs:
+- echo 'APT::Install-Recommends "0";' > /etc/apt/apt.conf.d/01norecommends
+
+modules:
+- name: init-setup
+  type: shell
+  commands:
+  - echo 'PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"' > /etc/environment
+  - sed -i '4,10d' /etc/profile
+  - apt update
+  - apt upgrade -y
+  - apt clean
+
+- name: packages-modules
+  type: gen-modules
+  path: modules
+
+- name: cleanup
+  type: shell
+  commands:
+  - apt autoremove -y
+  - apt clean
+  - rm -rf /var/lib/apt/lists/*
+  - rm -rf /usr/bin/apt*
+  - rm -rf /var/cache/apt*
+  - rm -rf /usr/lib/apt*
+  - rm -rf /var/log/apt*
+  - rm -rf /usr/share/man/man8/apt*
+  - rm -rf /usr/share/bash-completion/completions/apt*
+  - rm -rf /usr/share/doc/apt*
+  - rm -rf /usr/share/lintian/overrides/apt*
+

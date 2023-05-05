@@ -1,0 +1,8 @@
+name: gnome-common
+type: apt
+source:
+  packages:
+  - heif-gdk-pixbuf
+  - heif-thumbnailer
+  - webp-pixbuf-loader
+  - rygel
