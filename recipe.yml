@@ -1,5 +1,6 @@
 base: registry.vanillaos.org/vanillaos/core:main
 name: Vanilla Desktop
+id: vanilla-core
 labels:
   maintainer: Vanilla OS Contributors
 args:
