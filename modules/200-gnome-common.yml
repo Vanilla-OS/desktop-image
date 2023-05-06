@@ -4,5 +4,8 @@ source:
   packages:
   - heif-gdk-pixbuf
   - heif-thumbnailer
+
+  - gnome-user-docs
   - webp-pixbuf-loader
   - rygel
+  - yelp

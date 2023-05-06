@@ -9,3 +9,5 @@ source:
   - file-roller
   - eog
   - ghostscript
+  - zenity
+  - adwdialog

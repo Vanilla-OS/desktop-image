@@ -4,6 +4,7 @@ source:
   packages:
   - nautilus
   - nautilus-share
+  
   - gnome-console
   - gnome-bluetooth
   - gnome-online-accounts

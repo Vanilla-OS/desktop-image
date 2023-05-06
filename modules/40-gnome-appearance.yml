@@ -3,6 +3,7 @@ type: apt
 source:
   packages:
   - adwaita-icon-theme-full
+  
   - gnome-backgrounds
   - gnome-themes-extra
   - gnome-accessibility-themes

@@ -1,0 +1,4 @@
+#!/bin/sh
+
+find /usr/bin/ -name "apt*" -execdir sh -c 'mv "$0" "/usr/bin/private.${0##*/}"' {} \;
+find /usr/bin/ -name "dpkg*" -execdir sh -c 'mv "$0" "/usr/bin/private-${0##*/}"' {} \;

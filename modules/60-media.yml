@@ -1,8 +1,13 @@
-name: power
+name: media
 type: apt
 source:
   packages:
+  - gnome-music
+  - gnome-photos
+  
+  - totem
   - ffmpeg
+
   - gstreamer1.0-alsa
   - gstreamer1.0-plugins-base-apps
   - gstreamer1.0-pulseaudio

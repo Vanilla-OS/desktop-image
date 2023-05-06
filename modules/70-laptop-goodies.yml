@@ -1,5 +1,0 @@
-name: laptop-goodies
-type: apt
-source:
-  packages:
-  - switcheroo-control

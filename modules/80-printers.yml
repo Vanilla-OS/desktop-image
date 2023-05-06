@@ -4,12 +4,15 @@ source:
   packages:
   - cups
   - cups-pk-helper
+  
   - hplip
   - bluez-cups
   - foomatic-db-compressed-ppds
   - openprinting-ppds
+
   - system-config-printer-common
   - system-config-printer-udev
+
   - printer-driver-pnm2ppa
   - printer-driver-brlaser
   - printer-driver-c2esp

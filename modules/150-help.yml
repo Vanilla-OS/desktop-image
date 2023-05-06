@@ -1,6 +1,0 @@
-name: help
-type: apt
-source:
-  packages:
-  - gnome-user-docs
-  - yelp

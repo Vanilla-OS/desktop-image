@@ -4,3 +4,4 @@ source:
   packages:
   - power-profiles-daemon
   - powermgmt-base
+  - switcheroo-control

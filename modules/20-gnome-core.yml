@@ -6,9 +6,9 @@ source:
   - gnome-shell-extensions
   - gnome-shell-extension-manager
   - gnome-session
-  - gnome-session-canberra
-  - xdg-desktop-portal-gnome
   - gnome-browser-connector
+
+  - xdg-desktop-portal-gnome
   - evolution-data-server
   - mutter
   - gjs
