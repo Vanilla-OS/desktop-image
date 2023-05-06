@@ -2,6 +2,9 @@ name: gnome-core
 type: apt
 source:
   packages:
+  - gdm3
+  - xorg
+  
   - gnome-shell
   - gnome-shell-extensions
   - gnome-shell-extension-manager

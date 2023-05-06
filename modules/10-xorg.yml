@@ -1,6 +1,0 @@
-name: xorg
-type: apt
-source:
-  packages:
-  - gdm3
-  - xorg
