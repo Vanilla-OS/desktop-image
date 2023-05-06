@@ -6,7 +6,7 @@ source:
   - gnome-system-monitor
   - gnome-sushi
   - gnome-software
-  - file-roller
+  # - file-roller move to first-setup
   - eog
   - ghostscript
   - zenity
