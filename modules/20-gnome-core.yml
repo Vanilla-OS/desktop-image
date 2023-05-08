@@ -4,7 +4,7 @@ source:
   packages:
   - gdm3
   - xorg
-  
+
   - gnome-shell
   - gnome-shell-extensions
   # - gnome-shell-extension-manager move to first-setup
