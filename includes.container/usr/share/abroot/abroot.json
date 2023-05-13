@@ -1,0 +1,20 @@
+{
+    "autoRepair": true,
+    "maxParallelDownloads": 2,
+    
+    "registry": "registry.vanillaos.org",
+    "registryAPIVersion": "v2",
+    "name": "vanillaos/desktop",
+    "tag": "main",
+    
+    "iPkgMngAdd": "apt install -y",
+    "iPkgMngRm": "apt remove -y",
+
+    "partLabelVar": "vos-var",
+    "partLabelA": "vos-a",
+    "partLabelB": "vos-b",
+    "partLabelBoot": "vos-boot",
+    "partLabelEfi": "vos-efi",
+
+    "libPathStates": "/var/lib/abroot/states"
+}
