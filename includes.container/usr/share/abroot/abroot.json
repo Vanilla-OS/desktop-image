@@ -1,12 +1,14 @@
 {
     "autoRepair": true,
     "maxParallelDownloads": 2,
-    
+
     "registry": "registry.vanillaos.org",
     "registryAPIVersion": "v2",
     "name": "vanillaos/desktop",
     "tag": "main",
-    
+
+    "iPkgMngPre": "pkg-unlock",
+    "iPkgMngPost": "pkg-lock",
     "iPkgMngAdd": "apt install -y",
     "iPkgMngRm": "apt remove -y",
 
