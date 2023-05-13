@@ -1,4 +1,4 @@
 #!/bin/sh
 
-find /usr/bin/ -name "private.apt*" -execdir sh -c 'mv "$0" "/usr/bin/${0##*.}"' {} \;
-find /usr/bin/ -name "private-dpkg*" -execdir sh -c 'mv "$0" "/usr/bin/${0##*-}"' {} \;
+find /usr/bin/ -name "private.apt*" -execdir sh -c 'echo "Unlocking $0" && mv "$0" "/usr/bin/${0##*.}"' {} \;
+find /usr/bin/ -name "private-dpkg*" -execdir sh -c 'echo "Unlocking $0" && mv "$0" "/usr/bin/${0##*-}"' {} \;
