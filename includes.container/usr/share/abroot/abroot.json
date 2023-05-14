@@ -7,8 +7,8 @@
     "name": "vanillaos/desktop",
     "tag": "main",
 
-    "iPkgMngPre": "pkg-unlock",
-    "iPkgMngPost": "pkg-lock",
+    "iPkgMngPre": "lpkg --unlock",
+    "iPkgMngPost": "lpkg --lock",
     "iPkgMngAdd": "apt install -y",
     "iPkgMngRm": "apt remove -y",
 

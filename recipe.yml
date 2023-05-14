@@ -18,6 +18,17 @@ modules:
   - apt upgrade -y
   - apt clean
 
+- name: vanilla-tools
+  type: shell
+  source:
+    type: tar
+    # switch to production build once in production
+    url: https://github.com/Vanilla-OS/vanilla-tools/releases/download/continuous/vanilla-tools.tar.gz
+  commands:
+  - mkdir -p /usr/bin
+  - cp /sources/vanilla-tools/lpkg /usr/bin/lpkg
+  - chmod +x /usr/bin/lpkg
+
 - name: packages-modules
   type: gen-modules
   path: modules
