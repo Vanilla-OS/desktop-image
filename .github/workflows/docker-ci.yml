@@ -1,0 +1,23 @@
+name: Docker Image CI on PR
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Vib
+      run: |
+        wget https://github.com/Vanilla-OS/Vib/releases/download/v0.2.9/vib
+        chmod +x vib
+        ./vib build recipe.yml
+
+    - name: Build the Docker image
+      run: docker image build -f Containerfile --tag vanillaos/desktop .
