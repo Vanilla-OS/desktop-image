@@ -3,7 +3,6 @@ type: apt
 source:
   packages:
   - vanilla-first-setup
-  - vanilla-control-center
   - vanilla-backgrounds
   - vanilla-system-operator
   - vanilla-gnome-default-settings
