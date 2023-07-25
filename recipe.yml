@@ -29,6 +29,14 @@ modules:
   - cp /sources/vanilla-tools/lpkg /usr/bin/lpkg
   - chmod +x /usr/bin/lpkg
 
+- name: apx-gui
+  type: meson
+  source:
+    type: git
+    url: https://github.com/Vanilla-OS/apx-gui
+    branch: main
+    tag: v0.1
+
 - name: packages-modules
   type: gen-modules
   path: modules
