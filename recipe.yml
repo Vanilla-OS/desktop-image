@@ -7,6 +7,7 @@ args:
   DEBIAN_FRONTEND: noninteractive
 runs:
 - echo 'APT::Install-Recommends "0";' > /etc/apt/apt.conf.d/01norecommends
+- apt install -y meson
 
 modules:
 - name: init-setup
@@ -44,6 +45,7 @@ modules:
 - name: cleanup
   type: shell
   commands:
+  - apt remove -y meson
   - apt autoremove -y
   - apt clean
   - chmod +x /usr/bin/pkg-lock && chmod +x /usr/bin/pkg-unlock
