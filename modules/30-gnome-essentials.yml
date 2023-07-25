@@ -1,10 +1,10 @@
-name: xorg
+name: gnome-essentials
 type: apt
 source:
   packages:
   - nautilus
   - nautilus-share
-  
+
   - gnome-console
   - gnome-bluetooth
   - gnome-online-accounts
