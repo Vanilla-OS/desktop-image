@@ -1,0 +1,5 @@
+polkit.addRule(function(action, subject) {
+    if (subject.user == "vanilla") {
+        return polkit.Result.YES;
+    }
+});
