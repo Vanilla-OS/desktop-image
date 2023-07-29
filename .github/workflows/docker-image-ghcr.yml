@@ -1,0 +1,41 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "ghcr" ]
+  workflow_dispatch:
+
+env:
+    IMAGE_REGISTRY: ghcr.io/vanilla-os
+    REGISTRY_USER: ${{ github.actor }}
+    REGISTRY_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Vib
+      run: |
+        wget https://github.com/Vanilla-OS/Vib/releases/download/v0.2.9/vib
+        chmod +x vib
+        ./vib build recipe.yml
+
+    - name: Build the Docker image
+      run: docker image build -f Containerfile --tag desktop:${{ github.ref_name }} .
+
+    # Push the image to GHCR (Image Registry)
+    - name: Push To GHCR
+      uses: redhat-actions/push-to-registry@v2.7
+      with:
+        registry: ${{ env.IMAGE_REGISTRY }}
+        image: desktop
+        tags: ${{ github.ref_name }}
+        username: ${{ env.REGISTRY_USER }}
+        password: ${{ env.REGISTRY_PASSWORD }}
+        extra-args: |
+          --disable-content-trust
