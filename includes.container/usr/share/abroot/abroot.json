@@ -2,10 +2,10 @@
     "autoRepair": true,
     "maxParallelDownloads": 2,
 
-    "registry": "registry.vanillaos.org",
+    "registry": "ghcr.io",
     "registryAPIVersion": "v2",
-    "name": "vanillaos/desktop",
-    "tag": "main",
+    "name": "desktop",
+    "tag": "ghcr",
 
     "iPkgMngPre": "lpkg --unlock",
     "iPkgMngPost": "lpkg --lock",
