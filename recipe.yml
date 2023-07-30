@@ -1,4 +1,4 @@
-base: registry.vanillaos.org/vanillaos/core:main
+base: ghcr.io/vanilla-os/core:main
 name: Vanilla Desktop
 id: vanilla-desktop
 labels:

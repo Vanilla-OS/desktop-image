@@ -3,6 +3,12 @@ name: Docker Image CI
 on:
   push:
     branches: [ "main" ]
+  workflow_dispatch:
+
+env:
+    IMAGE_REGISTRY: ghcr.io/vanilla-os
+    REGISTRY_USER: ${{ github.actor }}
+    REGISTRY_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
 
@@ -20,14 +26,27 @@ jobs:
         ./vib build recipe.yml
 
     - name: Build the Docker image
-      run: docker image build -f Containerfile --tag vanillaos/desktop:${{ github.ref_name }} .
+      run: docker image build -f Containerfile --tag desktop:${{ github.ref_name }} .
 
-    - name: Push To Registry
+    # Push the image to GHCR (Image Registry)
+    - name: Push To GHCR
       uses: redhat-actions/push-to-registry@v2.7
       with:
-        image: vanillaos/desktop
+        registry: ${{ env.IMAGE_REGISTRY }}
+        image: desktop
         tags: ${{ github.ref_name }}
-        registry: ${{ secrets.NEXUS_REGISTRY }}
-        username: ${{ secrets.NEXUS_USER }}
-        password: ${{ secrets.NEXUS_PSW }}
-        tls-verify: false
+        username: ${{ env.REGISTRY_USER }}
+        password: ${{ env.REGISTRY_PASSWORD }}
+        extra-args: |
+          --disable-content-trust
+
+    # Push the image to Nexus (Image Registry)
+#    - name: Push To Registry
+#      uses: redhat-actions/push-to-registry@v2.7
+#      with:
+#        image: vanillaos/desktop
+#        tags: ${{ github.ref_name }}
+#        registry: ${{ secrets.NEXUS_REGISTRY }}
+#        username: ${{ secrets.NEXUS_USER }}
+#        password: ${{ secrets.NEXUS_PSW }}
+#        tls-verify: false
