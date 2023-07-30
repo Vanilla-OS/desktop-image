@@ -2,7 +2,7 @@
     "autoRepair": true,
     "maxParallelDownloads": 2,
 
-    "registry": "ghcr.io",
+    "registry": "ghcr.io/vanilla-os",
     "registryAPIVersion": "v2",
     "name": "desktop",
     "tag": "main",
