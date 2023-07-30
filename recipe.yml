@@ -1,4 +1,4 @@
-base: ghcr.io/vanilla-os/core:ghcr
+base: ghcr.io/vanilla-os/core:main
 name: Vanilla Desktop
 id: vanilla-desktop
 labels:
