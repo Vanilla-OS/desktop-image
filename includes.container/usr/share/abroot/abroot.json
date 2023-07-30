@@ -5,7 +5,7 @@
     "registry": "ghcr.io",
     "registryAPIVersion": "v2",
     "name": "desktop",
-    "tag": "ghcr",
+    "tag": "main",
 
     "iPkgMngPre": "lpkg --unlock",
     "iPkgMngPost": "lpkg --lock",
