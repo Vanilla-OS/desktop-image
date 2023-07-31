@@ -1,0 +1,14 @@
+name: vanilla-gnome-default-settings
+type: dpkg-buildpackage
+source:
+  type: git
+  url: https://github.com/Vanilla-OS/vanilla-gnome-default-settings.git
+  branch: main
+  commit: a2c30206279431301467871709e9fc6d6a010478
+modules:
+- name: vanilla-gnome-default-settings-deps-install
+  type: apt
+  source:
+    packages:
+    - dpkg-dev
+    - libglib2.0-bin

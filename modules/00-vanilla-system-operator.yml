@@ -1,0 +1,36 @@
+name: vanilla-system-operator
+type: dpkg-buildpackage
+source:
+  type: git
+  url: https://github.com/Vanilla-OS/vanilla-system-operator.git
+  branch: main
+  commit: d6633089b6b65c8534ddccd8a299147dc207c4ff
+modules:
+- name: vanilla-system-operator-deps-install
+  type: apt
+  source:
+    packages:
+    - dpkg-dev
+    - ifstat
+- name: adwdialog
+  type: dpkg-buildpackage
+  source:
+    type: git
+    url: https://github.com/Vanilla-OS/vanilla-system-operator.git
+    branch: main
+    commit: d6633089b6b65c8534ddccd8a299147dc207c4ff
+  modules:
+  - name: adwdialog-deps-install
+    type: apt
+    source:
+      packages:
+      - dpkg-dev
+      - build-essential
+      - debhelper
+      - python3
+      - meson
+      - libadwaita-1-dev
+      - gettext
+      - make
+      - desktop-file-utils
+      - libjpeg-dev
