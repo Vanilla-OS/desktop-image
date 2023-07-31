@@ -5,6 +5,8 @@ source:
   url: https://github.com/Vanilla-OS/vanilla-gnome-default-settings.git
   branch: main
   commit: a2c30206279431301467871709e9fc6d6a010478
+  paths:
+  - vanilla-gnome-default-settings
 modules:
 - name: vanilla-gnome-default-settings-deps-install
   type: apt

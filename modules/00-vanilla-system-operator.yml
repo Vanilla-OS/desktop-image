@@ -5,6 +5,8 @@ source:
   url: https://github.com/Vanilla-OS/vanilla-system-operator.git
   branch: main
   commit: d6633089b6b65c8534ddccd8a299147dc207c4ff
+  paths:
+  - vanilla-system-operator
 modules:
 - name: vanilla-system-operator-deps-install
   type: apt
@@ -19,6 +21,8 @@ modules:
     url: https://github.com/Vanilla-OS/vanilla-system-operator.git
     branch: main
     commit: d6633089b6b65c8534ddccd8a299147dc207c4ff
+    paths:
+    - adwdialog
   modules:
   - name: adwdialog-deps-install
     type: apt
