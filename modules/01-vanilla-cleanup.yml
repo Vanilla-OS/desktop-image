@@ -1,0 +1,6 @@
+name: vanilla-cleanup
+type: shell
+commands:
+- apt remove -y dpkg-dev debhelper-compat dh-sequence-gnome libglib2.0-dev meson build-essential debhelper libadwaita-1-dev gettext make libjpeg-dev
+- apt autoremove -y
+- apt clean

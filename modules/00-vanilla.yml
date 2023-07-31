@@ -1,8 +1,0 @@
-name: vanilla-packages
-type: apt
-source:
-  packages:
-  - vanilla-first-setup
-  - vanilla-backgrounds
-  - vanilla-system-operator
-  - vanilla-gnome-default-settings

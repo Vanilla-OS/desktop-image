@@ -1,0 +1,22 @@
+name: vanilla-first-setup
+type: dpkg-buildpackage
+source:
+  type: git
+  url: https://github.com/Vanilla-OS/first-setup.git
+  branch: main
+  commit: fa8d225fad88d48807fab899a8da21a8cebb439a
+modules:
+- name: vanilla-first-setup-deps-install
+  type: apt
+  source:
+    packages:
+    - dpkg-dev
+    - build-essential
+    - debhelper
+    - python3
+    - meson
+    - libadwaita-1-dev
+    - gettext
+    - desktop-file-utils
+    - make
+    - libjpeg-dev
