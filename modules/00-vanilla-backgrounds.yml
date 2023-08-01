@@ -4,7 +4,7 @@ source:
   type: git
   url: https://github.com/Vanilla-OS/vanilla-backgrounds.git
   branch: main
-  commit: 447f3f849dbebd80d4cc9a67c8855e687da3bcf0
+  commit: latest
   paths:
   - vanilla-backgrounds
 modules:

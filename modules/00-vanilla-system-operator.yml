@@ -4,7 +4,7 @@ source:
   type: git
   url: https://github.com/Vanilla-OS/vanilla-system-operator.git
   branch: main
-  commit: d6633089b6b65c8534ddccd8a299147dc207c4ff
+  commit: latest
   paths:
   - vanilla-system-operator
 modules:
@@ -20,7 +20,7 @@ modules:
     type: git
     url: https://github.com/Vanilla-OS/AdwDialog.git
     branch: main
-    commit: 9f9b8173c006e1874982925822f57dd13ec55f69
+    commit: latest
     paths:
     - adwdialog
   modules:
