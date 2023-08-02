@@ -41,26 +41,26 @@ modules:
 - name: packages-modules
   type: includes
   includes:
-    - modules/00-vanilla-backgrounds.yml
-    - modules/00-vanilla-first-setup.yml
-    - modules/00-vanilla-gnome-default-settings.yml
-    - modules/00-vanilla-system-operator.yml
-    - modules/01-vanilla-cleanup.yml
-    - modules/20-gnome-core.yml
-    - modules/30-gnome-essentials.yml
-    - modules/40-gnome-appearance.yml
-    - modules/50-laptop-goodies.yml
-    - modules/60-media.yml
-    - modules/80-printers.yml
-    - modules/90-3d-utils.yml
-    - modules/100-accessibility.yml
-    - modules/110-fonts.yml
-    - modules/120-network.yml
-    - modules/130-plymouth.yml
-    - modules/140-password.yml
-    - modules/160-utilities.yml
-    - modules/200-gnome-common.yml
-    - modules/210-libs-extra.yml
+    - modules/00-vanilla-backgrounds
+    - modules/00-vanilla-first-setup
+    - modules/00-vanilla-gnome-default-settings
+    - modules/00-vanilla-system-operator
+    - modules/01-vanilla-cleanup
+    - modules/20-gnome-core
+    - modules/30-gnome-essentials
+    - modules/40-gnome-appearance
+    - modules/50-laptop-goodies
+    - modules/60-media
+    - modules/80-printers
+    - modules/90-3d-utils
+    - modules/100-accessibility
+    - modules/110-fonts
+    - modules/120-network
+    - modules/130-plymouth
+    - modules/140-password
+    - modules/160-utilities
+    - modules/200-gnome-common
+    - modules/210-libs-extra
 
 - name: cleanup
   type: shell
