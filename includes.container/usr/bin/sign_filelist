@@ -1,0 +1,14 @@
+#!/bin/sh
+
+set -e
+
+minisign -WG
+minisign -Sm /FsGuard/filelist
+
+touch /FsGuard/signature
+echo -n "----begin attach----" >> /FsGuard/signature
+cat /FsGuard/filelist.minisig >> /FsGuard/signature
+echo -n "----begin second attach----" >> /FsGuard/signature
+tail -n1 ./minisign.pub >> /FsGuard/signature
+
+cat /FsGuard/signature >> /usr/bin/FsGuard

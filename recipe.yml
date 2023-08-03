@@ -48,6 +48,24 @@ modules:
   - apt remove -y meson build-essential libadwaita-1-dev gettext
   - apt autoremove -y
   - apt clean
+
+- name: fsguard
+  type: shell
+  source:
+    type: tar
+    url: https://github.com/linux-immutability-tools/FsGuard/releases/download/v0.1.2/FsGuard_0.1.2_linux_amd64.tar.gz
+  commands:
+  - mv /sources/FsGuard /usr/bin
+  - /usr/bin/gen_fsguard_filelist /usr/bin
+  - sed -i '\/usr\/bin\/gen_fsguard_filelist.*/d' /FsGuard/filelist
+  - sed -i '\/usr\/bin\/sign_filelist.*/d' /FsGuard/filelist
+  - /usr/bin/sign_filelist
+
+- name: finish
+  type: shell
+  commands:
+  - rm /usr/bin/gen_fsguard_filelist
+  - rm /usr/bin/sign_filelist
   - chmod +x /usr/bin/pkg-lock && chmod +x /usr/bin/pkg-unlock
   - pkg-lock
 
