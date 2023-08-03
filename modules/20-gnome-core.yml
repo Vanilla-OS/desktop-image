@@ -7,7 +7,6 @@ source:
 
   - gnome-shell
   - gnome-shell-extensions
-  # - gnome-shell-extension-manager move to first-setup
   - gnome-session
   - gnome-browser-connector
 

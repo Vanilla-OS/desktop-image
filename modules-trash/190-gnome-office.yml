@@ -1,7 +1,0 @@
-name: gnome-office
-type: apt
-source:
-  packages:
-  # - gnome-calculator move to first-setup
-  # - epiphany-browser move to first-setup
-  # - evince move to first-setup

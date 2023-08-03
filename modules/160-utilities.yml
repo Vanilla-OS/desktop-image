@@ -6,8 +6,6 @@ source:
   - gnome-system-monitor
   - gnome-sushi
   - gnome-software
-  # - file-roller move to first-setup
-  # - eog move to first-setup
   - ghostscript
   - zenity
   - adwdialog

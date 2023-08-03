@@ -2,10 +2,6 @@ name: media
 type: apt
 source:
   packages:
-  # - gnome-music move to first-setup
-  # - gnome-photos move to first-setup
-  
-  # - totem move to first-setup
   - ffmpeg
 
   - gstreamer1.0-alsa
