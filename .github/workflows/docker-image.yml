@@ -6,7 +6,6 @@ on:
   workflow_dispatch:
 
 env:
-    IMAGE_REGISTRY: ghcr.io/vanilla-os
     REGISTRY_USER: ${{ github.actor }}
     REGISTRY_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
 
@@ -26,20 +25,25 @@ jobs:
         ./vib build recipe.yml
 
     - name: Build the Docker image
-      run: docker image build -f Containerfile --tag desktop:${{ github.ref_name }} .
+      run: docker image build -f Containerfile --tag ghcr.io/vanilla-os/desktop:main .
 
     # Push the image to GHCR (Image Registry)
     - name: Push To GHCR
-      uses: redhat-actions/push-to-registry@v2.7
-      with:
-        registry: ${{ env.IMAGE_REGISTRY }}
-        image: desktop
-        tags: ${{ github.ref_name }}
-        username: ${{ env.REGISTRY_USER }}
-        password: ${{ env.REGISTRY_PASSWORD }}
-        extra-args: |
-          --disable-content-trust
+      run: |
+        docker login ghcr.io -u ${{ env.REGISTRY_USER }} -p ${{ env.REGISTRY_PASSWORD }}
+        docker image push "ghcr.io/vanilla-os/desktop:main"
 
+    # Push the image to GHCR (Image Registry) [Old]
+#    - name: Push To GHCR
+#      uses: redhat-actions/push-to-registry@v2.7
+#      with:
+#        registry: ${{ env.IMAGE_REGISTRY }}
+#        image: desktop
+#        tags: ${{ github.ref_name }}
+#        username: ${{ env.REGISTRY_USER }}
+#        password: ${{ env.REGISTRY_PASSWORD }}
+#        extra-args: |
+#          --disable-content-trust
     # Push the image to Nexus (Image Registry)
 #    - name: Push To Registry
 #      uses: redhat-actions/push-to-registry@v2.7
