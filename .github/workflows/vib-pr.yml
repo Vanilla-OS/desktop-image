@@ -1,4 +1,4 @@
-name: Docker Image CI on PR
+name: Vib PR
 
 on:
   pull_request:
