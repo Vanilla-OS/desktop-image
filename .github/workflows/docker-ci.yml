@@ -2,7 +2,7 @@ name: Docker Image CI on PR
 
 on:
   pull_request:
-    branches: [ "main" ]
+    branches: [ "fix/7" ]
 
 jobs:
 
@@ -21,3 +21,8 @@ jobs:
 
     - name: Build the Docker image
       run: docker image build -f Containerfile --tag vanillaos/desktop .
+
+    - uses: actions/upload-artifact@v3
+      with:
+        name: Containerfile
+        path: Containerfile
