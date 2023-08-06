@@ -2,9 +2,7 @@ name: Docker Image CI on PR
 
 on:
   pull_request:
-    branches: [ "fix/7" ]
-  push:
-    branches: [ "fix/7" ]
+    branches: [ "main" ]
 
 jobs:
 
