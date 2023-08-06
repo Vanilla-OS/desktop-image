@@ -2,7 +2,7 @@ name: gnome-appearance
 type: apt
 source:
   packages:
-  - adwaita-icon-theme-full
+  - adwaita-icon-theme
   
   - gnome-backgrounds
   - gnome-themes-extra
