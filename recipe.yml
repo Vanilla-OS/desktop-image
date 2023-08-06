@@ -7,7 +7,6 @@ args:
   DEBIAN_FRONTEND: noninteractive
 runs:
 - echo 'APT::Install-Recommends "0";' > /etc/apt/apt.conf.d/01norecommends
-- apt install -y meson build-essential libadwaita-1-dev gettext
 
 modules:
 - name: init-setup
@@ -30,14 +29,6 @@ modules:
   - cp /sources/vanilla-tools/lpkg /usr/bin/lpkg
   - chmod +x /usr/bin/lpkg
 
-- name: apx-gui
-  type: meson
-  source:
-    type: git
-    url: https://github.com/Vanilla-OS/apx-gui
-    branch: main
-    tag: v0.1
-
 - name: packages-modules
   type: includes
   includes:
@@ -45,6 +36,7 @@ modules:
     - modules/00-vanilla-first-setup
     - modules/00-vanilla-gnome-default-settings
     - modules/00-vanilla-system-operator
+    - modules/00-vanilla-apx-gui
     - modules/01-vanilla-cleanup
     - modules/20-gnome-core
     - modules/30-gnome-essentials
@@ -65,7 +57,6 @@ modules:
 - name: cleanup
   type: shell
   commands:
-  - apt remove -y meson build-essential libadwaita-1-dev gettext
   - apt autoremove -y
   - apt clean
   - chmod +x /usr/bin/pkg-lock && chmod +x /usr/bin/pkg-unlock
