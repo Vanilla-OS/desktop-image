@@ -15,7 +15,7 @@ modules:
     type: tar
     url: https://github.com/Vanilla-OS/vanilla-system-operator/releases/download/continuous/vso-man.tar.gz
   commands:
-  - mv /sources/man/vso.1 /usr/share/man/
+  - mv /sources/man/vso.1 /usr/share/man/man1/
 - name: vso-deps-install
   type: apt
   source:
