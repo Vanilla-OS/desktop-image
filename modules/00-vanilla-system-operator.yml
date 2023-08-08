@@ -1,14 +1,22 @@
-name: vanilla-system-operator
-type: dpkg-buildpackage
+name: vso
+type: shell
 source:
-  type: git
-  url: https://github.com/Vanilla-OS/vanilla-system-operator.git
-  branch: main
-  commit: latest
-  paths:
-  - vanilla-system-operator
+  type: tar
+  # switch to production build once in production
+  url: https://github.com/Vanilla-OS/vanilla-system-operator/releases/download/continuous/vso.tar.gz
+commands:
+- mkdir -p /usr/bin
+- cp /sources/vso /usr/bin/vso
+- chmod +x /usr/bin/vso
 modules:
-- name: vanilla-system-operator-deps-install
+- name: vso-manpage
+  type: shell
+  source:
+    type: tar
+    url: https://github.com/Vanilla-OS/vanilla-system-operator/releases/download/continuous/vso-man.tar.gz
+  commands:
+  - mv /sources/man/vso.1 /usr/share/man/vso.1
+- name: vso-deps-install
   type: apt
   source:
     packages:
