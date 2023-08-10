@@ -1,0 +1,13 @@
+name: apt
+needsudo: true
+cmdautoremove: autoremove
+cmdclean: clean
+cmdinstall: install
+cmdlist: list
+cmdpurge: purge
+cmdremove: remove
+cmdsearch: search
+cmdshow: show
+cmdupdate: update
+cmdupgrade: upgrade
+builtin: true

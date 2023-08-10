@@ -1,0 +1,5 @@
+name: vso-pico
+base: ghcr.io/vanilla-os/vso:main
+packages: []
+pkgmanager: apt
+builtin: true
