@@ -1,4 +1,0 @@
-#!/bin/sh
-
-find /usr/bin/ -name "apt*" -execdir sh -c 'echo "Locking $0" && mv "$0" "/usr/bin/private.${0##*/}"' {} \;
-find /usr/bin/ -name "dpkg*" -execdir sh -c 'echo "Locking $0" && mv "$0" "/usr/bin/private.${0##*/}"' {} \;
