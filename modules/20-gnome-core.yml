@@ -14,3 +14,4 @@ source:
   - evolution-data-server
   - mutter
   - gjs
+  - geoclue-2.0
