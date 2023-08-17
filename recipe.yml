@@ -53,6 +53,7 @@ modules:
     - modules/160-utilities
     - modules/200-gnome-common
     - modules/210-libs-extra
+    - modules/999-pkg-cleanup
 
 - name: cleanup
   type: shell
