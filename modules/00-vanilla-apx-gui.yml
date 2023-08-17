@@ -4,7 +4,7 @@ source:
   type: git
   url: https://github.com/Vanilla-OS/apx-gui
   branch: main
-  tag: v0.1
+  tag: v0.1.1
 modules:
 - name: apx-gui-deps-install
   type: apt
