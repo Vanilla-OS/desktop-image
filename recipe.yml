@@ -27,7 +27,9 @@ modules:
   commands:
   - mkdir -p /usr/bin
   - cp /sources/vanilla-tools/lpkg /usr/bin/lpkg
+  - cp /sources/vanilla-tools/cur-gpu /usr/bin/cur-gpu
   - chmod +x /usr/bin/lpkg
+  - chmod +x /usr/bin/cur-gpu
 
 - name: packages-modules
   type: includes
