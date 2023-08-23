@@ -17,6 +17,7 @@ modules:
   - apt update
   - apt upgrade -y
   - apt clean
+  - apt-mark hold snapd gnome-software-plugin-snap
 
 - name: vanilla-tools
   type: shell
