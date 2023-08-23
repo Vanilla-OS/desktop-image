@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE policyconfig PUBLIC
+ "-//freedesktop//DTD PolicyKit Policy Configuration 1.0//EN"
+ "http://www.freedesktop.org/standards/PolicyKit/1.0/policyconfig.dtd">
+<policyconfig>
+  <vendor>Vanilla OS</vendor>
+  <vendor_url>https://www.vanillaos.org/</vendor_url>
+  <icon_name>package-x-generic</icon_name>
+
+  <action id="org.vanillaos.vso.sys-upgrade">
+    <description>Check for system package updates</description>
+    <message>Authentication is required to check for updates</message>
+    <icon_name>package-x-generic</icon_name>
+    <defaults>
+      <allow_any>auth_admin</allow_any>
+      <allow_inactive>auth_admin</allow_inactive>
+      <allow_active>auth_admin_keep</allow_active>
+    </defaults>
+    <annotate key="org.freedesktop.policykit.exec.path">/usr/bin/vso</annotate>
+    <annotate key="org.freedesktop.policykit.exec.argv1">sys-upgrade</annotate>
+  </action>
+
+  <action id="org.vanillaos.vso.abroot">
+    <description>Check for system package updates</description>
+    <message>Authentication is required to check for updates</message>
+    <icon_name>package-x-generic</icon_name>
+    <defaults>
+      <allow_any>auth_admin</allow_any>
+      <allow_inactive>auth_admin</allow_inactive>
+      <allow_active>auth_admin_keep</allow_active>
+    </defaults>
+    <annotate key="org.freedesktop.policykit.exec.path">/usr/bin/abroot</annotate>
+    <annotate key="org.freedesktop.policykit.exec.argv1">upgrade</annotate>
+  </action>
+</policyconfig>
