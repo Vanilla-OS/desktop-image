@@ -58,6 +58,12 @@ modules:
     - modules/210-libs-extra
     - modules/999-pkg-cleanup
 
+- name: firstsetup-default-session
+  type: shell
+  commands:
+  - sed 's/Session=/Session=firstsetup/g' -i /usr/share/accountsservice/user-templates/administrator
+  - sed 's/Session=/Session=firstsetup/g' -i /usr/share/accountsservice/user-templates/standard
+
 - name: cleanup
   type: shell
   commands:
