@@ -22,3 +22,9 @@ modules:
     - desktop-file-utils
     - make
     - libjpeg-dev
+    - libnm0
+    - libnma0
+    - libnma-gtk4-0
+    - libnm-dev
+    - libnma-dev
+    - libnma-gtk4-dev
