@@ -1,6 +1,5 @@
 polkit.addRule(function(action, subject) {
-    if ((action.id == "org.vanillaos.vso.sys-upgrade" || action.id == "org.vanillaos.vso.abroot") &&
-        subject.isInGroup("sudo"))
+    if ((action.id == "org.vanillaos.vso.sys-upgrade" && subject.isInGroup("sudo"))
     {
         polkit.log("action=" + action);
         polkit.log("subject=" + subject);
