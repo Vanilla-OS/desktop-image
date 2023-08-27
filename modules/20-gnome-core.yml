@@ -15,3 +15,4 @@ source:
   - mutter
   - gjs
   - geoclue-2.0
+  - dbus-x11
