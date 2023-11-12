@@ -1,0 +1,6 @@
+Name = "FDroid"
+Key = "43238D512C1E5EB2D6569F4A3AFBF5523418B82E0A3ED1552770ABB9A9C9CCAB"
+IndexURL = "https://f-droid.org/repo/index-v2.json"
+RepoURL = "https://f-droid.org/repo/"
+PackageURL = "https://f-droid.org/repo/%s"
+PackageInfoURL = "https://f-droid.org/api/v1/packages/%s"
