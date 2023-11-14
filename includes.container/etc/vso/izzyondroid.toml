@@ -1,0 +1,6 @@
+Name = "izzyondroid"
+Key = "fingerprint=3BF0D6ABFEAE2F401707B6D966BE743BF0EEE49C2561B9BA39073711F628937A"
+IndexURL = "https://apt.izzysoft.de/fdroid/repo/index-v2.json"
+RepoURL = "https://apt.izzysoft.de/fdroid/repo/"
+PackageURL = "https://apt.izzysoft.de/fdroid/repo/%s"
+PackageInfoURL = "https://apt.izzysoft.de/fdroid/api/v1/packages/%s"
