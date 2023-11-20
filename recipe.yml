@@ -35,6 +35,7 @@ modules:
 - name: packages-modules
   type: includes
   includes:
+    - modules/00-vanilla-desktop-base
     - modules/00-vanilla-backgrounds
     - modules/00-vanilla-first-setup
     - modules/00-vanilla-gnome-default-settings
