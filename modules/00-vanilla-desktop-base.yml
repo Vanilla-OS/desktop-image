@@ -13,6 +13,7 @@ modules:
   source:
     packages:
     - dpkg-dev
+    - dh-make
     - build-essential
     - inkscape
     - librsvg2-bin
