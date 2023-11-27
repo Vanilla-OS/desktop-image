@@ -6,6 +6,6 @@ source:
   - heif-thumbnailer
 
   - gnome-user-docs
-  - webp-pixbuf-loader
   - rygel
+  - webp-pixbuf-loader
   - yelp

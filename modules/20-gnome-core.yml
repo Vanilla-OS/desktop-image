@@ -5,14 +5,14 @@ source:
   - gdm3
   - xorg
 
+  - gnome-session
   - gnome-shell
   - gnome-shell-extensions
-  - gnome-session
   - gnome-browser-connector
 
-  - xdg-desktop-portal-gnome
-  - evolution-data-server
-  - mutter
-  - gjs
-  - geoclue-2.0
   - dbus-x11
+  - evolution-data-server
+  - geoclue-2.0
+  - gjs
+  - mutter
+  - xdg-desktop-portal-gnome

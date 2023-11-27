@@ -10,7 +10,7 @@ modules:
   type: apt
   source:
     packages:
-    - meson
     - build-essential
-    - libadwaita-1-dev
     - gettext
+    - libadwaita-1-dev
+    - meson
