@@ -12,9 +12,8 @@ modules:
   type: apt
   source:
     packages:
+    - build-essential
     - dpkg-dev
     - dh-make
-    - build-essential
-    - inkscape
     - librsvg2-bin
     - optipng

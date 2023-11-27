@@ -36,13 +36,13 @@ modules:
     type: apt
     source:
       packages:
-      - dpkg-dev
       - build-essential
       - debhelper
-      - python3
-      - meson
-      - libadwaita-1-dev
-      - gettext
-      - make
       - desktop-file-utils
+      - dpkg-dev
+      - gettext
+      - libadwaita-1-dev
       - libjpeg-dev
+      - make
+      - meson
+      - python3

@@ -3,10 +3,10 @@ type: apt
 source:
   packages:
   - network-manager-gnome
-  - network-manager-openvpn-gnome
   - network-manager-fortisslvpn-gnome
   - network-manager-l2tp-gnome
   - network-manager-openconnect-gnome
+  - network-manager-openvpn-gnome
   - network-manager-ssh-gnome
   - network-manager-vpnc-gnome
 
