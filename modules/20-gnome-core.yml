@@ -15,4 +15,6 @@ source:
   - geoclue-2.0
   - gjs
   - mutter
+  - xdg-desktop-portal
   - xdg-desktop-portal-gnome
+  - xdg-desktop-portal-gtk
