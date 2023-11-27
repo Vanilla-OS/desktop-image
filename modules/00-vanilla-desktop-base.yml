@@ -16,3 +16,4 @@ modules:
     - dpkg-dev
     - dh-make
     - librsvg2-bin
+    - optipng
