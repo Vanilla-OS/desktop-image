@@ -65,6 +65,11 @@ modules:
   - sed 's/Session=/Session=firstsetup/g' -i /usr/share/accountsservice/user-templates/administrator
   - sed 's/Session=/Session=firstsetup/g' -i /usr/share/accountsservice/user-templates/standard
 
+- name: gnome-software-setup
+  type: shell
+  commands:
+  - rm /usr/lib/*/gnome-software/plugins-20/libgs_plugin_packagekit.so
+
 - name: cleanup
   type: shell
   commands:
