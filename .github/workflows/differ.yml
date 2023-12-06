@@ -17,6 +17,7 @@ jobs:
 
       - name: Generate package diff
         run: |
+          lpkg --unlock
           PACKAGE_LIST=$(.github/gen_package_list.sh)
           apt-get install -y curl
           IMAGE_DIGEST=$(curl -s -L -H "Accept: application/vnd.github+json" \
@@ -28,3 +29,4 @@ jobs:
           -H "Authorization:Basic $(echo -n "${{ secrets.DIFFER_USER }}:${{ secrets.DIFFER_PSW }}" | base64)" \
           -d "{\"digest\":\"${IMAGE_DIGEST}\",${PACKAGE_LIST}}" \
           ${{ vars.DIFFER_URL }}/images/desktop/new
+          lpkg --lock
