@@ -1,0 +1,2 @@
+[org.gnome.Console]
+shell = [ '/usr/bin/vso', 'shell'
