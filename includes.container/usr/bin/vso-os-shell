@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if [ ! -d ~/.vso-os-shell/history ]; then
+    mkdir -p ~/.vso-os-shell/history
+fi
+
+echo "(`date +%Y%m%d-%H:%M:%S`) -> $@" >> ~/.vso-os-shell/history/`date +%Y%m%d`.log
+/usr/bin/vso run /usr/bin/os-shell "$@"

@@ -16,6 +16,11 @@ modules:
     url: https://github.com/Vanilla-OS/vanilla-system-operator/releases/download/continuous/vso-man.tar.gz
   commands:
   - mv /sources/man/vso.1 /usr/share/man/man1/
+- name: vso-os-shell
+  type: shell
+  commands:
+  - chmod +x /usr/bin/vso-os-shell
+  - echo "/usr/bin/vso-os-shell" >> /etc/shells
 - name: vso-deps-install
   type: apt
   source:
