@@ -55,6 +55,7 @@ modules:
     - modules/130-plymouth
     - modules/140-password
     - modules/160-utilities
+    - modules/170-gnome-software-vso-plugin
     - modules/200-gnome-common
     - modules/210-libs-extra
     - modules/999-pkg-cleanup
