@@ -1,5 +1,24 @@
 #!/bin/sh
 
+if [ -z "$(podman ps -a --filter name=apx-vso-pico -q)" ]; then
+    if ! [ -t 1 ]; then
+        adwdialog --title "VSO Shell" --description "VSO Shell is not initialized. Do you want to initialize it now?" --type question --icon emblem-vanilla-symbolic
+        if [ $? -eq 0 ]; then
+            kgx -e "vso pico-init"
+        else
+            exit 1
+        fi
+    else
+        echo "VSO Pico is not initialized. Do you want to initialize it now? (y/n)"
+        read answer
+        if [ "$answer" = "y" ]; then
+            vso pico-init
+        else
+            exit 1
+        fi
+    fi
+fi
+
 no_reset_flag=""
 
 while [ $# -gt 0 ]; do
