@@ -2,7 +2,10 @@
 
 if [ -z "$(podman ps -a --filter name=apx-vso-pico -q)" ]; then
     if ! [ -t 1 ]; then
-        adwdialog --title "VSO Shell" --description "VSO Shell is not initialized. Do you want to initialize it now?" --type question --icon emblem-vanilla-symbolic
+        adwdialog --title "VSO Shell" \
+            --description "VSO Shell is not initialized. Do you want to initialize it now?" \
+            --type question \
+            \--icon org.vanillaos.VSO
         if [ $? -eq 0 ]; then
             kgx -e "vso pico-init"
         else
