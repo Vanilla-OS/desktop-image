@@ -9,3 +9,4 @@ source:
   - gnome-software
   - ghostscript
   - zenity
+  - flatpak
