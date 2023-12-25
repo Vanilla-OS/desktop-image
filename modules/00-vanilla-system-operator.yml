@@ -22,6 +22,13 @@ modules:
   - chmod +x /usr/bin/vso-os-shell
   - echo "/usr/bin/vso-os-shell" >> /etc/shells
   - sed -i 's/^\(SHELL=\).*/\1\/usr\/bin\/vso-os-shell/' /etc/default/useradd
+- name: vso-gnome-ext
+  type: shell
+  source:
+    type: tar
+    url: https://github.com/Vanilla-OS/vso-gnome-ext/archive/refs/tags/1.tar.gz
+  commands:
+  - mv /sources/vso@vanillaos.org /usr/share/gnome-shell/extensions/
 - name: vso-deps-install
   type: apt
   source:
