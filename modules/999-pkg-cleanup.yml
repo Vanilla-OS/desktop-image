@@ -1,5 +1,6 @@
 name: pkg-cleanup
 type: shell
 commands:
-- apt remove -y sudo zutty gnome-shell-extension-prefs
+- apt remove -y zutty gnome-shell-extension-prefs
+- apt purge -y sudo
 - echo 'NoDisplay=true' >> /usr/share/applications/software-properties-gtk.desktop
