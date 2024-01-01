@@ -20,5 +20,5 @@ modules:
       - name: dkms-linux-headers
         type: shell
         commands:
-          - apt install -y linux-headers-$(dpkg --list | grep linux-image | grep -Po '[0-9].[0-9].[0-9]' | head -1) && apt clean
+          - apt install -y linux-headers-amd64
 
