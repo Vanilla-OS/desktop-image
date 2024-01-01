@@ -1,0 +1,24 @@
+name: waydroid-modules
+type: shell
+commands:
+- cp -rT /sources/waydroid-modules/binder /usr/src/waydroid-binder-1
+- cp -rT /sources/waydroid-modules/ashmem /usr/src/waydroid-ashmem-1
+- dkms install waydroid-binder/1 -k $(ls /usr/src | grep -Po '[0-9].[0-9].[0-9].*$' | head -1)
+- dkms install waydroid-ashmem/1 -k $(ls /usr/src | grep -Po '[0-9].[0-9].[0-9].*$' | head -1)
+source:
+  type: git
+  url: https://github.com/choff/anbox-modules.git
+  branch: master
+  commit: latest
+modules:
+  - name: waydroid-deps-install
+    type: apt
+    source:
+      packages:
+        - dkms
+    modules:
+      - name: dkms-linux-headers
+        type: shell
+        commands:
+          - apt install -y linux-headers-amd64
+
