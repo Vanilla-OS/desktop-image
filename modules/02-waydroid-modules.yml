@@ -1,10 +1,12 @@
 name: waydroid-modules
 type: shell
 commands:
-- cp -rT /sources/binder /usr/src/waydroid-binder-1
-- cp -rT /sources/ashmem /usr/src/waydroid-ashmem-1
+- cp -rT /sources/waydroid-modules/binder /usr/src/waydroid-binder-1
+- cp -rT /sources/waydroid-modules/ashmem /usr/src/waydroid-ashmem-1
 - dkms install waydroid-binder-1
 - dkms install waydroid-ashmem-1
 source:
   type: git
   url: https://github.com/choff/anbox-modules.git
+  branch: master
+  commit: latest
