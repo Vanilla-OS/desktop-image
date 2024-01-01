@@ -10,3 +10,9 @@ source:
   url: https://github.com/choff/anbox-modules.git
   branch: master
   commit: latest
+modules:
+  - name: waydroid-deps-install
+    type: apt
+    source:
+      packages:
+        - dkms
