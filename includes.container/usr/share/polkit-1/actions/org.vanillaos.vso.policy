@@ -6,7 +6,6 @@
   <vendor>Vanilla OS</vendor>
   <vendor_url>https://www.vanillaos.org/</vendor_url>
   <icon_name>package-x-generic</icon_name>
-
   <action id="org.vanillaos.vso.sys-upgrade">
     <description>Check for system package updates</description>
     <message>Authentication is required to check for updates</message>
@@ -18,5 +17,27 @@
     </defaults>
     <annotate key="org.freedesktop.policykit.exec.path">/usr/bin/vso</annotate>
     <annotate key="org.freedesktop.policykit.exec.argv1">sys-upgrade</annotate>
+  </action>
+  <action id="org.vanillaos.vso.distrobox">
+    <description>Manager privileged containers</description>
+    <message>Authentication is required to manage privileged containers</message>
+    <icon_name>package-x-generic</icon_name>
+    <defaults>
+      <allow_any>auth_admin</allow_any>
+      <allow_inactive>auth_admin</allow_inactive>
+      <allow_active>auth_admin_keep</allow_active>
+    </defaults>
+    <annotate key="org.freedesktop.policykit.exec.path">/usr/share/apx/distrobox/distrobox</annotate>
+  </action>
+  <action id="org.vanillaos.vso.podman">
+    <description>Manager privileged containers</description>
+    <message>Authentication is required to manage privileged containers</message>
+    <icon_name>package-x-generic</icon_name>
+    <defaults>
+      <allow_any>auth_admin</allow_any>
+      <allow_inactive>auth_admin</allow_inactive>
+      <allow_active>auth_admin_keep</allow_active>
+    </defaults>
+    <annotate key="org.freedesktop.policykit.exec.path">/usr/bin/podman</annotate>
   </action>
 </policyconfig>
