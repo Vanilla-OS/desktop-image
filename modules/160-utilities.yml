@@ -10,3 +10,4 @@ source:
   - ghostscript
   - zenity
   - flatpak
+  - gnome-software-plugin-flatpak
