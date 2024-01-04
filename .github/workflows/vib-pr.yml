@@ -13,16 +13,12 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Vib
-      run: |
-        wget https://github.com/Vanilla-OS/Vib/releases/download/v0.3.1/vib
-        chmod +x vib
-        ./vib build recipe.yml
+    - uses: vanilla-os/vib-gh-action@v0.3.2-2
 
     - name: Build the Docker image
       run: docker image build -f Containerfile --tag vanillaos/desktop .
 
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v4
       with:
         name: Containerfile
         path: Containerfile
