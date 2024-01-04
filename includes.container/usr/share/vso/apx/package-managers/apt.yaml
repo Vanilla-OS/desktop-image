@@ -1,13 +1,14 @@
 name: apt
+model: 2
 needsudo: true
-cmdautoremove: autoremove
-cmdclean: clean
-cmdinstall: install
-cmdlist: list
-cmdpurge: purge
-cmdremove: remove
-cmdsearch: search
-cmdshow: show
-cmdupdate: update
-cmdupgrade: upgrade
+cmdautoremove: apt autoremove
+cmdclean: apt clean
+cmdinstall: apt install
+cmdlist: apt list
+cmdpurge: apt purge
+cmdremove: apt remove
+cmdsearch: apt search
+cmdshow: apt show
+cmdupdate: apt update
+cmdupgrade: apt upgrade
 builtin: true

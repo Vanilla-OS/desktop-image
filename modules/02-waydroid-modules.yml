@@ -21,4 +21,3 @@ modules:
         type: shell
         commands:
           - apt install -y linux-headers-amd64
-

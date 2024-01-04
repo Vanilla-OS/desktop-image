@@ -18,17 +18,14 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Vib
-      run: |
-        wget https://github.com/Vanilla-OS/Vib/releases/download/v0.3.1/vib
-        chmod +x vib
-        ./vib build recipe.yml
+    - uses: vanilla-os/vib-gh-action@v0.3.2-2
 
     - name: Build the Docker image
       run: docker image build -f Containerfile --tag ghcr.io/vanilla-os/desktop:main .
 
     # Push the image to GHCR (Image Registry)
     - name: Push To GHCR
+      if: github.repository == 'vanilla-os/desktop-image'
       run: |
         docker login ghcr.io -u ${{ env.REGISTRY_USER }} -p ${{ env.REGISTRY_PASSWORD }}
         docker image push "ghcr.io/vanilla-os/desktop:main"
