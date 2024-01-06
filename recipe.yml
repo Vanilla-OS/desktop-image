@@ -43,6 +43,7 @@ modules:
     - modules/00-vanilla-apx-gui
     - modules/01-vanilla-cleanup
     - modules/02-waydroid-modules
+    - modules/10-vanilla-abroot-rollback-notifier
     - modules/20-gnome-core
     - modules/30-gnome-essentials
     - modules/40-gnome-appearance
