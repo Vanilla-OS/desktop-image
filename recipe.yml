@@ -18,6 +18,7 @@ modules:
   - apt upgrade -y
   - apt clean
   - apt-mark hold snapd gnome-software-plugin-snap
+  - apt install minisign
 
 - name: vanilla-tools
   type: shell
@@ -79,3 +80,9 @@ modules:
   - apt autoremove -y
   - apt clean
   - lpkg --lock
+
+- name: fsguard
+  type: fsguard
+  FsGuardLocation: "/usr/sbin/init"
+  GenerateKey: true
+  FilelistPaths: ["/usr/bin"]
