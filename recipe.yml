@@ -83,7 +83,7 @@ modules:
 
 - name: fsguard
   type: fsguard
-  FsGuardLocation: "/usr/sbin/init"
+  FsGuardLocation: "/usr/sbin/FsGuard"
   GenerateKey: true
   FilelistPaths: ["/usr/bin"]
   modules:
@@ -91,3 +91,4 @@ modules:
       type: shell
       commands:
         - rm -rf /FsGuard
+        - rm ./minisign.pub ./minisign.key
