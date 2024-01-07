@@ -91,4 +91,5 @@ modules:
       type: shell
       commands:
         - rm -rf /FsGuard
-        - rm ./minisign.pub ./minisign.key
+        - rm -f ./minisign.pub ./minisign.key
+        - chmod +x /usr/sbin/init
