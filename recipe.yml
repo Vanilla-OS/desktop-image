@@ -86,3 +86,8 @@ modules:
   FsGuardLocation: "/usr/sbin/init"
   GenerateKey: true
   FilelistPaths: ["/usr/bin"]
+  modules:
+    - name: remove-prev-fsguard
+      type: shell
+      commands:
+        - rm -rf /FsGuard
