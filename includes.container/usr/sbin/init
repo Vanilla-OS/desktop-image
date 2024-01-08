@@ -1,3 +1,3 @@
 #!/bin/bash
-/usr/sbin/FsGuard verify /FsGuard/filelist
+/usr/sbin/FsGuard verify /.system/FsGuard/filelist
 exec /usr/lib/systemd/systemd "$@"
