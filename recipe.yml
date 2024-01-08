@@ -74,24 +74,6 @@ modules:
   commands:
   - rm /usr/lib/*/gnome-software/plugins-20/libgs_plugin_packagekit.so
 
-- name: build-fsguard
-  type: go
-  source:
-    type: git
-    url: https://github.com/linux-immutability-tools/FsGuard
-    tag: v0.1.2
-  modules:
-    - name: install go
-      type: apt
-      source:
-        packages:
-          - golang
-    - name: config-patch
-      type: shell
-      commands:
-        - patch -u /sources/build-fsguard/config/config.go -i /fsguard_config.patch
-        - rm /fsguard_config.patch
-
 - name: cleanup
   type: shell
   commands:
@@ -101,15 +83,11 @@ modules:
 
 - name: fsguard
   type: fsguard
-  CustomFsGuard: true
+  CustomFsGuard: false
   FsGuardLocation: "/usr/sbin/FsGuard"
   GenerateKey: true
   FilelistPaths: ["/usr/bin"]
   modules:
-    - name: install-built-fsguard
-      type: shell
-      commands:
-        - cp /sources/build-fsguard/build-fsguard /sources/FsGuard
     - name: remove-prev-fsguard
       type: shell
       commands:
