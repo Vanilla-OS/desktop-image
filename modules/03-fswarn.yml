@@ -1,0 +1,9 @@
+name: fswarn
+type: shell
+commands:
+  - mkdir -p /boot/
+  - cp /sources/fswarn-x86_64.squash /boot/fswarn.squash
+source:
+  type: tar
+  url: https://github.com/Vanilla-OS/fswarn/releases/download/v1.0-1/fswarn.tar.xz
+  checksum: 52f66710132138c21b81b56cb2d6edc7e59ad6eef4a4065b81af0f852d827dab
