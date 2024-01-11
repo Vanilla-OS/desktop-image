@@ -1,3 +1,35 @@
 #!/bin/bash
+
+function failed() {
+    #tput civis
+    squashfs="/.system/boot/fswarn.squash"
+    tmp="$(mktemp -d)"
+    chmod 0755 "$tmp"
+    mount -t squashfs -o loop $squashfs $tmp 2> /dev/null > /dev/null
+    mount --rbind /dev $tmp/dev 2> /dev/null > /dev/null
+
+    resolution=$(chroot "$tmp" /bin/bash -c '/usr/sbin/fbset | /bin/grep "mode " | /bin/sed "s/\"//g" | /bin/sed "s/-0//g" | /usr/bin/gawk '\''BEGIN{FS=" "}; {print $2}'\''')
+    chroot $tmp /bin/bash -c "convert -resize $resolution -background black -gravity center -extent $resolution /verification_failed.png bgra:/dev/fb0"
+    tput civis
+    read -sn1 input
+    if [[ "$input" == "c" ]]; then
+        tput cnorm
+        chroot $tmp /bin/bash -c "convert -resize $resolution -background black -gravity center -extent $resolution /continue_confirm.png bgra:/dev/fb0"
+        tput civis
+        read -sn1 input
+        if [[ "$input" == "y" ]]; then
+            return
+        else
+            poweroff -f
+        fi
+    else
+        poweroff -f
+    fi
+    tput cnorm
+}
+
 /usr/sbin/FsGuard verify /.system/FsGuard/filelist
+if [[ $? -ne 0 ]]; then
+    failed
+fi
 exec /usr/lib/systemd/systemd "$@"
