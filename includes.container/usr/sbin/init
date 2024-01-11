@@ -1,7 +1,6 @@
 #!/bin/bash
 
 function failed() {
-    #tput civis
     squashfs="/.system/boot/fswarn.squash"
     tmp="$(mktemp -d)"
     chmod 0755 "$tmp"
