@@ -14,3 +14,4 @@ modules:
     - gettext
     - libadwaita-1-dev
     - meson
+    - blueprint-compiler
