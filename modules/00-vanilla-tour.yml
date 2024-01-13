@@ -1,0 +1,16 @@
+name: vanilla-tour
+type: meson
+source:
+  type: git
+  url: https://github.com/Vanilla-OS/vanilla-tour
+  branch: main
+  commit: latest
+modules:
+- name: vanilla-tour-deps-install
+  type: apt
+  source:
+    packages:
+    - build-essential
+    - gettext
+    - libadwaita-1-dev
+    - meson
