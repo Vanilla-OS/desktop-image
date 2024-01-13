@@ -18,7 +18,7 @@ modules:
   - apt upgrade -y
   - apt clean
   - apt-mark hold snapd gnome-software-plugin-snap
-  - apt -y install unsquashfs-tools minisign
+  - apt -y install squashfs-tools minisign
 
 - name: vanilla-tools
   type: shell
