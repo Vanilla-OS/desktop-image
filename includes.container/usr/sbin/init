@@ -1,20 +1,25 @@
 #!/bin/bash
 
 function failed() {
+    /.system/usr/bin/plymouth quit
     squashfs="/.system/boot/fswarn.squash"
-    tmp="$(mktemp -d)"
+    mount -t tmpfs -o rw,size=1G tmpfs /tmp
+    tmp="/tmp"
     chmod 0755 "$tmp"
-    mount -t squashfs -o loop $squashfs $tmp 2> /dev/null > /dev/null
-    mount --rbind /dev $tmp/dev 2> /dev/null > /dev/null
+    unsquashfs -q -L -follow -d /tmp /.system/boot/fswarn.squash
+    mount --rbind /dev $tmp/dev
 
     resolution=$(chroot "$tmp" /bin/bash -c '/usr/sbin/fbset | /bin/grep "mode " | /bin/sed "s/\"//g" | /bin/sed "s/-0//g" | /usr/bin/gawk '\''BEGIN{FS=" "}; {print $2}'\''')
+    clear
+    tput cnorm
+    echo -e "\033[1;0H"
     chroot $tmp /bin/bash -c "convert -resize $resolution -background black -gravity center -extent $resolution /verification_failed.png bgra:/dev/fb0"
-    tput civis
+    echo -e "\033[999;0H"
     read -sn1 input
     if [[ "$input" == "c" ]]; then
-        tput cnorm
+        echo -e "\033[1;0H"
         chroot $tmp /bin/bash -c "convert -resize $resolution -background black -gravity center -extent $resolution /continue_confirm.png bgra:/dev/fb0"
-        tput civis
+        echo -e "\033[999;0H"
         read -sn1 input
         if [[ "$input" == "y" ]]; then
             return
@@ -24,7 +29,6 @@ function failed() {
     else
         poweroff -f
     fi
-    tput cnorm
 }
 
 /usr/sbin/FsGuard verify /.system/FsGuard/filelist
