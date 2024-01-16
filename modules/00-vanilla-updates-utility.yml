@@ -1,0 +1,16 @@
+name: vanilla-updates-utility
+type: meson
+source:
+  type: git
+  url: https://github.com/Vanilla-OS/vanilla-updates-utility
+  branch: main
+  commit: latest
+modules:
+- name: vanilla-updates-utility-deps-install
+  type: apt
+  source:
+    packages:
+    - build-essential
+    - gettext
+    - libadwaita-1-dev
+    - meson

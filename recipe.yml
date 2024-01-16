@@ -44,6 +44,7 @@ modules:
     - modules/00-vanilla-apx-gui
     - modules/00-vanilla-tour
     - modules/00-vanilla-sideload
+    - modules/00-vanilla-updates-utility
     - modules/02-waydroid-modules
     - modules/03-fswarn
     - modules/10-vanilla-abroot-rollback-notifier
