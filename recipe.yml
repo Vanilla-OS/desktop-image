@@ -19,6 +19,7 @@ modules:
   - apt clean
   - apt-mark hold snapd gnome-software-plugin-snap
   - apt -y install squashfs-tools minisign
+  - mv /etc/ldd.so.preload /ldd.so.preload
 
 - name: vanilla-tools
   type: shell
@@ -85,6 +86,7 @@ modules:
   - apt autoremove -y
   - apt clean
   - lpkg --lock
+  - mv /ld.so.preload /etc/ld.so.preload
 
 - name: fsguard
   type: fsguard
