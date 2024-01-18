@@ -19,7 +19,7 @@ modules:
   - apt clean
   - apt-mark hold snapd gnome-software-plugin-snap
   - apt -y install squashfs-tools minisign
-  - mv /etc/ldd.so.preload /ldd.so.preload
+  - mv /etc/ld.so.preload /ld.so.preload
 
 - name: vanilla-tools
   type: shell
