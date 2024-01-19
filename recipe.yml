@@ -86,7 +86,6 @@ modules:
   - apt autoremove -y
   - apt clean
   - lpkg --lock
-  - mv /ld.so.preload /etc/ld.so.preload
 
 - name: fsguard
   type: fsguard
