@@ -19,14 +19,14 @@ source:
   - xdg-desktop-portal-gnome
   - xdg-desktop-portal-gtk
 modules:
-  name: gnome-control-center
-  type: dpkg
-  source:
-    type: tar
-    url: https://github.com/Vanilla-OS/gnome-control-center/releases/download/continuous/gnome-control-center.tar.xz
-    checksum: 81eff2e3fa32a918902cf49cd07d5bf43db0b3bcfef0ce80b78e7f2494bfd060
-  name: remove-dbgsym
-  type: shell 
-  commands:
-    - apt remove -y gnome-control-center-dbgsym gnome-control-center-dev
+  - name: gnome-control-center
+    type: shell
+    source:
+      type: tar
+      url: https://github.com/Vanilla-OS/gnome-control-center/releases/download/continuous/gnome-control-center.tar.xz
+      checksum: 81eff2e3fa32a918902cf49cd07d5bf43db0b3bcfef0ce80b78e7f2494bfd060
+    commands:
+      - dpkg -i /sources/gnome-control-center-data_45~rc-2_all 
+      - dpkg -i /sources/gnome-control-center_45~rc-2_amd64.deb 
+      - apt -y install -f
 
