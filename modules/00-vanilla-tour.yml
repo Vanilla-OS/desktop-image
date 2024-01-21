@@ -22,3 +22,4 @@ modules:
     - make
     - meson
     - python3
+    - blueprint-compiler
