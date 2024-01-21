@@ -50,6 +50,7 @@ modules:
     - modules/03-fswarn
     - modules/10-vanilla-abroot-rollback-notifier
     - modules/20-gnome-core
+    - modules/21-gnome-control-center
     - modules/30-gnome-essentials
     - modules/40-gnome-appearance
     - modules/50-laptop-goodies
