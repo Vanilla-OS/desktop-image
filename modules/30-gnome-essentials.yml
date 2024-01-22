@@ -8,6 +8,5 @@ source:
   - gnome-bluetooth
   - gnome-color-manager
   - gnome-console
-  - gnome-control-center
   - gnome-menus
   - gnome-online-accounts

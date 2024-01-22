@@ -8,3 +8,4 @@ commands:
   - dpkg -i /sources/gnome-control-center-data_45~99-orchid-rc-2_all.deb 
   - dpkg -i /sources/gnome-control-center_45~99-orchid-rc-2_amd64.deb 
   - apt -y install -f
+  - apt-mark hold gnome-control-center
