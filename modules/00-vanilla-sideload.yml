@@ -28,3 +28,7 @@ modules:
     - make
     - meson
     - python3
+- name: set-mimetype
+  type: shell
+  commands:
+  - sed -i 's/application\/x-deb=org\.gnome\.FileRoller\.desktop/application\/x-deb=org\.vanillaos\.Sideload\.desktop/' /usr/share/applications/gnome-mimeapps.list
