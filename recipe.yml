@@ -87,6 +87,7 @@ modules:
   - apt autoremove -y
   - apt clean
   - lpkg --lock
+  - rm -rf /sources
 
 - name: fsguard
   type: fsguard
