@@ -28,7 +28,9 @@ modules:
     - make
     - meson
     - python3
-# - name: set-mimetype
-#   type: shell
-#   commands:
-#   - sed -i 's/application\/x-deb=org\.gnome\.FileRoller\.desktop/application\/x-deb=org\.vanillaos\.Sideload\.desktop/' /usr/share/applications/gnome-mimeapps.list
+- name: set-mimetype
+  type: shell
+  commands:
+  - mkdir -p /etc/skel/.config
+  - printf '[Default Applications]\n' > /etc/skel/.config/mimeapps.list
+  - printf 'application/vnd.debian.binary-package=org.vanillaos.Sideload.desktop\n' >> /etc/skel/.config/mimeapps.list
