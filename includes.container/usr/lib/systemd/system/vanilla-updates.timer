@@ -1,0 +1,6 @@
+Requires=vanilla-updates.service
+After=vanilla-updates.service
+[Timer]
+OnBootSec=1h
+OnUnitActiveSec=1h
+Unit=vanilla-updates.service

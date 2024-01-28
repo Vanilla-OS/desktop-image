@@ -63,3 +63,4 @@ modules:
   type: shell
   commands:
   - ln -s /usr/lib/systemd/system/vanilla-updates.service /etc/systemd/system/multi-user.target.wants/vanilla-updates.service
+  - ln -s /usr/lib/systemd/system/vanilla-updates.timer /etc/systemd/system/timers.target.wants/vanilla-updates.timer
