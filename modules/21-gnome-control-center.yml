@@ -3,9 +3,9 @@ type: shell
 source:
   type: tar
   url: https://github.com/Vanilla-OS/gnome-control-center/releases/download/continuous/gnome-control-center.tar.xz
-  checksum: e27fb751012b3a9aea734839572d8d4d049a593ee1dc16af80a15064502a3875
+  checksum: a1cbff33634f865b29cc7566d8665e9b0ad617f507f261b1b7c65c5e68b5b85a
 commands:
-  - dpkg -i /sources/gnome-control-center-data_45~99-orchid-rc-2_all.deb 
-  - dpkg -i /sources/gnome-control-center_45~99-orchid-rc-2_amd64.deb 
+  - dpkg -i /sources/gnome-control-center-data_46~99-orchid-alpha-2_all.deb 
+  - dpkg -i /sources/gnome-control-center_46~99-orchid-alpha-2_amd64.deb 
   - apt -y install -f
   - apt-mark hold gnome-control-center
