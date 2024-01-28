@@ -2,7 +2,6 @@ name: utilities
 type: apt
 source:
   packages:
-  - adwdialog
   - gnome-disk-utility
   - gnome-system-monitor
   - gnome-sushi

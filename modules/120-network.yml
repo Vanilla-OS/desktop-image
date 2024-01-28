@@ -10,6 +10,5 @@ source:
   - network-manager-ssh-gnome
   - network-manager-vpnc-gnome
 
-  - gnome-online-miners
   - gnome-remote-desktop
   - gnome-user-share
