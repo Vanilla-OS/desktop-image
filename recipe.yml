@@ -101,4 +101,10 @@ modules:
         - rm -rf /FsGuard
         - rm -f ./minisign.pub ./minisign.key
         - chmod +x /usr/sbin/init
-        - rm -rf /sources 
+
+- name: cleanup2
+  type: shell
+  commands:
+    - rm -rf /tmp/*
+    - rm -rf /var/tmp/*
+    - rm -rf /sources
