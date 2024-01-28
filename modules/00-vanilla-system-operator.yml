@@ -59,3 +59,7 @@ modules:
       - make
       - meson
       - python3
+- name: enable-systemd-unit
+  type: shell
+  commands:
+  - ln -s /usr/lib/systemd/system/vanilla-updates.service /etc/systemd/system/multi-user.target.wants/vanilla-updates.service
