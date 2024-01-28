@@ -87,7 +87,6 @@ modules:
   - apt autoremove -y
   - apt clean
   - lpkg --lock
-  - rm -rf /sources
 
 - name: fsguard
   type: fsguard
@@ -102,3 +101,4 @@ modules:
         - rm -rf /FsGuard
         - rm -f ./minisign.pub ./minisign.key
         - chmod +x /usr/sbin/init
+        - rm -rf /sources 
