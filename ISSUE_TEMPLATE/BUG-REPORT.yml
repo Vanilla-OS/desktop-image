@@ -1,0 +1,53 @@
+name: "🐝 Bug Report"
+description: "In case something is broken or doesn't work as expected."
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to help us
+        --------
+        Don't worry, we eat bugs for breakfast.
+  - type: textarea
+    id: description
+    attributes:
+      label: Issue Description
+      description: |
+        Tell us, what's the problem? But please keep it brief and on point.
+        Feel free to add screenshots or other necessary attachments.
+      placeholder: |
+        Sometimes I get booted into the C partition I never knew existed.
+    validations:
+      required: true
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: Steps to Reproduce
+      description: |
+        What steps would we have to take to reproduce the issue?
+      placeholder: |
+          - Verify that the present partition is A (or B)
+          - Make sure that the future partition is the other one
+          - Reboot
+          - Check the present partition. Sometimes it's C.
+    validations:
+      required: true
+  - type: dropdown
+    id: os-version
+    attributes:
+      label: On what version of Vanilla OS this happens?
+      description: |
+        You can look it up in the Settings app, at the bottom of the About page.
+      options:
+        - "22.10"
+        - "Unreleased"
+    validations:
+      required: true
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Information
+      description: |
+        If you feel like it, share some thoughts or additional context.
+      placeholder: |
+        Maybe this is a leftover from my previous OS? IIRC, it used to be installed in the C partition.

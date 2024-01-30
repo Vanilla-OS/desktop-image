@@ -1,0 +1,40 @@
+name: "🌼 Feature Request"
+description: "In case you're missing some feature or have a cool idea."
+labels: ["feature request", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to help us
+        --------
+        Don't worry, we love both revolution and evolution.
+  - type: textarea
+    id: description
+    attributes:
+      label: Feature Description
+      description: |
+        Explain what feature you have in mind. But please keep the pitch brief and on point.
+        Feel free to add screenshots or other necessary attachments.
+      placeholder: |
+        A system configuration option to always keep it mutable.
+    validations:
+      required: true
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Rationale
+      description: |
+        Why is this feature needed? What problem does it solve?
+      placeholder: > 
+        I love messing with my root partition so much, that I'm getting
+        tired of turning off immutability.
+    validations:
+      required: true
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Information
+      description: |
+        If you feel like it, share some thoughts or additional context.
+      placeholder: |
+        Maybe it would be better not to have immutability at all? Why do you need it?

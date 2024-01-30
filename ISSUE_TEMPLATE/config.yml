@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: "Discord Server"
+    url: https://vanillaos.org/community
+    about: "Consider joining the Discord Server to discuss your issue, question or suggestion with the community before opening an issue."
+  - name: "r/vanillaos Subreddit"
+    url: https://www.reddit.com/r/vanillaos
+    about: "Consider joining the r/vanillaos subreddit to discuss your issue, question or suggestion with the community before opening an issue."
