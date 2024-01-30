@@ -11,8 +11,7 @@ source:
   - fonts-lao
   - fonts-liberation
   - fonts-lklug-sinhala
-  - fonts-noto-cjk
-  - fonts-noto-color-emoji
+  - fonts-noto
   - fonts-sil-abyssinica
   - fonts-sil-padauk
   - fonts-thai-tlwg
