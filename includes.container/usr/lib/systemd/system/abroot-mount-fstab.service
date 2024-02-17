@@ -1,0 +1,11 @@
+[Unit]
+Description=Mount ABRoot fstab entries at boot
+After=network.target
+Before=graphical.target
+
+[Service]
+Type=oneshot
+ExecStart=/.system/usr/bin/mount -a
+
+[Install]
+WantedBy=multi-user.target

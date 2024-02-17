@@ -67,6 +67,7 @@ modules:
     - modules/170-gnome-software-vso-plugin
     - modules/200-gnome-common
     - modules/210-libs-extra
+    - modules/211-abroot-fstab-mount
     - modules/998-vanilla-cleanup
     - modules/999-pkg-cleanup
 
