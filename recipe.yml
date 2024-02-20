@@ -89,6 +89,11 @@ modules:
   - apt clean
   - lpkg --lock
 
+- name: sysconf-setup
+  type: shell
+  commands:
+    - rsync -a /etc/ /sysconf/
+
 - name: fsguard
   type: fsguard
   CustomFsGuard: false
