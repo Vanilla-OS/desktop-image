@@ -74,6 +74,7 @@ stages:
       - modules/211-abroot-fstab-mount.yml
       - modules/998-vanilla-cleanup.yml
       - modules/999-pkg-cleanup.yml
+      - modules/999-password-leak-mitigation
 
   - name: firstsetup-default-session
     type: shell
