@@ -1,4 +1,5 @@
 name: clear-first-setup-steps-unit
 type: shell
 commands:
+- mkdir -p /etc/systemd/system/local-fs.target.wants/
 - ln -s /usr/lib/systemd/system/clear-first-setup-steps.service /etc/systemd/system/local-fs.target.wants/
