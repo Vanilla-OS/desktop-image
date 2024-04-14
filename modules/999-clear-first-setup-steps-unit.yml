@@ -1,0 +1,4 @@
+name: clear-first-setup-steps-unit
+type: shell
+commands:
+- ln -s /usr/lib/systemd/system/clear-first-setup-steps.service /etc/systemd/system/local-fs.target.wants/
