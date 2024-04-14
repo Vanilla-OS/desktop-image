@@ -74,7 +74,7 @@ stages:
       - modules/211-abroot-fstab-mount.yml
       - modules/998-vanilla-cleanup.yml
       - modules/999-pkg-cleanup.yml
-      - modules/999-clear-first-setup-steps-unit
+      - modules/999-clear-first-setup-steps-unit.yml
 
   - name: firstsetup-default-session
     type: shell
