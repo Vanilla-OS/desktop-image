@@ -28,3 +28,4 @@ modules:
     - make
     - meson
     - python3
+    - python3-tz
