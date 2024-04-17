@@ -2,23 +2,23 @@
 
 function failed() {
     /.system/usr/bin/plymouth quit
-    squashfs="/.system/boot/fswarn.squash"
+    local squashfs="/.system/boot/fswarn.squash"
     mount -t tmpfs -o rw,size=1G tmpfs /tmp
-    tmp="/tmp"
+    local tmp="/tmp"
     chmod 0755 "$tmp"
-    unsquashfs -q -L -follow -d /tmp /.system/boot/fswarn.squash
-    mount --rbind /dev $tmp/dev
+    unsquashfs -q -L -follow -d /tmp "$squashfs"
+    mount --rbind /dev "$tmp/dev"
 
-    resolution=$(chroot "$tmp" /bin/bash -c '/usr/sbin/fbset | /bin/grep "mode " | /bin/sed "s/\"//g" | /bin/sed "s/-0//g" | /usr/bin/gawk '\''BEGIN{FS=" "}; {print $2}'\''')
+    local resolution=$(chroot "$tmp" /bin/bash -c '/usr/sbin/fbset | /bin/grep "mode " | /bin/sed "s/\"//g" | /bin/sed "s/-0//g" | /usr/bin/gawk '\''BEGIN{FS=" "}; {print $2}'\''')
     clear
     tput cnorm
     echo -e "\033[1;0H"
-    chroot $tmp /bin/bash -c "convert -resize $resolution -background black -gravity center -extent $resolution /verification_failed.png bgra:/dev/fb0"
+    chroot "$tmp" /bin/bash -c "convert -resize $resolution -background black -gravity center -extent $resolution /verification_failed.png bgra:/dev/fb0"
     echo -e "\033[999;0H"
     read -sn1 input
     if [[ "$input" == "c" ]]; then
         echo -e "\033[1;0H"
-        chroot $tmp /bin/bash -c "convert -resize $resolution -background black -gravity center -extent $resolution /continue_confirm.png bgra:/dev/fb0"
+        chroot "$tmp" /bin/bash -c "convert -resize $resolution -background black -gravity center -extent $resolution /continue_confirm.png bgra:/dev/fb0"
         echo -e "\033[999;0H"
         read -sn1 input
         if [[ "$input" == "y" ]]; then
@@ -31,7 +31,7 @@ function failed() {
     fi
 }
 
-/usr/sbin/FsGuard verify /.system/FsGuard/filelist
+/usr/sbin/FsGuard verify "/.system/FsGuard/filelist"
 if [[ $? -ne 0 ]]; then
     failed
 fi
