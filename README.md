@@ -8,6 +8,6 @@ Vanilla OS Desktop experience with GNOME.
 ## Build
 
 ```bash
-sh prepare.sh
+vib build recipe.yml
 podman image build -t vanillaos/desktop .
 ```
