@@ -18,10 +18,10 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - uses: vanilla-os/vib-gh-action@v0.6.2
+    - uses: vanilla-os/vib-gh-action@v0.7.0
       with:
         recipe: 'recipe.yml'
-        plugins: 'Vanilla-OS/vib-fsguard:v1.3-2'
+        plugins: 'Vanilla-OS/vib-fsguard:v1.4'
 
     - name: Build the Docker image
       run: docker image build -f Containerfile --tag ghcr.io/vanilla-os/desktop:main .
