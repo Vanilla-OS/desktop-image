@@ -10,3 +10,4 @@ source:
   - zenity
   - flatpak
   - gnome-software-plugin-flatpak
+  - gnome-software-plugin-fwupd
