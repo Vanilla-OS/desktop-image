@@ -2,6 +2,3 @@
 Name=VSO Tasks Rotator
 Exec=/usr/bin/vso tasks rotate
 Type=Application
-X-GNOME-Autostart-enabled=true
-Hidden=true
-NoDisplay=true
