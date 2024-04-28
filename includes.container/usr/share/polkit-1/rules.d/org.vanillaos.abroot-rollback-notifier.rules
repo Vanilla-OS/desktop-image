@@ -1,0 +1,12 @@
+polkit.addRule(function (action, subject) {
+  if (
+    (
+      action.id == "org.vanillaos.abroot-rollback-notifier.check"
+    ) &&
+    subject.isInGroup("sudo")
+  ) {
+    polkit.log("action=" + action);
+    polkit.log("subject=" + subject);
+    return polkit.Result.YES;
+  }
+});
