@@ -4,7 +4,7 @@ Description=Vanilla OS Updater
 [Service]
 User=root
 WorkingDirectory=/root
-ExecStart=vso sys-upgrade
+ExecStart=vso sys-upgrade upgrade
 
 [Install]
 WantedBy=multi-user.target
