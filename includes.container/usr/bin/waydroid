@@ -1,0 +1,11 @@
+#!/usr/bin/bash
+
+if [[ -f /run/.containerenv ]]; then
+    /usr/bin/waydroid "$@"
+    exit
+fi
+
+if [[ "$1" == "app" ]]; then
+	/usr/bin/vso android launch "$3"
+fi
+
