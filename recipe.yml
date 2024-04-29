@@ -1,5 +1,5 @@
 name: Vanilla Desktop
-id: vanilla-desktop
+id: desktop
 
 stages:
 - id: build
