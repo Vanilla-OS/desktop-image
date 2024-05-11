@@ -9,6 +9,9 @@ on:
   workflow_dispatch:
   pull_request:
 
+env:
+  BUILDX_NO_DEFAULT_ATTESTATIONS: 1
+
 permissions:
     contents: write # Allow actions to create release
     packages: write # Allow pushing images to GHCR
@@ -71,3 +74,5 @@ jobs:
         labels: ${{ steps.docker_meta.outputs.labels }}
         cache-from: type=gha
         cache-to: type=gha,mode=max
+        platforms: linux/amd64
+        provenance: false
