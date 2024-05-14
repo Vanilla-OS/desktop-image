@@ -7,7 +7,7 @@ commands:
 - dkms install waydroid-ashmem/1 -k $(ls /usr/src | grep -Po '[0-9].[0-9].[0-9].*$' | head -1)
 source:
   type: git
-  url: https://github.com/choff/anbox-modules.git
+  url: https://github.com/Vanilla-OS/anbox-modules.git
   branch: master
   commit: latest
 modules:
