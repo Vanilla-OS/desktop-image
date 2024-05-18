@@ -3,7 +3,7 @@ type: shell
 source:
   type: tar
   url: https://github.com/Vanilla-OS/gnome-control-center/releases/download/continuous/gnome-control-center.tar.xz
-  checksum: dcce7fe2a1c219f7d1fa9ab8879a49d04608eded442043d007973aa3286f480a
+  checksum: cb4b55d7b3059fa861ce8d08048d6371923a5a8d7629a9ad51b8a09f58f44920
 commands:
   - dpkg -i /sources/gnome-control-center-data_46~99-orchid-beta_all.deb 
   - dpkg -i /sources/gnome-control-center_46~99-orchid-beta_amd64.deb
