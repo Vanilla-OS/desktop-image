@@ -76,14 +76,6 @@ stages:
       - modules/999-pkg-cleanup.yml
       - modules/999-clear-first-setup-steps-unit.yml
 
-  # REMOVE NEXT REPO SYNC
-  - name: flatpak-cve-patch
-    type: shell
-    commands:
-    - curl -SL http://ftp.us.debian.org/debian/pool/main/f/flatpak/flatpak_1.14.8-1_amd64.deb -o /sources/flatpak_1.14.8-1_amd64.deb # we really need a single file source .-.
-    - dpkg -i /sources/flatpak_1.14.8-1_amd64.deb
-    - apt -y install -f
-
   - name: firstsetup-default-session
     type: shell
     commands:
