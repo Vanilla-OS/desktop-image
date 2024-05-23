@@ -1,0 +1,18 @@
+[Unit]
+Description=VSO Pico Container
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Environment=PODMAN_SYSTEMD_UNIT=%n
+Restart=on-failure
+TimeoutStopSec=10
+ExecStart=/.system/usr/bin/podman start apx-vso-pico
+ExecStop=/.system/usr/bin/podman stop  \
+	-t 5 apx-vso-pico
+ExecStopPost=/.system/usr/bin/podman stop  \
+	-t 5 apx-vso-pico
+Type=forking
+
+[Install]
+WantedBy=default.target
