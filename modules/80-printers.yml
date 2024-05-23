@@ -2,8 +2,14 @@ name: printers
 type: apt
 source:
   packages:
+  # General
   - cups
   - cups-pk-helper
 
+  - printer-driver-brlaser  # Brother
+  - printer-driver-escpr    # Epson
+  - hplip                   # HP
+
+  # Config
   - system-config-printer-common
   - system-config-printer-udev
