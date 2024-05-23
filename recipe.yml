@@ -82,6 +82,12 @@ stages:
     - sed 's/Session=/Session=firstsetup/g' -i /usr/share/accountsservice/user-templates/administrator
     - sed 's/Session=/Session=firstsetup/g' -i /usr/share/accountsservice/user-templates/standard
 
+  - name: apx-vso-pico-shutdown-service
+    type: shell
+    commands:
+    - mkdir -p /etc/systemd/user/graphical-session.target.wants/
+    - ln -s /etc/systemd/user/apx-vso-pico.service /etc/systemd/user/graphical-session.target.wants/
+
   - name: gnome-software-setup
     type: shell
     commands:
