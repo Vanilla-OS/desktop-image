@@ -5,7 +5,7 @@ Before=graphical.target
 
 [Service]
 Type=oneshot
-ExecStart=/.system/usr/bin/mount -a
+ExecStart=/bin/bash -c '/usr/bin/mount -a ; /usr/sbin/swapon -a'
 
 [Install]
 WantedBy=multi-user.target
