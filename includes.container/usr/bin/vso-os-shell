@@ -7,7 +7,7 @@ if [ -z "$(podman ps -a --filter name=apx-vso-pico -q)" ]; then
             --type question \
             \--icon org.vanillaos.VSO
         if [ $? -eq 0 ]; then
-            kgx -e "vso pico-init"
+            blackbox-terminal -c "vso pico-init"
         else
             exit 1
         fi

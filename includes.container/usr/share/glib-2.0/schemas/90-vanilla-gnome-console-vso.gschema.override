@@ -1,2 +1,3 @@
-[org.gnome.Console]
-shell = [ '/usr/bin/vso-os-shell']
+[com.raggesilver.BlackBox]
+use-custom-command = true
+custom-shell-command = "/usr/bin/vso-os-shell"
