@@ -9,6 +9,7 @@ source:
   - gnome-shell
   - gnome-shell-extensions
   - gnome-browser-connector
+  - gnome-control-center
 
   - dbus-x11
   - evolution-data-server
@@ -18,4 +19,3 @@ source:
   - xdg-desktop-portal
   - xdg-desktop-portal-gnome
   - xdg-desktop-portal-gtk
-
