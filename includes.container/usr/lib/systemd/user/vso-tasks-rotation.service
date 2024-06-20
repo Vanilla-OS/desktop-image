@@ -1,0 +1,8 @@
+[Unit]
+Description=VSO Tasks Rotation
+
+[Service]
+ExecStart=/usr/bin/vso tasks rotate
+
+[Install]
+WantedBy=multi-user.target

@@ -35,6 +35,11 @@ modules:
     packages:
     - dpkg-dev
     - ifstat
+- name: vso-tasks-rotation-autostart
+  type: shell
+  commands: 
+  - mkdir /usr/lib/systemd/user/default.target.wants
+  - ln -s /usr/lib/systemd/user/vso-tasks-rotation.service /usr/lib/systemd/user/default.target.wants/vso-tasks-rotation.service
 - name: adwdialog
   type: dpkg-buildpackage
   source:
