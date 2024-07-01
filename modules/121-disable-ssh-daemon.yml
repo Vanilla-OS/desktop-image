@@ -1,0 +1,4 @@
+name: disable-ssh-daemon
+type: shell
+commands:
+  - unlink /etc/systemd/system/multi-user.target.wants/ssh.service
