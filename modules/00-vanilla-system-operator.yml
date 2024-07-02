@@ -6,7 +6,7 @@ source:
   url: https://github.com/Vanilla-OS/vanilla-system-operator/releases/download/continuous/vso.tar.gz
 commands:
 - mkdir -p /usr/bin
-- cp /sources/vso /usr/bin/vso
+- cp /sources/vso/vso /usr/bin/vso
 - chmod +x /usr/bin/vso
 modules:
 - name: vso-manpage
@@ -15,7 +15,7 @@ modules:
     type: tar
     url: https://github.com/Vanilla-OS/vanilla-system-operator/releases/download/continuous/vso-man.tar.gz
   commands:
-  - mv /sources/man/vso.1 /usr/share/man/man1/
+  - mv /sources/vso-manpage/man/vso.1 /usr/share/man/man1/
 - name: vso-os-shell
   type: shell
   commands:
@@ -26,9 +26,9 @@ modules:
   type: shell
   source:
     type: tar
-    url: https://github.com/Vanilla-OS/vso-gnome-ext/archive/refs/tags/1.tar.gz
+    url: https://github.com/Vanilla-OS/vso-gnome-ext/archive/refs/tags/1.1.tar.gz
   commands:
-  - mv /sources/vso-gnome-ext-1/vso@vanillaos.org /usr/share/gnome-shell/extensions/
+  - mv /sources/vso-gnome-ext/vso-gnome-ext-1.1/vso@vanillaos.org /usr/share/gnome-shell/extensions/
 - name: vso-deps-install
   type: apt
   source:
