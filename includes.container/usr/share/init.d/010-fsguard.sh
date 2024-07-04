@@ -35,4 +35,3 @@ function failed() {
 if [[ $? -ne 0 ]]; then
     failed
 fi
-exec /usr/lib/systemd/systemd "$@"

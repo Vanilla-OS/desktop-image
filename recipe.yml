@@ -118,7 +118,7 @@ stages:
         commands:
           - rm -rf /FsGuard
           - rm -f ./minisign.pub ./minisign.key
-          - chmod +x /usr/sbin/init
+          - chmod +x /usr/share/init.d/010-fsguard.sh
 
   - name: cleanup2
     type: shell
