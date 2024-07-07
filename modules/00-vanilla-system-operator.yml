@@ -26,7 +26,7 @@ modules:
   type: shell
   source:
     type: tar
-    url: https://github.com/Vanilla-OS/vso-gnome-ext/archive/refs/tags/1.1.tar.gz
+    url: https://github.com/Vanilla-OS/vso-gnome-ext/archive/refs/tags/1.2.tar.gz
   commands:
   - mkdir -p /usr/share/gnome-shell/extensions/
   - mv /sources/vso-gnome-ext/vso-gnome-ext-1.1/vso\@vanillaos.org /usr/share/gnome-shell/extensions/vso\@vanillaos.org
