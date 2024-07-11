@@ -35,10 +35,10 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - uses: vanilla-os/vib-gh-action@v0.7.2
+    - uses: vanilla-os/vib-gh-action@v0.7.4
       with:
         recipe: 'recipe.yml'
-        plugins: 'Vanilla-OS/vib-fsguard:v1.5.2'
+        plugins: 'Vanilla-OS/vib-fsguard:v1.5.3'
 
     - uses: actions/upload-artifact@v4
       with:
