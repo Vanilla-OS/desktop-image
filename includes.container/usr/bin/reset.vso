@@ -1,0 +1,19 @@
+#!/bin/bash
+
+if [ "$1" == "--tty" ]; then
+    echo "Are you sure you want to reset the VSO? This will remove all your installed software in the subsystem. [y/N]"
+    read -r answer
+    if [ "$answer" == "y" ]; then
+        podman rm -f apx-vso-pico
+        blackbox-terminal
+    fi
+else
+    adwdialog --title "Reset VSO?" \
+              --description "Are you sure you want to reset the VSO? This will remove all your installed software in the subsystem." \
+              --type "question" \
+              --icon "org.vanillaos.VSO"
+    if [ $? -eq 0 ]; then
+        podman rm -f apx-vso-pico
+        blackbox-terminal
+    fi
+fi
