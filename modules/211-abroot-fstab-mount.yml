@@ -1,4 +1,0 @@
-name: abroot-fstab-mount
-type: shell
-commands:
-- ln -s /usr/lib/systemd/system/abroot-mount-fstab.service /etc/systemd/system/multi-user.target.wants/abroot-mount-fstab.service

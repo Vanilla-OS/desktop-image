@@ -73,7 +73,6 @@ stages:
       - modules/170-gnome-software-vso-plugin.yml
       - modules/200-gnome-common.yml
       - modules/210-libs-extra.yml
-      - modules/211-abroot-fstab-mount.yml
       - modules/998-vanilla-cleanup.yml
       - modules/999-pkg-cleanup.yml
       - modules/999-clear-first-setup-steps-unit.yml
