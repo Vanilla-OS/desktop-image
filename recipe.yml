@@ -57,7 +57,6 @@ stages:
       - modules/21-gnome-control-center.yml
       - modules/30-gnome-essentials.yml
       - modules/40-gnome-appearance.yml
-      - modules/41-gnome-46.yml
       - modules/50-laptop-goodies.yml
       - modules/60-media.yml
       - modules/80-printers.yml

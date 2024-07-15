@@ -1,9 +1,0 @@
-name: gnome-46
-type: shell
-commands:
-  - mkdir -p /tmp/gnome-46
-  - apt install -y jq
-  - curl -s https://api.github.com/repos/Vanilla-OS/debian-gnome-debs/releases/latest | jq .assets[].browser_download_url? | xargs -I'{}' wget -P /tmp/gnome-46 {}
-  - apt install -y /tmp/gnome-46/*.deb
-  - rm -rf /tmp/gnome-46
-  - apt remove -y jq
