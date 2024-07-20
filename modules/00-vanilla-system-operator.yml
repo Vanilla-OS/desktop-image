@@ -26,6 +26,10 @@ modules:
   type: shell
   commands:
   - chmod +x /usr/bin/reset-vso
+- name: wait-for-connection
+  type: shell
+  commands:
+  - chmod +x /usr/bin/wait-for-connection
 - name: vso-gnome-ext
   type: shell
   source:
@@ -40,11 +44,6 @@ modules:
     packages:
     - dpkg-dev
     - ifstat
-- name: vso-tasks-rotation-autostart
-  type: shell
-  commands: 
-  - mkdir /usr/lib/systemd/user/default.target.wants
-  - ln -s /usr/lib/systemd/user/vso-tasks-rotation.service /usr/lib/systemd/user/default.target.wants/vso-tasks-rotation.service
 - name: adwdialog
   type: dpkg-buildpackage
   source:
@@ -74,3 +73,6 @@ modules:
   commands:
   - ln -s /usr/lib/systemd/system/vanilla-updates.service /etc/systemd/system/multi-user.target.wants/vanilla-updates.service
   - ln -s /usr/lib/systemd/system/vanilla-updates.timer /etc/systemd/system/timers.target.wants/vanilla-updates.timer
+  - mkdir -p /usr/lib/systemd/user/default.target.wants
+  - ln -s /usr/lib/systemd/user/vso-pre-run.service /usr/lib/systemd/user/default.target.wants/vso-pre-run.service
+  - ln -s /usr/lib/systemd/user/vso-tasks-rotation.service /usr/lib/systemd/user/default.target.wants/vso-tasks-rotation.service
