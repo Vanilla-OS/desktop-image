@@ -1,0 +1,21 @@
+#!/bin/bash
+
+is_network_online() {
+    nmcli -t g | grep -q "connected"
+    return $?
+}
+
+retry_count=0
+max_retries=30
+
+until is_network_online; do
+    if [ $retry_count -ge $max_retries ]; then
+        echo "Network not available after 1 minute. Exiting."
+        exit 1
+    fi
+    echo "Waiting for network..."
+    sleep 2
+    ((retry_count++))
+done
+
+echo "Network is online."
