@@ -16,3 +16,4 @@ source:
   - libpam-gnome-keyring
   - libproxy1-plugin-gsettings
   - libwmf0.2-7-gtk
+  - gnome-epub-thumbnailer
