@@ -3,7 +3,6 @@ type: meson
 source:
   type: git
   url: https://github.com/Vanilla-OS/vanilla-tour
-  branch: main
   tag: v0.0.1
 modules:
 - name: vanilla-tour-deps-install
