@@ -3,7 +3,7 @@ Description=VSO Shell Pre-Run
 
 [Service]
 ExecStartPre=/usr/bin/wait-for-connection
-ExecStart=/usr/bin/vso run -n -- ls || true
+ExecStart=/usr/bin/vso run -n -- ls
 Restart=always
 
 [Install]
