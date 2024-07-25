@@ -1,12 +1,30 @@
-name: plymouth-theme-vanilla
-type: dpkg-buildpackage
+name: plymouth-theme-vanilla-bgrt
+type: shell
 source:
-  type: git
-  url: https://github.com/Vanilla-OS/plymouth-theme-vanilla
-  branch: main
-  commit: latest
-  paths:
-  - plymouth-theme-vanilla
-  - plymouth-theme-vanilla-bgrt
-  - plymouth-theme-vanilla-logo
-  - plymouth-theme-vanilla-text
+  type: file
+  url: https://github.com/Vanilla-OS/plymouth-theme-vanilla/releases/download/v1.0.0/plymouth-theme-vanilla-bgrt.deb
+  checksum: 63fdfe0e87c77ff6ce6253f2c975ab9dd3089849df76fa53a7ba8567e141886c
+commands:
+  - dpkg -i /sources/plymouth-theme-vanilla-bgrt/plymouth-theme-vanilla-bgrt.deb
+  - apt -y install -f
+
+modules:
+  - name: plymouth-theme-vanilla-logo
+    type: shell
+    source:
+      type: file
+      url: https://github.com/Vanilla-OS/plymouth-theme-vanilla/releases/download/v1.0.0/plymouth-theme-vanilla-logo.deb
+      checksum: 031d418d89011c515b40fdbfba312c314f1d782537164cbe1a1787d0011695dc
+    commands:
+      - dpkg -i /sources/plymouth-theme-vanilla-logo/plymouth-theme-vanilla-logo.deb
+      - apt -y install -f
+
+  - name: plymouth-theme-vanilla-text
+    type: shell
+    source:
+      type: file
+      url: https://github.com/Vanilla-OS/plymouth-theme-vanilla/releases/download/v1.0.0/plymouth-theme-vanilla-text.deb
+      checksum: fbeaca1b0d4f490ab0b0801552333eaa41683e0806084f2ab2cdea019125eb60
+    commands:
+      - dpkg -i /sources/plymouth-theme-vanilla-text/plymouth-theme-vanilla-text.deb
+      - apt -y install -f

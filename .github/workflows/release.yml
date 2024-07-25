@@ -1,0 +1,57 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - '*'
+  workflow_dispatch:
+
+env:
+    REGISTRY_USER: ${{ github.actor }}
+    REGISTRY_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+  verify-image:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Verify Base Image Integrity
+      run:
+        gh attestation verify oci://ghcr.io/vanilla-os/core:main --owner Vanilla-OS
+      env:
+        GH_TOKEN: ${{ github.token }}
+
+  release:
+    runs-on: ubuntu-latest
+    needs: verify-image
+    permissions:
+      contents: write # Allow actions to create release
+      attestations: write # To create and write attestations
+      id-token: write # Additional permissions for the persistence of the attestations
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: vanilla-os/vib-gh-action@v0.7.4
+        with:
+            recipe: 'recipe.yml'
+            plugins: 'Vanilla-OS/vib-fsguard:v1.5.3'
+
+      - uses: actions/upload-artifact@v4
+        with:
+            name: Containerfile
+            path: Containerfile
+
+      - name: Create Release
+        env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh release create "${{ github.ref_name }}" --generate-notes Containerfile
+
+      - name: Attest Release Files
+        id: attest
+        uses: actions/attest-build-provenance@v1
+        with:
+          subject-path: 'Containerfile'

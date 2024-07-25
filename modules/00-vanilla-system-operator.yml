@@ -2,8 +2,8 @@ name: vso
 type: shell
 source:
   type: tar
-  # switch to production build once in production
-  url: https://github.com/Vanilla-OS/vanilla-system-operator/releases/download/continuous/vso.tar.gz
+  url: https://github.com/Vanilla-OS/vanilla-system-operator/releases/download/v2.0.3/vso.tar.gz
+  checksum: 63673c9f76e41b17623c2b5676dc80c8125512d381ac0ef9a45b9b5aa0bc4b69
 commands:
 - mkdir -p /usr/bin
 - cp /sources/vso/vso /usr/bin/vso
@@ -13,23 +13,28 @@ modules:
   type: shell
   source:
     type: tar
-    url: https://github.com/Vanilla-OS/vanilla-system-operator/releases/download/continuous/vso-man.tar.gz
+    url: https://github.com/Vanilla-OS/vanilla-system-operator/releases/download/v2.0.3/vso-man.tar.gz
+    checksum: d38b5930ccae7880e9d195c709cf9480690a42900b3d2e7c603b1efb3cf3beea
   commands:
   - mv /sources/vso-manpage/man/vso.1 /usr/share/man/man1/
+
 - name: vso-os-shell
   type: shell
   commands:
   - chmod +x /usr/bin/vso-os-shell
   - echo "/usr/bin/vso-os-shell" >> /etc/shells
   - sed -i 's/^\(SHELL=\).*/\1\/usr\/bin\/vso-os-shell/' /etc/default/useradd
+
 - name: reset-vso
   type: shell
   commands:
   - chmod +x /usr/bin/reset-vso
+
 - name: wait-for-connection
   type: shell
   commands:
   - chmod +x /usr/bin/wait-for-connection
+
 - name: vso-gnome-ext
   type: shell
   source:
@@ -38,21 +43,20 @@ modules:
   commands:
   - mkdir -p /usr/share/gnome-shell/extensions/
   - mv /sources/vso-gnome-ext/vso-gnome-ext-1.2/vso\@vanillaos.org /usr/share/gnome-shell/extensions/vso\@vanillaos.org
+
 - name: vso-deps-install
   type: apt
   source:
     packages:
     - dpkg-dev
     - ifstat
+
 - name: adwdialog
-  type: dpkg-buildpackage
+  type: meson
   source:
     type: git
     url: https://github.com/Vanilla-OS/AdwDialog.git
-    branch: main
-    commit: latest
-    paths:
-    - adwdialog
+    tag: v0.2.0
   modules:
   - name: adwdialog-deps-install
     type: apt
@@ -68,6 +72,7 @@ modules:
       - make
       - meson
       - python3
+
 - name: enable-systemd-unit
   type: shell
   commands:
