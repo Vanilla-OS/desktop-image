@@ -1,12 +1,12 @@
 name: vanilla-gnome-default-settings
-type: dpkg-buildpackage
+type: shell
 source:
-  type: git
-  url: https://github.com/Vanilla-OS/vanilla-gnome-default-settings.git
-  branch: main
-  commit: latest
-  paths:
-  - vanilla-gnome-default-settings
+  type: file
+  url: https://github.com/Vanilla-OS/vanilla-gnome-default-settings/releases/download/v0.1/vanilla-gnome-default-settings.deb
+  checksum: 96d43a5c33673c315e67b317fbd62bba41cb8fd245c45b7036a88d8597f42b93
+commands:
+  - dpkg -i /sources/vanilla-gnome-default-settings/vanilla-gnome-default-settings.deb
+  - apt -y install -f
 modules:
 - name: vanilla-gnome-default-settings-deps-install
   type: apt

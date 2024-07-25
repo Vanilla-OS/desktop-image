@@ -3,8 +3,7 @@ type: meson
 source:
   type: git
   url: https://github.com/Vanilla-OS/abroot-rollback-notifier
-  branch: main
-  commit: latest
+  tag: v1.0.0
 modules:
 - name: abroot-rollback-notifier-deps-install
   type: apt
