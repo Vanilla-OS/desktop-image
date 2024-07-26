@@ -4,8 +4,7 @@ type: meson
 source:
   type: git
   url: https://github.com/Vanilla-OS/vanilla-prime-utility
-  branch: main
-  commit: latest
+  tag: v1.0.3
 modules:
 - name: vanilla-prime-utility-deps-install
   type: apt
