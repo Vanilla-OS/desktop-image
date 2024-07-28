@@ -3,7 +3,7 @@ type: dpkg-buildpackage
 source:
   type: git
   url: https://github.com/Vanilla-OS/desktop-base.git
-  tag: v1.0.0
+  tag: v1.0.1
   paths:
   - desktop-base
 modules:
