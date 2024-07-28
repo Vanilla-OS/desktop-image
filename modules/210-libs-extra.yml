@@ -11,6 +11,7 @@ source:
   - ibus-gtk4
 
   - libgdk-pixbuf2.0-bin
+  - libjxl-gdk-pixbuf
   - libglib2.0-bin
   - libblockdev-crypto3
   - libpam-gnome-keyring
