@@ -1,12 +1,11 @@
 name: vanilla-backgrounds
-type: shell
+type: dpkg-buildpackage
 source:
-  type: file
-  url: https://github.com/Vanilla-OS/vanilla-backgrounds/releases/download/v1.0.4/vanilla-backgrounds.deb
-  checksum: 212675d521cbe69d8c6547cb134784584dd0491ccb1a05c86c8ddfec161b036f
-commands:
-  - dpkg -i /sources/vanilla-backgrounds/vanilla-backgrounds.deb
-  - apt -y install -f
+  type: git
+  url: https://github.com/Vanilla-OS/vanilla-backgrounds.git
+  tag: v1.0.4
+  paths:
+  - vanilla-backgrounds
 modules:
 - name: vanilla-backgrounds-deps-install
   type: apt

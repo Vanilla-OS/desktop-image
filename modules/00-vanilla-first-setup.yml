@@ -1,12 +1,11 @@
 name: vanilla-first-setup
-type: shell
+type: dpkg-buildpackage
 source:
-  type: file
-  url: https://github.com/Vanilla-OS/first-setup/releases/download/v2.2.0/vanilla-first-setup_2.2.0_amd64.deb
-  checksum: 2320ebffa72cfce093555c48dfe3cf3e670392262bb03bc7a514a169499ee770
-commands:
-  - dpkg -i /sources/vanilla-first-setup/vanilla-first-setup.deb
-  - apt -y install -f
+  type: git
+  url: https://github.com/Vanilla-OS/first-setup.git
+  tag: v2.2.0
+  paths:
+  - vanilla-first-setup
 modules:
 - name: vanilla-first-setup-deps-install
   type: apt

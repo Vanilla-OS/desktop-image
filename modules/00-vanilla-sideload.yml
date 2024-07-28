@@ -1,9 +1,11 @@
 name: vanilla-sideload
-type: meson
+type: dpkg-buildpackage
 source:
   type: git
   url: https://github.com/Vanilla-OS/sideload-utility
   tag: v1.0.0
+  paths:
+    - vanilla-sideload
 modules:
 - name: sideload-utility-deps-install
   type: apt

@@ -1,12 +1,11 @@
 name: desktop-base
-type: shell
+type: dpkg-buildpackage
 source:
-  type: file
-  url: https://github.com/Vanilla-OS/desktop-base/releases/download/v1.0.0/desktop-base.deb
-  checksum: ef12defc7514096b076054f5eaf9ca276bba4757f360a2a097e7f2f31ced6840
-commands:
-  - dpkg -i /sources/desktop-base/desktop-base.deb
-  - apt -y install -f
+  type: git
+  url: https://github.com/Vanilla-OS/desktop-base.git
+  tag: v1.0.0
+  paths:
+  - desktop-base
 modules:
 - name: desktop-base-deps-install
   type: apt
