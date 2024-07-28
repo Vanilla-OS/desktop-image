@@ -1,10 +1,12 @@
 
 name: vanilla-prime-utility
-type: meson
+type: dpkg-buildpackage
 source:
   type: git
   url: https://github.com/Vanilla-OS/vanilla-prime-utility
   tag: v1.0.3
+  paths:
+  - vanilla-prime-utility
 modules:
 - name: vanilla-prime-utility-deps-install
   type: apt

@@ -52,11 +52,13 @@ modules:
     - ifstat
 
 - name: adwdialog
-  type: meson
+  type: dpkg-buildpackage
   source:
     type: git
     url: https://github.com/Vanilla-OS/AdwDialog.git
     tag: v0.2.0
+    paths:
+      - adwdialog
   modules:
   - name: adwdialog-deps-install
     type: apt
