@@ -39,7 +39,7 @@ body:
       description: |
         You can look it up in the Settings app, at the bottom of the About page.
       options:
-        - "22.10"
+        - "Vanilla OS 2 Orchid"
         - "Unreleased"
     validations:
       required: true
