@@ -4,6 +4,7 @@ source:
   packages:
   - nautilus
   - nautilus-share
+  - python3-nautilus
 
   - gnome-bluetooth
   - gnome-color-manager
