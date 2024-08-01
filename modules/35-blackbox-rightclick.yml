@@ -1,0 +1,10 @@
+name: blackbox-rightclick
+type: shell
+commands:
+  - mkdir -p /usr/share/nautilus-python/extensions/
+  - cp /sources/blackbox-rightclick/nautilus-open-in-blackbox-vos-1/nautilus-open-in-blackbox.py /usr/share/nautilus-python/extensions/
+
+source:
+  type: zip
+  url: https://github.com/fluoriteByte/nautilus-open-in-blackbox/archive/refs/tags/vos-1.zip
+  checksum: c99812be11f599867db5f14c696cd7c04e48a66605ef52547d51ff90d4a30b4e
