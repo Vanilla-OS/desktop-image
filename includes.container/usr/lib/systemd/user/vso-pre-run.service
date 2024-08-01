@@ -5,7 +5,6 @@ Description=VSO Shell Pre-Run
 Type=oneshot
 ExecStartPre=/usr/bin/wait-for-connection
 ExecStart=/usr/bin/vso run -n -- echo vso container started
-Restart=always
 
 [Install]
 WantedBy=default.target
