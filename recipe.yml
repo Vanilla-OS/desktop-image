@@ -3,7 +3,7 @@ id: desktop
 
 stages:
 - id: build
-  base: ghcr.io/vanilla-os/core:main
+  base: ghcr.io/vanilla-os/core:dev
   singlelayer: false
   labels:
     maintainer: Vanilla OS Contributors
