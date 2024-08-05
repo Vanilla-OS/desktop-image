@@ -35,6 +35,10 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Change tag in recipe.
+        run: |
+          sed 's/ghcr.io\/vanilla-os\/core:dev/ghcr.io\/vanilla-os\/core:main/' -i recipe.yml
+
       - uses: vanilla-os/vib-gh-action@v0.7.4
         with:
             recipe: 'recipe.yml'
