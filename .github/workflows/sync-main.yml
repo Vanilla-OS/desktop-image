@@ -1,0 +1,36 @@
+name: Sync Main Branch
+
+on:
+  workflow_dispatch:
+
+jobs:
+  check_base_status:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Clone base image. 
+      uses: actions/checkout@v4
+      with:
+        repository: Vanilla-OS/core-image
+
+    - name: Check if base is up to date.
+      run: |
+        git fetch origin
+        main_head=$( git rev-parse origin/main )
+        dev_head=$( git rev-parse origin/dev )
+        echo main branch is at: $main_head
+        echo dev branch is at: $dev_head
+        [ "$main_head" = "$dev_head" ]
+
+  sync:
+    runs-on: ubuntu-latest
+    needs: check_base_status
+    
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: dev
+          fetch-depth: 0
+
+      - name: Push dev to main.
+        run: |
+          git push origin dev:main
