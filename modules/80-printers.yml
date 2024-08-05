@@ -5,6 +5,7 @@ source:
   # General
   - cups
   - cups-pk-helper
+  - cups-filters
 
   - printer-driver-brlaser  # Brother
   - printer-driver-escpr    # Epson
