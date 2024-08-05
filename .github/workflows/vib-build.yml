@@ -18,6 +18,7 @@ jobs:
 
     steps:
     - name: Verify Base Image Integrity
+      if: ${{ github.ref_type == 'tag' }}
       run:
         gh attestation verify oci://ghcr.io/vanilla-os/core:main --owner Vanilla-OS
       env:
@@ -35,6 +36,11 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
+    - name: Change tag in recipe.
+      if: ${{ github.ref_type == 'tag' }}
+      run: |
+        sed 's/ghcr.io\/vanilla-os\/core:dev/ghcr.io\/vanilla-os\/core:main/' -i recipe.yml
+
     - uses: vanilla-os/vib-gh-action@v0.7.4
       with:
         recipe: 'recipe.yml'
@@ -51,6 +57,16 @@ jobs:
         echo "REPO_OWNER_LOWERCASE=$REPO_OWNER_LOWERCASE" >> "$GITHUB_ENV"
         echo "IMAGE_URL=ghcr.io/$REPO_OWNER_LOWERCASE/desktop" >> "$GITHUB_ENV"
 
+    - name: Extra image tag branch
+      if: ${{ github.ref_type != 'tag' }}
+      run: |
+        echo "EXTRA_TAG=ref,event=branch" >> "$GITHUB_ENV"
+
+    - name: Extra image tag release
+      if: ${{ github.ref_type == 'tag' }}
+      run: |
+        echo "EXTRA_TAG=raw,main" >> "$GITHUB_ENV"
+
     - name: Docker meta
       id: docker_meta
       uses: docker/metadata-action@v5
@@ -62,7 +78,7 @@ jobs:
           type=semver,pattern={{major}}.{{minor}}
           type=semver,pattern={{raw}}
           type=semver,pattern=v{{major}}
-          type=ref,event=branch
+          type=${{ env.EXTRA_TAG }}
 
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
