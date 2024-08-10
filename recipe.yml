@@ -57,6 +57,7 @@ stages:
       - modules/20-gnome-core.yml
       - modules/21-gnome-control-center.yml
       - modules/30-gnome-essentials.yml
+      - modules/35-nautilus-terminal-rightclick.yml
       - modules/40-gnome-appearance.yml
       - modules/50-laptop-goodies.yml
       - modules/60-media.yml

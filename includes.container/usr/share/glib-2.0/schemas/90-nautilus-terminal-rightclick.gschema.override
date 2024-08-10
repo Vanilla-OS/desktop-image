@@ -1,0 +1,3 @@
+[com.github.stunkymonkey.nautilus-open-any-terminal]
+terminal = blackbox
+use-generic-terminal-name = true
