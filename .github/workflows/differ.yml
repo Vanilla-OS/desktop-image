@@ -3,6 +3,7 @@ name: Differ
 on:
   workflow_run:
     workflows: [Vib Build]
+    branches: [dev]
     types:
       - completed
 
@@ -10,7 +11,7 @@ jobs:
   differ:
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/vanilla-os/desktop:main
+      image: ghcr.io/vanilla-os/desktop:${{ github.ref_name }}
     if: github.repository == 'vanilla-os/desktop-image'
 
     steps:
