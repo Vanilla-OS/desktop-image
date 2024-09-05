@@ -22,7 +22,7 @@ jobs:
       run:
         gh attestation verify oci://ghcr.io/vanilla-os/core:main --owner Vanilla-OS
       env:
-        GH_TOKEN: ${{ github.token }}
+        GH_TOKEN: ${{ secrets.TOKEN }}
 
   check_base_status:
     runs-on: ubuntu-latest
