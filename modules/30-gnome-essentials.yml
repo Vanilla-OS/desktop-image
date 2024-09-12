@@ -12,4 +12,4 @@ source:
   - gnome-menus
   - gnome-online-accounts
 
-  - blackbox-terminal
+  - gnome-terminal
