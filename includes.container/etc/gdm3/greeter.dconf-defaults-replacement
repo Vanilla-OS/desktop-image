@@ -24,6 +24,7 @@
 # =====================
 [org/gnome/login-screen]
 logo='/usr/share/images/vendor-logos/logo-text-version-64.png'
+enable-smartcard-authentication=false
 
 # - Disable user list
 # disable-user-list=true
