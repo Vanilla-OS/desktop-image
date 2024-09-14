@@ -1,0 +1,7 @@
+name: lucas-stauder-toolset
+type: apt
+source:
+  packages:
+  - gparted
+  - libfuse2t64
+  - switcheroo-control
