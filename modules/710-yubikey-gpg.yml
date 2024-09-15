@@ -1,0 +1,7 @@
+name: yubikey-gpg
+type: apt
+source:
+  packages:
+  - pcscd
+  - scdaemon
+
