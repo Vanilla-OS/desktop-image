@@ -4,4 +4,5 @@ source:
   packages:
   - gparted
   - libfuse2t64
-  - switcheroo-control
+  - usbutils
+
