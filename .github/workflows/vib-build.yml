@@ -134,3 +134,15 @@ jobs:
         subject-name: ${{ env.IMAGE_URL }}
         subject-digest: ${{ steps.push.outputs.digest }}
         push-to-registry: false
+  dispatch-desktop:
+    name: Trigger Build of Desktop Image
+    runs-on: ubuntu-latest
+    needs: build
+    
+    steps:
+      - name: Trigger Staging Deployment
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          repository: lucas-stauder/nvidia-image-debian-testing
+          token: ${{ secrets.PAT }}
+          event-type: build-nvidia
