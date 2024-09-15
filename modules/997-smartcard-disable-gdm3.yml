@@ -1,4 +1,0 @@
-name: smart-card-disable-gdm3
-type: shell
-commands:
-- mv /etc/gdm3/greeter.dconf-defaults-replacement /etc/gdm3/greeter.dconf-defaults
