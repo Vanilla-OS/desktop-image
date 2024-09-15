@@ -1,5 +1,5 @@
-name: Vanilla Desktop
-id: desktop
+name: Lucas Stauder Desktop (Debian Testing)
+id: desktop-dt
 
 stages:
 - id: build
