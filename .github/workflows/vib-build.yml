@@ -24,28 +24,9 @@ jobs:
       env:
         GH_TOKEN: ${{ github.token }}
 
-  check_base_status:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Clone base image. 
-      if: ${{ github.ref_type == 'tag' }}
-      uses: actions/checkout@v4
-      with:
-        repository: Vanilla-OS/core-image
-
-    - name: Check if base is up to date.
-      if: ${{ github.ref_type == 'tag' }}
-      run: |
-        git fetch origin
-        main_head=$( git rev-parse origin/main )
-        dev_head=$( git rev-parse origin/dev )
-        echo main branch is at: $main_head
-        echo dev branch is at: $dev_head
-        [ "$main_head" = "$dev_head" ]
-
   build:
     runs-on: ubuntu-latest
-    needs: [verify-image, check_base_status]
+    needs: [verify-image]
     permissions:
       contents: write # Allow actions to create release
       packages: write # Allow pushing images to GHCR
