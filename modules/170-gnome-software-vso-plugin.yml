@@ -2,4 +2,5 @@ name: gs-vso-plugin
 type: shell
 commands:
 - curl -L -O https://github.com/Vanilla-OS/gs-plugin-vso/releases/download/v1.0.0/libgs_plugin_vso.so
+- mkdir -p /usr/lib/x86_64-linux-gnu/gnome-software/plugins-20/
 - mv libgs_plugin_vso.so /usr/lib/x86_64-linux-gnu/gnome-software/plugins-20/
