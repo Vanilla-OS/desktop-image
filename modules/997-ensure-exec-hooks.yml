@@ -1,4 +1,4 @@
 name: ensure-exec-hooks
 type: shell
 commands:
-- chmod +x /usr/share/init.d/*.sh
+  - chmod +x /usr/share/init.d/*
