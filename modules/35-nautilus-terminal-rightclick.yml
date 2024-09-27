@@ -4,7 +4,7 @@ commands:
   - mkdir -p /usr/share/nautilus-python/extensions/
   - cd /sources/nautilus-terminal-rightclick/
   - make build install-nautilus schema
-source:
-  type: git
-  url: https://github.com/Stunkymonkey/nautilus-open-any-terminal.git
-  tag: 0.6.0
+sources:
+  - type: git
+    url: https://github.com/Stunkymonkey/nautilus-open-any-terminal.git
+    tag: 0.6.0
