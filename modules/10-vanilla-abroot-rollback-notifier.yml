@@ -1,5 +1,7 @@
 name: abroot-rollback-notifier
 type: meson
+buildflags:
+  - --prefix=/usr
 source:
   type: git
   url: https://github.com/Vanilla-OS/abroot-rollback-notifier

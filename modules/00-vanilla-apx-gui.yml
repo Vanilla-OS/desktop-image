@@ -1,5 +1,7 @@
 name: apx-gui
 type: meson
+buildflags:
+  - --prefix=/usr
 source:
   type: git
   url: https://github.com/Vanilla-OS/apx-gui
