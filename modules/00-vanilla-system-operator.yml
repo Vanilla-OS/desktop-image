@@ -1,9 +1,9 @@
 name: vso
 type: shell
-source:
-  type: tar
-  url: https://github.com/Vanilla-OS/vanilla-system-operator/releases/download/v2.0.3/vso.tar.gz
-  checksum: 63673c9f76e41b17623c2b5676dc80c8125512d381ac0ef9a45b9b5aa0bc4b69
+sources:
+  - type: tar
+    url: https://github.com/Vanilla-OS/vanilla-system-operator/releases/download/v2.0.3/vso.tar.gz
+    checksum: 63673c9f76e41b17623c2b5676dc80c8125512d381ac0ef9a45b9b5aa0bc4b69
 commands:
 - mkdir -p /usr/bin
 - cp /sources/vso/vso /usr/bin/vso
@@ -11,10 +11,10 @@ commands:
 modules:
 - name: vso-manpage
   type: shell
-  source:
-    type: tar
-    url: https://github.com/Vanilla-OS/vanilla-system-operator/releases/download/v2.0.3/vso-man.tar.gz
-    checksum: d38b5930ccae7880e9d195c709cf9480690a42900b3d2e7c603b1efb3cf3beea
+  sources:
+    - type: tar
+      url: https://github.com/Vanilla-OS/vanilla-system-operator/releases/download/v2.0.3/vso-man.tar.gz
+      checksum: d38b5930ccae7880e9d195c709cf9480690a42900b3d2e7c603b1efb3cf3beea
   commands:
   - mv /sources/vso-manpage/man/vso.1 /usr/share/man/man1/
 
@@ -37,9 +37,9 @@ modules:
 
 - name: vso-gnome-ext
   type: shell
-  source:
-    type: tar
-    url: https://github.com/Vanilla-OS/vso-gnome-ext/archive/refs/tags/1.2.tar.gz
+  sources:
+    - type: tar
+      url: https://github.com/Vanilla-OS/vso-gnome-ext/archive/refs/tags/1.2.tar.gz
   commands:
   - mkdir -p /usr/share/gnome-shell/extensions/
   - mv /sources/vso-gnome-ext/vso-gnome-ext-1.2/vso\@vanillaos.org /usr/share/gnome-shell/extensions/vso\@vanillaos.org
