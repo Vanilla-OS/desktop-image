@@ -1,0 +1,7 @@
+#!/bin/bash
+if [ $# -eq 0 ]
+then
+        exec /usr/bin/vso-os-shell
+else
+        exec "${SHELL-bash}" "$@"
+fi
