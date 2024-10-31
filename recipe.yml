@@ -85,6 +85,11 @@ stages:
     - sed 's/Session=/Session=firstsetup/g' -i /usr/share/accountsservice/user-templates/administrator
     - sed 's/Session=/Session=firstsetup/g' -i /usr/share/accountsservice/user-templates/standard
 
+  - name: blackbox-rescue
+    type: shell
+    commands:
+    - echo "\nActions=rescue;\n[Desktop Action rescue]\nName=Rescue Mode\nExec=blackbox-terminal -c /bin/bash\nIcon=com.raggesilver.BlackBox" >> /usr/share/applications/com.raggesilver.BlackBox.desktop
+
   - name: apx-vso-pico-shutdown-service
     type: shell
     commands:
