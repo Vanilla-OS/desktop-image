@@ -1,5 +1,11 @@
 #!/bin/bash
 
+PACKAGES=/usr/share/abroot/package-summary
+if [ -s "$PACKAGES" ]; then
+    echo "image not clean due to abroot pkg, skipping FSGuard"
+    exit 0
+fi
+
 function failed() {
     /.system/usr/bin/plymouth quit
     local squashfs="/.system/boot/fswarn.squash"
