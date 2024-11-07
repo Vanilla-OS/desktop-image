@@ -3,8 +3,8 @@ type: shell
 commands:
 - cp -rT /sources/waydroid-modules/binder /usr/src/waydroid-binder-1
 - cp -rT /sources/waydroid-modules/ashmem /usr/src/waydroid-ashmem-1
-- dkms install waydroid-binder/1 -k 6.10.9-amd64
-- dkms install waydroid-ashmem/1 -k 6.10.9-amd64
+- dkms install waydroid-binder/1 -k 6.11.6-amd64
+- dkms install waydroid-ashmem/1 -k 6.11.6-amd64
 source:
   type: git
   url: https://github.com/Vanilla-OS/anbox-modules
