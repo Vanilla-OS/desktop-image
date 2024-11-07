@@ -5,7 +5,7 @@ buildflags:
 source:
   type: git
   url: https://github.com/Vanilla-OS/apx-gui
-  tag: v1.0.3
+  tag: v1.0.4
 modules:
 - name: apx-gui-deps-install
   type: apt

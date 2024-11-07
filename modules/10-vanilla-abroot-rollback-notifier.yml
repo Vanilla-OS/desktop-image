@@ -5,7 +5,7 @@ buildflags:
 source:
   type: git
   url: https://github.com/Vanilla-OS/abroot-rollback-notifier
-  tag: v1.0.0
+  tag: v1.0.1
 modules:
 - name: abroot-rollback-notifier-deps-install
   type: apt
