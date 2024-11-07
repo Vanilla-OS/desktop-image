@@ -2,8 +2,8 @@ name: vso
 type: shell
 source:
   type: tar
-  url: https://github.com/Vanilla-OS/vanilla-system-operator/releases/download/v2.0.3/vso.tar.gz
-  checksum: 63673c9f76e41b17623c2b5676dc80c8125512d381ac0ef9a45b9b5aa0bc4b69
+  url: https://github.com/Vanilla-OS/vanilla-system-operator/releases/download/v2.0.4/vso.tar.gz
+  checksum: cd65bcfcfcddd6f7095ba5db7a79a23e9d4fcffd11113e372de916b40719570e
 commands:
 - mkdir -p /usr/bin
 - cp /sources/vso/vso /usr/bin/vso
@@ -13,8 +13,8 @@ modules:
   type: shell
   source:
     type: tar
-    url: https://github.com/Vanilla-OS/vanilla-system-operator/releases/download/v2.0.3/vso-man.tar.gz
-    checksum: d38b5930ccae7880e9d195c709cf9480690a42900b3d2e7c603b1efb3cf3beea
+    url: https://github.com/Vanilla-OS/vanilla-system-operator/releases/download/v2.0.4/vso-man.tar.gz
+    checksum: ad39ca5b7fb301d102345bfb7e92fd32cdd24f0348fbaae134eeb07eea1c9b4f
   commands:
   - mv /sources/vso-manpage/man/vso.1 /usr/share/man/man1/
 
