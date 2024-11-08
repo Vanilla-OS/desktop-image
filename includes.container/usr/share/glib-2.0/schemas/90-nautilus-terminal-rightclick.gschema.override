@@ -1,4 +1,4 @@
 [com.github.stunkymonkey.nautilus-open-any-terminal]
-terminal = custom
-custom-local-command = blackbox-terminal -w %s
+terminal = "custom"
+custom-local-command = "blackbox-terminal -w %s"
 use-generic-terminal-name = true
