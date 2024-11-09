@@ -1,0 +1,4 @@
+name: hide-image-magick
+type: shell
+commands:
+- sed -i '/^Categories=/ s/$/Utility;X-GNOME-Utilities;/' /usr/share/applications/display-im7.q16.desktop
