@@ -1,0 +1,10 @@
+[Unit]
+Description=VSO Repo migration
+After=vso-pre-run.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/bash /usr/libexec/vso/migrate-repo
+
+[Install]
+WantedBy=default.target

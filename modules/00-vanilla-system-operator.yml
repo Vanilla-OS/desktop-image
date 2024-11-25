@@ -82,4 +82,5 @@ modules:
   - ln -s /usr/lib/systemd/system/vanilla-updates.timer /etc/systemd/system/timers.target.wants/vanilla-updates.timer
   - mkdir -p /usr/lib/systemd/user/default.target.wants
   - ln -s /usr/lib/systemd/user/vso-pre-run.service /usr/lib/systemd/user/default.target.wants/vso-pre-run.service
+  - ln -s /usr/lib/systemd/user/vso-migrate-repo.service /usr/lib/systemd/user/default.target.wants/vso-migrate-repo.service
   - ln -s /usr/lib/systemd/user/vso-tasks-rotation.service /usr/lib/systemd/user/default.target.wants/vso-tasks-rotation.service

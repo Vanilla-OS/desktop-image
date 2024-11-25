@@ -1,0 +1,11 @@
+#!/bin/bash
+
+/usr/share/apx/distrobox/distrobox enter --name apx-vso-pico -- ls /etc/apt/sources.list.d/debian.sources
+if [ "$?" -ne 2 ]; then
+	echo "already migrated"
+	exit 0
+fi
+
+set -e
+/usr/share/apx/distrobox/distrobox enter --name apx-vso-pico -- sudo cp /run/host/usr/libexec/vso/debian.sources /etc/apt/sources.list.d/debian.sources
+/usr/share/apx/distrobox/distrobox enter --name apx-vso-pico -- sudo rm /etc/apt/sources.list.d/vanilla-base.sources
