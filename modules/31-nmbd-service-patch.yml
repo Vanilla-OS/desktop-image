@@ -1,0 +1,4 @@
+name: nmbd-service-patch
+type: shell
+commands:
+- sed -i 's/Type=notify/Type=simple/g' /usr/lib/systemd/system/nmbd.service
