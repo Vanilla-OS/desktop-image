@@ -6,9 +6,8 @@ source:
   - nautilus-share
   - python3-nautilus
 
-  - gnome-bluetooth
+  - gnome-bluetooth-sendto
   - gnome-color-manager
-  - gnome-
   - gnome-menus
   - gnome-online-accounts
 
