@@ -2,7 +2,7 @@
 Description=VSO Tasks Rotation
 
 [Service]
-ExecStart=/usr/bin/vso tasks rotate
+ExecStart=/usr/bin/vso tasks rotate --silent
 
 [Install]
 WantedBy=multi-user.target
