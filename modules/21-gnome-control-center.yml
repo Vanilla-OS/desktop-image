@@ -9,3 +9,12 @@ commands:
   - dpkg -i /sources/gnome-control-center/gnome-control-center_47.1.1~99-orchid_amd64.deb
   - apt -y install -f
   - apt-mark hold gnome-control-center
+modules:
+- name: vpn-plugins
+  type: apt
+  source:
+    packages:
+    - network-manager-ssh-gnome
+    - network-manager-ssh
+    - network-manager-vpnc-gnome
+    - network-manager-vpnc
