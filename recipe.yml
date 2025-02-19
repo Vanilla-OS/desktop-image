@@ -102,6 +102,27 @@ stages:
     commands:
     - rm /usr/lib/*/gnome-software/plugins-*/libgs_plugin_packagekit.so
 
+  - name: abroot
+    type: shell
+    source:
+      type: tar
+      url: https://github.com/Vanilla-OS/ABRoot/releases/download/v2.1.1/abrootv2.tar.gz
+      checksum: 257b31fab1d735c4a833f93a576cdeced2d9cef67cf4da6dc81694be655d9d05
+    commands:
+      - apt install -y podman golang-github-containers-common patch wget
+      - mkdir -p /usr/bin
+      - cp /sources/abroot/abrootv2 /usr/bin/abroot
+      - chmod +x /usr/bin/abroot
+    modules:
+    - name: abroot-manpage
+      type: shell
+      source:
+        type: tar
+        url: https://github.com/Vanilla-OS/ABRoot/releases/download/v2.1.1/abroot-man.tar.gz
+        checksum: 2437300bdae0316a17bc2e5fc25d3dd356297ccfc14e70c77fa1a410e20eed65
+      commands:
+      - mv /sources/abroot-manpage/man/man1/abroot.1 /usr/share/man/man1/
+
   - name: cleanup
     type: shell
     commands:
