@@ -3,7 +3,6 @@ type: apt
 source:
   packages:
   - at-spi2-core
-  - brltty
   - espeak-ng
   - mousetweaks
   - orca

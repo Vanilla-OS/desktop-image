@@ -6,10 +6,11 @@ source:
   - cups
   - cups-pk-helper
   - cups-filters
+  - bluez-cups
 
   - printer-driver-brlaser  # Brother
   - printer-driver-escpr    # Epson
-  - hplip                   # HP
+  # - hplip                   # HP   (This package broke with a package sync with debian sid, try readding this in the future)
 
   # Config
   - system-config-printer-common
