@@ -51,8 +51,7 @@ stages:
       - modules/00-vanilla-sideload.yml
       - modules/00-vanilla-updates-utility.yml
       - modules/00-vanilla-prime-utility.yml
-      # removed temporarily to avoid upgrading the kernel version
-      # - modules/02-waydroid-modules.yml
+      - modules/02-waydroid-modules.yml
       - modules/03-fswarn.yml
       - modules/10-vanilla-abroot-rollback-notifier.yml
       - modules/20-gnome-core.yml
