@@ -2,7 +2,7 @@ name: vanilla-first-setup
 type: shell
 source:
   type: file
-  url: https://github.com/Vanilla-OS/first-setup/releases/download/v3.0.0/vanilla-first-setup.deb
-  checksum: 10d12008cd76d79f127f0edc563a07033792abdc44cb65db03832095029bbdaf
+  url: https://github.com/Vanilla-OS/first-setup/releases/download/v3.1.0/vanilla-first-setup.deb
+  checksum: e8912fed9f38a8816afbde99df1e034734ac8038c80bb2ae8903cb89100e3610
 commands:
   - apt-get install -y /sources/vanilla-first-setup/vanilla-first-setup.deb
