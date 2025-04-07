@@ -18,12 +18,13 @@ modules:
   commands:
   - mv /sources/vso-manpage/man/vso.1 /usr/share/man/man1/
 
-- name: vso-os-shell
+- name: vanilla-shell-detect
   type: shell
   commands:
   - chmod +x /usr/bin/vso-os-shell
-  - echo "/usr/bin/vso-os-shell" >> /etc/shells
-  - sed -i 's/^\(SHELL=\).*/\1\/usr\/bin\/vso-os-shell/' /etc/default/useradd
+  - chmod +x /usr/bin/vanilla-shell-detect
+  - echo "/usr/bin/vanilla-shell-detect" >> /etc/shells
+  - sed -i 's/^\(SHELL=\).*/\1\/usr\/bin\/vanilla-shell-detect/' /etc/default/useradd
 
 - name: reset-vso
   type: shell
