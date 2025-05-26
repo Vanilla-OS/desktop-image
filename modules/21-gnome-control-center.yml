@@ -2,10 +2,10 @@ name: gnome-control-center
 type: shell
 source:
   type: tar
-  url: https://github.com/Vanilla-OS/gnome-control-center/releases/download/47.1.1/gnome-control-center.tar.xz
-  checksum: d41c30af4a58adbb20d776918b498b23fb215ef13df1d3a10e02257ecfc47801
+  url: https://github.com/Vanilla-OS/gnome-control-center/releases/download/48.1.2/gnome-control-center.tar.xz
+  checksum: 3c52ac481e4d6b5fe6dbb7e8b928ed7207d518e0af00bf9750bd425efc0a105d
 commands:
-  - dpkg -i /sources/gnome-control-center/gnome-control-center-data_47.1.1~99-orchid_all.deb 
-  - dpkg -i /sources/gnome-control-center/gnome-control-center_47.1.1~99-orchid_amd64.deb
+  - dpkg -i /sources/gnome-control-center/gnome-control-center-data_48.1.1~99-orchid_all.deb 
+  - dpkg -i /sources/gnome-control-center/gnome-control-center_48.1.1~99-orchid_amd64.deb
   - apt -y install -f
   - apt-mark hold gnome-control-center
