@@ -1,5 +1,0 @@
-name: nmbd-service-patch
-type: shell
-commands:
-- grep -F "nss-user-lookup.target" /usr/lib/systemd/system/winbind.service
-- sed -i 's/nss-user-lookup.target/nss-lookup.target/g' /usr/lib/systemd/system/winbind.service
