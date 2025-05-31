@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE policyconfig PUBLIC
+ "-//freedesktop//DTD PolicyKit Policy Configuration 1.0//EN"
+ "http://www.freedesktop.org/standards/PolicyKit/1.0/policyconfig.dtd">
+<policyconfig>
+    <vendor>Vanilla OS</vendor>
+    <vendor_url>https://www.vanillaos.org/</vendor_url>
+    <icon_name>package-x-generic</icon_name>
+    <action id="org.vanillaos.abroot.rollback-notifier.check">
+        <description>Check if it is possible to rollback the system</description>
+        <message>Authentication is required to check if it is possible to rollback the system</message>
+        <icon_name>package-x-generic</icon_name>
+        <defaults>
+            <allow_any>yes</allow_any>
+            <allow_inactive>yes</allow_inactive>
+            <allow_active>yes</allow_active>
+        </defaults>
+        <annotate key="org.freedesktop.policykit.exec.path">/usr/bin/abroot</annotate>
+        <annotate key="org.freedesktop.policykit.exec.argv1">rollback</annotate>
+    </action>
+    <action id="org.vanillaos.abroot.upgrade">
+        <description>Upgrade the root system</description>
+        <message>Authentication is required to upgrade the system</message>
+        <defaults>
+            <allow_any>yes</allow_any>
+            <allow_inactive>yes</allow_inactive>
+            <allow_active>yes</allow_active>
+        </defaults>
+        <annotate key="org.freedesktop.policykit.exec.path">/usr/bin/abroot</annotate>
+        <annotate key="org.freedesktop.policykit.exec.argv1">upgrade</annotate>
+    </action>
+    <action id="org.vanillaos.abroot.status">
+        <description>Check the status of the root system</description>
+        <message>Authentication is required to check the status of the system</message>
+        <defaults>
+            <allow_any>yes</allow_any>
+            <allow_inactive>yes</allow_inactive>
+            <allow_active>yes</allow_active>
+        </defaults>
+        <annotate key="org.freedesktop.policykit.exec.path">/usr/bin/abroot</annotate>
+        <annotate key="org.freedesktop.policykit.exec.argv1">status</annotate>
+    </action>
+    <action id="org.vanillaos.abroot.help">
+        <description>Get help for the abroot command</description>
+        <message>Authentication is required to display the abroot help</message>
+        <defaults>
+            <allow_any>yes</allow_any>
+            <allow_inactive>yes</allow_inactive>
+            <allow_active>yes</allow_active>
+        </defaults>
+        <annotate key="org.freedesktop.policykit.exec.path">/usr/bin/abroot</annotate>
+        <annotate key="org.freedesktop.policykit.exec.argv1">help</annotate>
+    </action>
+</policyconfig>
