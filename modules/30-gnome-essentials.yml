@@ -3,7 +3,6 @@ type: apt
 source:
   packages:
   - nautilus
-  - nautilus-share
   - python3-nautilus
 
   - gnome-bluetooth-sendto
