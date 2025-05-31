@@ -11,9 +11,9 @@
         <message>Authentication is required to check if it is possible to rollback the system</message>
         <icon_name>package-x-generic</icon_name>
         <defaults>
-            <allow_any>auth_admin</allow_any>
-            <allow_inactive>auth_admin</allow_inactive>
-            <allow_active>auth_admin_keep</allow_active>
+            <allow_any>yes</allow_any>
+            <allow_inactive>yes</allow_inactive>
+            <allow_active>yes</allow_active>
         </defaults>
         <annotate key="org.freedesktop.policykit.exec.path">/usr/bin/abroot</annotate>
         <annotate key="org.freedesktop.policykit.exec.argv1">rollback</annotate>
