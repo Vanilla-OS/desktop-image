@@ -103,6 +103,11 @@ stages:
     - apt clean
     - lpkg --lock
 
+  - name: remove gdm
+    type: shell
+    commands:
+      - rm /etc/systemd/system/display-manager.service
+
   - name: sysconf-setup
     type: shell
     commands:
