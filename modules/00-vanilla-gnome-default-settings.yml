@@ -9,7 +9,7 @@ source:
 modules:
 - name: vanilla-gnome-default-settings-deps-install
   type: apt
-  source:
-    packages:
-    - dpkg-dev
-    - libglib2.0-bin
+  sources:
+    - packages:
+      - dpkg-dev
+      - libglib2.0-bin

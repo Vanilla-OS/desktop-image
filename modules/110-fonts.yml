@@ -1,18 +1,18 @@
 name: fonts
 type: apt
-source:
-  packages:
-  - fonts-cantarell
-  - fonts-dejavu-core
-  - fonts-freefont-ttf
-  - fonts-indic
-  - fonts-kacst-one
-  - fonts-khmeros
-  - fonts-lao
-  - fonts-liberation
-  - fonts-lklug-sinhala
-  - fonts-noto
-  - fonts-sil-abyssinica
-  - fonts-sil-padauk
-  - fonts-thai-tlwg
-  - fonts-tibetan-machine
+sources:
+  - packages:
+    - fonts-cantarell
+    - fonts-dejavu-core
+    - fonts-freefont-ttf
+    - fonts-indic
+    - fonts-kacst-one
+    - fonts-khmeros
+    - fonts-lao
+    - fonts-liberation
+    - fonts-lklug-sinhala
+    - fonts-noto
+    - fonts-sil-abyssinica
+    - fonts-sil-padauk
+    - fonts-thai-tlwg
+    - fonts-tibetan-machine

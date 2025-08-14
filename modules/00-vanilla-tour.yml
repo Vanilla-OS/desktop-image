@@ -9,16 +9,16 @@ source:
 modules:
 - name: vanilla-tour-deps-install
   type: apt
-  source:
-    packages:
-    - build-essential
-    - debhelper
-    - desktop-file-utils
-    - dpkg-dev
-    - gettext
-    - libadwaita-1-dev
-    - libjpeg-dev
-    - make
-    - meson
-    - python3
-    - blueprint-compiler
+  sources:
+    - packages:
+      - build-essential
+      - debhelper
+      - desktop-file-utils
+      - dpkg-dev
+      - gettext
+      - libadwaita-1-dev
+      - libjpeg-dev
+      - make
+      - meson
+      - python3
+      - blueprint-compiler

@@ -2,16 +2,16 @@ name: vanilla-updates-utility
 type: meson
 buildflags:
   - --prefix=/usr
-source:
-  type: git
-  url: https://github.com/Vanilla-OS/vanilla-updates-utility
-  tag: v1.0.2
+sources:
+  - type: git
+    url: https://github.com/Vanilla-OS/vanilla-updates-utility
+    tag: v1.0.2
 modules:
 - name: vanilla-updates-utility-deps-install
   type: apt
-  source:
-    packages:
-    - build-essential
-    - gettext
-    - libadwaita-1-dev
-    - meson
+  sources:
+    - packages:
+      - build-essential
+      - gettext
+      - libadwaita-1-dev
+      - meson

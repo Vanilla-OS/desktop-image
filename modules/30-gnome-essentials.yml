@@ -1,13 +1,13 @@
 name: gnome-essentials
 type: apt
-source:
-  packages:
-  - nautilus
-  - python3-nautilus
+sources:
+  - packages:
+    - nautilus
+    - python3-nautilus
 
-  - gnome-bluetooth-sendto
-  - gnome-color-manager
-  - gnome-menus
-  - gnome-online-accounts
+    - gnome-bluetooth-sendto
+    - gnome-color-manager
+    - gnome-menus
+    - gnome-online-accounts
 
-  - blackbox-terminal
+    - blackbox-terminal

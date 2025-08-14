@@ -2,15 +2,15 @@ name: abroot-rollback-notifier
 type: meson
 buildflags:
   - --prefix=/usr
-source:
-  type: git
-  url: https://github.com/Vanilla-OS/abroot-rollback-notifier
-  tag: v1.0.1
+sources:
+  - type: git
+    url: https://github.com/Vanilla-OS/abroot-rollback-notifier
+    tag: v1.0.1
 modules:
 - name: abroot-rollback-notifier-deps-install
   type: apt
-  source:
-    packages:
-    - build-essential
-    - gettext
-    - meson
+  sources:
+    - packages:
+      - build-essential
+      - gettext
+      - meson

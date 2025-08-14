@@ -1,11 +1,11 @@
 name: accessibility
 type: apt
-source:
-  packages:
-  - at-spi2-core
-  - espeak-ng
-  - mousetweaks
-  - orca
-  
-  - speech-dispatcher
-  - speech-dispatcher-espeak-ng
+sources:
+  - packages:
+    - at-spi2-core
+    - espeak-ng
+    - mousetweaks
+    - orca
+
+    - speech-dispatcher
+    - speech-dispatcher-espeak-ng

@@ -2,17 +2,17 @@ name: apx-gui
 type: meson
 buildflags:
   - --prefix=/usr
-source:
-  type: git
-  url: https://github.com/Vanilla-OS/apx-gui
-  tag: v1.0.4
+sources:
+  - type: git
+    url: https://github.com/Vanilla-OS/apx-gui
+    tag: v1.0.4
 modules:
 - name: apx-gui-deps-install
   type: apt
-  source:
-    packages:
-    - build-essential
-    - gettext
-    - libadwaita-1-dev
-    - meson
-    - python3-yaml
+  sources:
+    - packages:
+      - build-essential
+      - gettext
+      - libadwaita-1-dev
+      - meson
+      - python3-yaml

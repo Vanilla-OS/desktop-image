@@ -9,10 +9,10 @@ source:
 modules:
 - name: desktop-base-deps-install
   type: apt
-  source:
-    packages:
-    - build-essential
-    - dpkg-dev
-    - dh-make
-    - librsvg2-bin
-    - optipng
+  sources:
+    - packages:
+      - build-essential
+      - dpkg-dev
+      - dh-make
+      - librsvg2-bin
+      - optipng

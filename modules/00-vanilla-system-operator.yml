@@ -1,22 +1,22 @@
 name: vso
 type: shell
-source:
-  type: tar
-  url: https://github.com/Vanilla-OS/vanilla-system-operator/releases/download/v2.0.6/vso.tar.gz
-  checksum: 8565829753ffb701081bf5df1043513b40d948eb0020736cb1dddccf5acbeed0
+sources:
+  - type: tar
+    url: https://github.com/Vanilla-OS/vanilla-system-operator/releases/download/v2.0.6/vso.tar.gz
+    checksum: 8565829753ffb701081bf5df1043513b40d948eb0020736cb1dddccf5acbeed0
 commands:
 - mkdir -p /usr/bin
-- cp /sources/vso/vso /usr/bin/vso
+- cp /sources/vso/vso/vso /usr/bin/vso
 - chmod +x /usr/bin/vso
 modules:
 - name: vso-manpage
   type: shell
-  source:
-    type: tar
-    url: https://github.com/Vanilla-OS/vanilla-system-operator/releases/download/v2.0.6/vso-man.tar.gz
-    checksum: 26010d70eb60819ca540d75da7a500038cde3e8d0ac2873d82a74717ff51928d
+  sources:
+    - type: tar
+      url: https://github.com/Vanilla-OS/vanilla-system-operator/releases/download/v2.0.6/vso-man.tar.gz
+      checksum: 26010d70eb60819ca540d75da7a500038cde3e8d0ac2873d82a74717ff51928d
   commands:
-  - mv /sources/vso-manpage/man/vso.1 /usr/share/man/man1/
+  - mv /sources/vso-manpage/vso-man/man/vso.1 /usr/share/man/man1/
 
 - name: vso-os-shell
   type: shell
@@ -37,19 +37,19 @@ modules:
 
 - name: vso-gnome-ext
   type: shell
-  source:
-    type: tar
-    url: https://github.com/Vanilla-OS/vso-gnome-ext/archive/refs/tags/1.4.tar.gz
+  sources:
+    - type: tar
+      url: https://github.com/Vanilla-OS/vso-gnome-ext/archive/refs/tags/1.4.tar.gz
   commands:
   - mkdir -p /usr/share/gnome-shell/extensions/
-  - mv /sources/vso-gnome-ext/vso-gnome-ext-1.4/vso\@vanillaos.org /usr/share/gnome-shell/extensions/vso\@vanillaos.org
+  - mv /sources/vso-gnome-ext/1.4/vso-gnome-ext-1.4/vso\@vanillaos.org /usr/share/gnome-shell/extensions/vso\@vanillaos.org
 
 - name: vso-deps-install
   type: apt
-  source:
-    packages:
-    - dpkg-dev
-    - ifstat
+  sources:
+    - packages:
+      - dpkg-dev
+      - ifstat
 
 - name: adwdialog
   type: dpkg-buildpackage
@@ -62,18 +62,18 @@ modules:
   modules:
   - name: adwdialog-deps-install
     type: apt
-    source:
-      packages:
-      - build-essential
-      - debhelper
-      - desktop-file-utils
-      - dpkg-dev
-      - gettext
-      - libadwaita-1-dev
-      - libjpeg-dev
-      - make
-      - meson
-      - python3
+    sources:
+      - packages:
+        - build-essential
+        - debhelper
+        - desktop-file-utils
+        - dpkg-dev
+        - gettext
+        - libadwaita-1-dev
+        - libjpeg-dev
+        - make
+        - meson
+        - python3
 
 - name: enable-systemd-unit
   type: shell

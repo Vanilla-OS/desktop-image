@@ -1,10 +1,10 @@
 name: 3d-utils
 type: apt
-source:
-  packages:
-  - mesa-vdpau-drivers
-  - mesa-vulkan-drivers
+sources:
+  - packages:
+    - mesa-vdpau-drivers
+    - mesa-vulkan-drivers
 
-  - steam-devices
+    - steam-devices
 
-  - vdpau-driver-all
+    - vdpau-driver-all

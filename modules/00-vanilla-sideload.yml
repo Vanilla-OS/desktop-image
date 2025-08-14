@@ -9,24 +9,24 @@ source:
 modules:
 - name: sideload-utility-deps-install
   type: apt
-  source:
-    packages:
-    - build-essential
-    - debhelper
-    - desktop-file-utils
-    - dpkg-dev
-    - gettext
-    - gir1.2-nma4-1.0
-    - libadwaita-1-dev
-    - libjpeg-dev
-    - libnm0
-    - libnm-dev
-    - libnma0
-    - libnma-gtk4-0
-    - libnma-gtk4-dev
-    - make
-    - meson
-    - python3
+  sources:
+    - packages:
+      - build-essential
+      - debhelper
+      - desktop-file-utils
+      - dpkg-dev
+      - gettext
+      - gir1.2-nma4-1.0
+      - libadwaita-1-dev
+      - libjpeg-dev
+      - libnm0
+      - libnm-dev
+      - libnma0
+      - libnma-gtk4-0
+      - libnma-gtk4-dev
+      - make
+      - meson
+      - python3
 - name: set-mimetype
   type: shell
   commands:

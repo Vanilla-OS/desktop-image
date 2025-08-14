@@ -9,10 +9,10 @@ source:
 modules:
 - name: vanilla-backgrounds-deps-install
   type: apt
-  source:
-    packages:
-    - dpkg-dev
-    - debhelper-compat
-    - dh-sequence-gnome
-    - libglib2.0-dev
-    - meson
+  sources:
+    - packages:
+      - dpkg-dev
+      - debhelper-compat
+      - dh-sequence-gnome
+      - libglib2.0-dev
+      - meson

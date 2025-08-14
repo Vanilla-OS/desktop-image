@@ -1,26 +1,26 @@
 name: gnome-common
 type: apt
-source:
-  packages:
-  - gsettings-desktop-schemas
-  - libatk-adaptor
-  - libnotify-bin
-  
-  - ibus-gtk
-  - ibus-gtk3
-  - ibus-gtk4
+sources:
+  - packages:
+    - gsettings-desktop-schemas
+    - libatk-adaptor
+    - libnotify-bin
 
-  - libglib2.0-bin
-  - libblockdev-crypto3
-  - libpam-gnome-keyring
-  - libproxy1-plugin-gsettings
-  - libwmf0.2-7-gtk
+    - ibus-gtk
+    - ibus-gtk3
+    - ibus-gtk4
 
-  - libgdk-pixbuf2.0-bin
-  - libjxl-gdk-pixbuf
-  - libavif-gdk-pixbuf
-  - heif-gdk-pixbuf
-  - webp-pixbuf-loader
-  - ffmpegthumbnailer
-  - gnome-epub-thumbnailer
-  - ooo-thumbnailer
+    - libglib2.0-bin
+    - libblockdev-crypto3
+    - libpam-gnome-keyring
+    - libproxy1-plugin-gsettings
+    - libwmf0.2-7-gtk
+
+    - libgdk-pixbuf2.0-bin
+    - libjxl-gdk-pixbuf
+    - libavif-gdk-pixbuf
+    - heif-gdk-pixbuf
+    - webp-pixbuf-loader
+    - ffmpegthumbnailer
+    - gnome-epub-thumbnailer
+    - ooo-thumbnailer

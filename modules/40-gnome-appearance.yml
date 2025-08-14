@@ -1,9 +1,9 @@
 name: gnome-appearance
 type: apt
-source:
-  packages:
-  - adwaita-icon-theme
+sources:
+  - packages:
+    - adwaita-icon-theme
 
-  - gnome-accessibility-themes
-  - gnome-backgrounds
-  - gnome-themes-extra
+    - gnome-accessibility-themes
+    - gnome-backgrounds
+    - gnome-themes-extra
