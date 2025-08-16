@@ -44,7 +44,7 @@ jobs:
     - uses: vanilla-os/vib-gh-action@v1.0.2
       with:
         recipe: 'recipe.yml'
-        plugins: 'Vanilla-OS/vib-fsguard:v1.6.0'
+        plugins: 'Vanilla-OS/vib-fsguard:v1.6.1'
 
     - uses: actions/upload-artifact@v4
       with:
