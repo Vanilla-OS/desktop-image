@@ -25,10 +25,17 @@ jobs:
         GH_TOKEN: ${{ github.token }}
 
   build:
-    runs-on: ubuntu-latest
-    needs: [verify-image]
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - runner: ubuntu-latest
+            arch: amd64
+          - runner: ubuntu-24.04-arm
+            arch: arm64
+    runs-on: ${{ matrix.runner }}
+    needs: verify-image
     permissions:
-      contents: write # Allow actions to create release
       packages: write # Allow pushing images to GHCR
       attestations: write # To create and write attestations
       id-token: write # Additional permissions for the persistence of the attestations
@@ -48,8 +55,9 @@ jobs:
 
     - uses: actions/upload-artifact@v4
       with:
-         name: Containerfile
-         path: Containerfile
+        name: Containerfile
+        path: Containerfile
+        overwrite: true
 
     - name: Generate image name
       run: |
@@ -57,28 +65,11 @@ jobs:
         echo "REPO_OWNER_LOWERCASE=$REPO_OWNER_LOWERCASE" >> "$GITHUB_ENV"
         echo "IMAGE_URL=ghcr.io/$REPO_OWNER_LOWERCASE/desktop" >> "$GITHUB_ENV"
 
-    - name: Extra image tag branch
-      if: ${{ github.ref_type != 'tag' }}
-      run: |
-        echo "EXTRA_TAG=ref,event=branch" >> "$GITHUB_ENV"
-
-    - name: Extra image tag release
-      if: ${{ github.ref_type == 'tag' }}
-      run: |
-        echo "EXTRA_TAG=raw,main" >> "$GITHUB_ENV"
-
     - name: Docker meta
-      id: docker_meta
+      id: meta
       uses: docker/metadata-action@v5
       with:
-        images: |
-          ${{ env. IMAGE_URL }}
-        tags: |
-          type=semver,pattern={{version}}
-          type=semver,pattern={{major}}.{{minor}}
-          type=semver,pattern={{raw}}
-          type=semver,pattern=v{{major}}
-          type=${{ env.EXTRA_TAG }}
+        images: ${{ env.IMAGE_URL }}
 
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
@@ -91,19 +82,19 @@ jobs:
         username: ${{ github.repository_owner }}
         password: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Build and Push the Docker image
-      id: push
+    - name: Build and push by digest
+      id: build
       uses: docker/build-push-action@v6
       with:
         context: .
         file: Containerfile
-        push: ${{ github.event_name != 'pull_request' }}
-        tags: ${{ steps.docker_meta.outputs.tags }}
-        labels: ${{ steps.docker_meta.outputs.labels }}
+        tags: ${{ env.IMAGE_URL }}
+        labels: ${{ steps.meta.outputs.labels }}
         cache-from: type=gha
         cache-to: type=gha,mode=max
-        platforms: linux/amd64
+        platforms: linux/${{ matrix.arch }}
         provenance: false
+        outputs: type=image,push-by-digest=true,name-canonical=true,push=${{ github.event_name != 'pull_request' }}
 
     - name: Attest pushed image
       uses: actions/attest-build-provenance@v3
@@ -111,15 +102,91 @@ jobs:
       if: ${{ github.event_name != 'pull_request' }}
       with:
         subject-name: ${{ env.IMAGE_URL }}
-        subject-digest: ${{ steps.push.outputs.digest }}
+        subject-digest: ${{ steps.build.outputs.digest }}
         push-to-registry: false
+
+    - name: Export digest
+      if: ${{ github.event_name != 'pull_request' }}
+      run: |
+        mkdir -p ${{ runner.temp }}/digests
+        digest="${{ steps.build.outputs.digest }}"
+        touch "${{ runner.temp }}/digests/${digest#sha256:}"
+
+    - name: Upload digest
+      uses: actions/upload-artifact@v4
+      if: ${{ github.event_name != 'pull_request' }}
+      with:
+        name: digests-${{ matrix.arch }}
+        path: ${{ runner.temp }}/digests/*
+        if-no-files-found: error
+        retention-days: 1
+
+  merge:
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name != 'pull_request' }}
+    needs: build
+    permissions:
+      contents: write # Allow actions to create release
+      packages: write # Allow pushing images to GHCR
+
+    steps:
+    - name: Generate image name
+      run: |
+        REPO_OWNER_LOWERCASE="$(echo ${{ github.repository_owner }} | tr '[:upper:]' '[:lower:]')"
+        echo "REPO_OWNER_LOWERCASE=$REPO_OWNER_LOWERCASE" >> "$GITHUB_ENV"
+        echo "IMAGE_URL=ghcr.io/$REPO_OWNER_LOWERCASE/desktop" >> "$GITHUB_ENV"
+
+    - name: Download digests
+      uses: actions/download-artifact@v4
+      with:
+        path: ${{ runner.temp }}/digests
+        pattern: digests-*
+        merge-multiple: true
+
+    - name: Extra image tag branch
+      if: ${{ github.ref_type != 'tag' }}
+      run: |
+        echo "EXTRA_TAG=ref,event=branch" >> "$GITHUB_ENV"
+
+    - name: Extra image tag release
+      if: ${{ github.ref_type == 'tag' }}
+      run: |
+        echo "EXTRA_TAG=raw,main" >> "$GITHUB_ENV"
+
+    - name: Docker meta
+      id: meta
+      uses: docker/metadata-action@v5
+      with:
+        images: ${{ env.IMAGE_URL }}
+        tags: |
+          type=semver,pattern={{version}}
+          type=semver,pattern={{major}}.{{minor}}
+          type=semver,pattern={{raw}}
+          type=semver,pattern=v{{major}}
+          type=${{ env.EXTRA_TAG }}
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+
+    - name: Login to GitHub Package Registry
+      uses: docker/login-action@v3
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Create manifest list and push
+      working-directory: ${{ runner.temp }}/digests
+      run: |
+        docker buildx imagetools create $(jq -cr '.tags | map("-t " + .) | join(" ")' <<< "$DOCKER_METADATA_OUTPUT_JSON") \
+          $(printf '${{ env.IMAGE_URL }}@sha256:%s ' *)
 
   differ:
     runs-on: ubuntu-latest
+    if: github.repository == 'vanilla-os/desktop-image' && github.ref_type == 'tag'
+    needs: merge
     container:
       image: ghcr.io/vanilla-os/desktop:main
-    if: github.repository == 'vanilla-os/desktop-image' && github.ref_type == 'tag'
-    needs: build
 
     steps:
       - uses: actions/checkout@v5
