@@ -56,6 +56,6 @@ jobs:
 
       - name: Attest Release Files
         id: attest
-        uses: actions/attest-build-provenance@v2
+        uses: actions/attest-build-provenance@v3
         with:
           subject-path: 'Containerfile'
