@@ -9,3 +9,8 @@ source:
   - plymouth-theme-vanilla-bgrt
   - plymouth-theme-vanilla-logo
   - plymouth-theme-vanilla-text
+modules:
+- name: adjust-initrd
+  type: shell
+  commands:
+  - sed -i 's/spinner|bgrt/spinner|bgrt|vanilla-bgrt/g' /usr/share/initramfs-tools/hooks/plymouth
