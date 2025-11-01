@@ -44,7 +44,7 @@ jobs:
             recipe: 'recipe.yml'
             plugins: 'Vanilla-OS/vib-fsguard:v1.6.1'
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         with:
             name: Containerfile
             path: Containerfile
