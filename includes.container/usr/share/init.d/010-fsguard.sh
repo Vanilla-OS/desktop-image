@@ -7,8 +7,8 @@ if [ -s "$PACKAGES" ]; then
 fi
 
 function failed() {
-    /.system/usr/bin/plymouth quit
-    local squashfs="/.system/boot/fswarn.squash"
+    /usr/bin/plymouth quit
+    local squashfs="/boot/fswarn.squash"
     mount -t tmpfs -o rw,size=1G tmpfs /tmp
     local tmp="/tmp"
     chmod 0755 "$tmp"
@@ -37,7 +37,7 @@ function failed() {
     fi
 }
 
-/usr/sbin/FsGuard verify "/.system/FsGuard/filelist"
+/usr/sbin/FsGuard verify "/FsGuard/filelist"
 if [[ $? -ne 0 ]]; then
     failed
 fi
