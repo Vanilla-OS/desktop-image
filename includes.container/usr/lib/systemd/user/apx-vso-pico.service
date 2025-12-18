@@ -9,8 +9,8 @@ After=graphical-session.target
 [Service]
 TimeoutStopSec=10
 RemainAfterExit=yes
-ExecStop=/.system/usr/bin/podman stop -t 3 apx-vso-pico
-ExecStopPost=/.system/usr/bin/podman stop -t 3 apx-vso-pico
+ExecStop=/usr/bin/podman stop -t 3 apx-vso-pico
+ExecStopPost=/usr/bin/podman stop -t 3 apx-vso-pico
 
 [Install]
 WantedBy=graphical-session.target
