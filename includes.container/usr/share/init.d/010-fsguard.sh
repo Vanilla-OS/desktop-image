@@ -8,7 +8,7 @@ fi
 
 function failed() {
     /usr/bin/plymouth quit
-    local squashfs="/boot/fswarn.squash"
+    local squashfs="/usr/lib/fswarn/fswarn.squash"
     mount -t tmpfs -o rw,size=1G tmpfs /tmp
     local tmp="/tmp"
     chmod 0755 "$tmp"
