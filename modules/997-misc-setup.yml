@@ -10,3 +10,5 @@ commands:
   - ln -s /usr/lib/systemd/system/fix-gdm-permissions.service /etc/systemd/system/multi-user.target.wants/
   # gnome-software-setup
   - rm /usr/lib/*/gnome-software/plugins-*/libgs_plugin_packagekit.so
+  # make the sudo replacement executable
+  - chmod +x /usr/bin/sudo
