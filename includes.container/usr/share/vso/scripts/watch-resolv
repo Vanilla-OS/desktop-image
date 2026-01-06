@@ -1,0 +1,26 @@
+#!/bin/bash
+
+SRC="/run/host/etc/resolv.conf"
+DST="/etc/resolv.conf"
+INTERVAL=10
+
+while true; do
+    if [[ -f "$SRC" && -f "$DST" ]]; then
+        src_mtime=$(stat -c %Y "$SRC")
+        dst_mtime=$(stat -c %Y "$DST")
+
+        if (( dst_mtime < src_mtime )); then
+            echo "$(date): $SRC is newer than $DST, rebinding..."
+
+            if mountpoint -q "$DST"; then
+                umount "$DST"
+            fi
+
+            mount --bind "$SRC" "$DST"
+        fi
+    else
+        echo "$(date): One or both resolv.conf files do not exist"
+    fi
+
+    sleep "$INTERVAL"
+done
