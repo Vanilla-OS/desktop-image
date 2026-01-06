@@ -1,0 +1,12 @@
+[Unit]
+Description=VSO resolv.conf watcher
+After=vso-pre-run.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/vso run -n -- /usr/bin/sudo bash /run/host/usr/share/vso/scripts/watch-resolv
+Restart=on-failure
+RestartSec=60s
+
+[Install]
+WantedBy=default.target
