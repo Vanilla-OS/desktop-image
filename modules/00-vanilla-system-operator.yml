@@ -30,10 +30,10 @@ modules:
   type: shell
   sources:
     - type: tar
-      url: https://github.com/Vanilla-OS/vso-gnome-ext/archive/refs/tags/1.4.tar.gz
+      url: https://github.com/Vanilla-OS/vso-gnome-ext/archive/refs/tags/1.5.tar.gz
   commands:
   - mkdir -p /usr/share/gnome-shell/extensions/
-  - mv /sources/vso-gnome-ext/1.4/vso-gnome-ext-1.4/vso\@vanillaos.org /usr/share/gnome-shell/extensions/vso\@vanillaos.org
+  - mv /sources/vso-gnome-ext/1.5/vso-gnome-ext-1.5/vso\@vanillaos.org /usr/share/gnome-shell/extensions/vso\@vanillaos.org
 
 - name: vso-deps-install
   type: apt
