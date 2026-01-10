@@ -1,4 +1,4 @@
 [Desktop Entry]
 Name=ABRoot Rollback Notifier
-Exec=/usr/local/bin/abroot-rollback-notifier
+Exec=/usr/bin/abroot-rollback-notifier
 Type=Application
