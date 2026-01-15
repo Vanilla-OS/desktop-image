@@ -30,12 +30,17 @@ stages:
     type: shell
     sources:
       - type: tar
-        url: https://github.com/Vanilla-OS/vanilla-tools/releases/download/v1.0.0/vanilla-tools.tar.gz
-        checksum: 0e1d92d9c9154f9a115e97b40ff692afa52ddd0d9f770a8ec67440bf1a48aa72
+        url: https://github.com/Vanilla-OS/vanilla-tools/releases/download/v1.0.1/vanilla-tools-amd64.tar.gz
+        checksum: aef32f07820e0993e534e6bccfa1a6daae6c8c6f0543d3e073f4f121f2ef2e31
+        only-arches: [amd64]
+      - type: tar
+        url: https://github.com/Vanilla-OS/vanilla-tools/releases/download/v1.0.1/vanilla-tools-arm64.tar.gz
+        checksum: e59b098338de6f6071376e07ec79b17be6c8f0a0dd354fab128e1e86a36d0862
+        only-arches: [arm64]
     commands:
     - mkdir -p /usr/bin
-    - cp /sources/vanilla-tools/vanilla-tools/vanilla-tools/lpkg /usr/bin/lpkg
-    - cp /sources/vanilla-tools/vanilla-tools/vanilla-tools/cur-gpu /usr/bin/cur-gpu
+    - cp /sources/vanilla-tools/vanilla-tools*/vanilla-tools/lpkg /usr/bin/lpkg
+    - cp /sources/vanilla-tools/vanilla-tools*/vanilla-tools/cur-gpu /usr/bin/cur-gpu
     - chmod +x /usr/bin/lpkg
     - chmod +x /usr/bin/cur-gpu
 
