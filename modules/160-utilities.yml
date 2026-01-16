@@ -3,7 +3,6 @@ type: apt
 sources:
   - packages:
     - gnome-disk-utility
-    - gnome-system-monitor
     - gnome-sushi
     - ghostscript
     - zenity

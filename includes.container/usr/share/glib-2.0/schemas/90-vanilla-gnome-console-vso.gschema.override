@@ -1,3 +1,0 @@
-[com.raggesilver.BlackBox]
-use-custom-command = true
-custom-shell-command = "/usr/bin/vanilla-shell-detect"

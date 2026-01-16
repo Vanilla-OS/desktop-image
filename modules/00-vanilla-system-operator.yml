@@ -26,9 +26,6 @@ modules:
 - name: vso-extra-setup
   type: shell
   commands:
-  - chmod +x /usr/bin/vso-os-shell
-  - echo "/usr/bin/vso-os-shell" >> /etc/shells
-  - sed -i 's/^\(SHELL=\).*/\1\/usr\/bin\/vso-os-shell/' /etc/default/useradd
   - chmod +x /usr/bin/reset-vso
 
 - name: vso-gnome-ext
