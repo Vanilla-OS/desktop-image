@@ -22,5 +22,3 @@ sources:
     - gnome-color-manager
     - gnome-menus
     - gnome-online-accounts
-
-    - blackbox-terminal
