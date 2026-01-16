@@ -53,7 +53,7 @@ jobs:
         recipe: 'recipe.yml'
         plugins: 'Vanilla-OS/vib-fsguard:v1.6.1'
 
-    - uses: actions/upload-artifact@v4
+    - uses: actions/upload-artifact@v6
       with:
         name: Containerfile
         path: Containerfile
@@ -113,7 +113,7 @@ jobs:
         touch "${{ runner.temp }}/digests/${digest#sha256:}"
 
     - name: Upload digest
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v6
       if: ${{ github.event_name != 'pull_request' }}
       with:
         name: digests-${{ matrix.arch }}
