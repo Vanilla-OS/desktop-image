@@ -41,7 +41,7 @@ jobs:
       id-token: write # Additional permissions for the persistence of the attestations
 
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6
 
     - name: Change tag in recipe.
       if: ${{ github.ref_type == 'tag' }}
@@ -189,7 +189,7 @@ jobs:
       image: ghcr.io/vanilla-os/desktop:main
 
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
 
       - name: Generate package diff
         run: |
