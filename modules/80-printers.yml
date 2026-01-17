@@ -5,7 +5,6 @@ sources:
     # General
     - cups
     - cups-pk-helper
-    - cups-filters
     - bluez-cups
 
     - printer-driver-brlaser  # Brother

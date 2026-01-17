@@ -5,17 +5,11 @@ sources:
     - gnome-disk-utility
     - gnome-system-monitor
     - gnome-sushi
-    - gnome-software
     - ghostscript
     - zenity
     - flatpak
     - gnome-software-plugin-flatpak
     - locales-all
-    
-    - heif-gdk-pixbuf
-    - heif-thumbnailer
 
     - gnome-user-docs
     - rygel
-    - webp-pixbuf-loader
-    - yelp

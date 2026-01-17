@@ -2,7 +2,6 @@ name: accessibility
 type: apt
 sources:
   - packages:
-    - at-spi2-core
     - espeak-ng
     - mousetweaks
     - orca
