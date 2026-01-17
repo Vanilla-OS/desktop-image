@@ -52,7 +52,7 @@ stages:
       - modules/00-vanilla-first-setup.yml
       - modules/00-vanilla-gnome-default-settings.yml
       - modules/00-vanilla-system-operator.yml
-      - modules/00-vanilla-apx-gui.yml
+      - modules/00-vanilla-apx-wrapper.yml
       - modules/00-vanilla-tour.yml
       - modules/00-vanilla-sideload.yml
       - modules/00-vanilla-updates-utility.yml
