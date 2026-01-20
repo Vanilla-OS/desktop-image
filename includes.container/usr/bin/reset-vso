@@ -3,17 +3,45 @@
 if [ "$1" == "--tty" ]; then
     echo "Are you sure you want to reset the VSO? This will remove all your installed software in the subsystem. [y/N]"
     read -r answer
-    if [ "$answer" == "y" ]; then
-        podman rm -f apx-vso-pico
-        blackbox-terminal
+    if [ "$answer" != "y" ]; then
+        exit
     fi
 else
     adwdialog --title "Reset VSO?" \
               --description "Are you sure you want to reset the VSO? This will remove all your installed software in the subsystem." \
               --type "question" \
               --icon "org.vanillaos.VSO"
-    if [ $? -eq 0 ]; then
-        podman rm -f apx-vso-pico
-        blackbox-terminal
+    if [ $? -ne 0 ]; then
+        exit
     fi
 fi
+
+CONTAINER_ID=$(podman ps -a --filter name=apx-vso-pico --no-trunc -q)
+if [ -n "$CONTAINER_ID" ]; then
+    PTYXIS_DEFAULT_PROFILE_UUID=$(gsettings get org.gnome.Ptyxis default-profile-uuid 2>/dev/null | tr -d "'" || echo "")
+    if [ -n "$PTYXIS_DEFAULT_PROFILE_UUID" ]; then
+        PTYXIS_DEFAULT_CONTAINER=$(gsettings get "org.gnome.Ptyxis.Profile:/org/gnome/Ptyxis/Profiles/${PTYXIS_DEFAULT_PROFILE_UUID}/" default-container 2>/dev/null | tr -d "'" || echo "")
+        if [ "$PTYXIS_DEFAULT_CONTAINER" == "$CONTAINER_ID" ]; then
+            gsettings set "org.gnome.Ptyxis.Profile:/org/gnome/Ptyxis/Profiles/${PTYXIS_DEFAULT_PROFILE_UUID}/" default-container session
+        fi
+    fi
+fi
+podman rm -f apx-vso-pico
+
+if [ "$1" == "--tty" ]; then
+    echo "VSO subsystem has been removed successfully. Do you want to re-initialize it now? [y/N]"
+    read -r answer
+    if [ "$answer" != "y" ]; then
+        exit
+    fi
+else
+    adwdialog --title "Re-initialize VSO?" \
+              --description "VSO subsystem has been removed successfully. Do you want to re-initialize it now?" \
+              --type "question" \
+              --icon "org.vanillaos.VSO"
+    if [ $? -ne 0 ]; then
+        exit
+    fi
+fi
+
+vso pico init

@@ -1,0 +1,22 @@
+#!/bin/bash
+
+CONTAINER_ID=$(podman ps -a --filter name=apx-vso-pico --no-trunc -q)
+if [ -z "$CONTAINER_ID" ]; then
+    vso pico init
+    exit
+fi
+
+gsettings set org.gnome.Ptyxis.Profile:/org/gnome/Ptyxis/Profiles/vso/ default-container $CONTAINER_ID
+gsettings set org.gnome.Ptyxis.Profile:/org/gnome/Ptyxis/Profiles/vso/ label "VSO Profile"
+PTYXIS_PROFILE_UUIDS=$(gsettings get org.gnome.Ptyxis profile-uuids)
+case $PTYXIS_PROFILE_UUIDS in
+    *\[\]*)
+        gsettings set org.gnome.Ptyxis profile-uuids "['vso']"
+        ;;
+    *vso*)
+        ;;
+    *)
+        gsettings set org.gnome.Ptyxis profile-uuids "${PTYXIS_PROFILE_UUIDS%]}, 'vso']"
+        ;;
+esac
+gsettings set org.gnome.Ptyxis default-profile-uuid vso
