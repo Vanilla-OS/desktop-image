@@ -4,7 +4,8 @@ run_apx() {
     flatpak run --command=apx org.vanillaos.ApxGUI "$@"
 }
 
-if run_apx "$@"; then
+if run_apx "$@" || \
+    flatpak info org.vanillaos.ApxGUI &>/dev/null; then
     exit
 fi
 
