@@ -1,5 +1,0 @@
-name: vso-waydroid
-base: ghcr.io/vanilla-os/waydroid:main
-packages: []
-pkgmanager: apt
-builtin: true
