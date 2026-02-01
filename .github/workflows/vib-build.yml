@@ -48,7 +48,7 @@ jobs:
       run: |
         sed 's/ghcr.io\/vanilla-os\/core:dev/ghcr.io\/vanilla-os\/core:main/' -i recipe.yml
 
-    - uses: vanilla-os/vib-gh-action@v1.0.6
+    - uses: vanilla-os/vib-gh-action@v1.0.7
       with:
         recipe: 'recipe.yml'
         plugins: 'Vanilla-OS/vib-fsguard:v1.6.1'
