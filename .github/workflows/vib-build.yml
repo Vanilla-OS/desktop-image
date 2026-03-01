@@ -97,7 +97,7 @@ jobs:
         outputs: type=image,push-by-digest=true,name-canonical=true,push=${{ github.event_name != 'pull_request' }}
 
     - name: Attest pushed image
-      uses: actions/attest-build-provenance@v3
+      uses: actions/attest-build-provenance@v4
       id: attest
       if: ${{ github.event_name != 'pull_request' }}
       with:
