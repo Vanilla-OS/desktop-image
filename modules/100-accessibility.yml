@@ -3,7 +3,6 @@ type: apt
 sources:
   - packages:
     - espeak-ng
-    - mousetweaks
     - orca
 
     - speech-dispatcher
