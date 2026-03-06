@@ -14,3 +14,6 @@ sources:
     # Config
     - system-config-printer-common
     - system-config-printer-udev
+cleanup:
+  - /etc/ssl/certs/ssl-cert-snakeoil.pem
+  - /etc/ssl/private/ssl-cert-snakeoil.key
