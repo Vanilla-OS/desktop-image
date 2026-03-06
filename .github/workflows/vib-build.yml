@@ -48,7 +48,7 @@ jobs:
       run: |
         sed 's/ghcr.io\/vanilla-os\/core:dev/ghcr.io\/vanilla-os\/core:main/' -i recipe.yml
 
-    - uses: vanilla-os/vib-gh-action@v1.0.6
+    - uses: vanilla-os/vib-gh-action@v1.1.0
       with:
         recipe: 'recipe.yml'
         plugins: 'Vanilla-OS/vib-fsguard:v1.6.1'
@@ -70,6 +70,7 @@ jobs:
       uses: docker/metadata-action@v5
       with:
         images: ${{ env.IMAGE_URL }}
+        labels: org.opencontainers.image.created={{commit_date 'YYYY-MM-DDTHH:mm:ss.SSS[Z]'}}
 
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
@@ -81,6 +82,9 @@ jobs:
         registry: ghcr.io
         username: ${{ github.repository_owner }}
         password: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Get Git commit timestamps
+      run: echo "TIMESTAMP=$(git log -1 --pretty=%ct)" >> $GITHUB_ENV
 
     - name: Build and push by digest
       id: build
@@ -94,7 +98,9 @@ jobs:
         cache-to: type=gha,mode=max
         platforms: linux/${{ matrix.arch }}
         provenance: false
-        outputs: type=image,push-by-digest=true,name-canonical=true,push=${{ github.event_name != 'pull_request' }}
+        outputs: type=image,push-by-digest=true,name-canonical=true,push=${{ github.event_name != 'pull_request' }},rewrite-timestamp=true
+      env:
+        SOURCE_DATE_EPOCH: ${{ env.TIMESTAMP }}
 
     - name: Attest pushed image
       uses: actions/attest-build-provenance@v4

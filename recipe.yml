@@ -1,6 +1,6 @@
 name: Vanilla Desktop
 id: desktop
-vibversion: 1.0.6
+vibversion: 1.1.0
 
 stages:
 - id: build
@@ -14,6 +14,17 @@ stages:
   runs:
     commands:
       - echo 'APT::Install-Recommends "1";' > /etc/apt/apt.conf.d/01norecommends
+  cleanup:
+    - /boot/initrd.img*
+    - /tmp/*
+    - /var/cache/apt/pkgcache.bin
+    - /var/cache/debconf
+    - /var/cache/dictionaries-common
+    - /var/cache/fontconfig
+    - /var/cache/ldconfig
+    - /var/cache/man
+    - /var/lib/dbus/machine-id
+    - /var/log/*
 
   modules:
   - name: init-setup
@@ -86,6 +97,8 @@ stages:
     - apt clean
     - lpkg --lock
     - rsync -a /etc/ /sysconf/
+    cleanup:
+    - /sysconf/resolv.conf
 
   - name: fsguard
     type: fsguard
@@ -100,9 +113,3 @@ stages:
           - rm -rf /FsGuard
           - rm -f ./minisign.pub ./minisign.key
           - chmod +x /usr/share/init.d/010-fsguard.sh
-
-  - name: cleanup2
-    type: shell
-    commands:
-      - rm -rf /tmp/*
-      - rm -rf /var/tmp/*
