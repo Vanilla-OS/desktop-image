@@ -99,17 +99,3 @@ stages:
     - rsync -a /etc/ /sysconf/
     cleanup:
     - /sysconf/resolv.conf
-
-  - name: fsguard
-    type: fsguard
-    CustomFsGuard: false
-    FsGuardLocation: "/usr/sbin/FsGuard"
-    GenerateKey: true
-    FilelistPaths: ["/usr/bin"]
-    modules:
-      - name: remove-prev-fsguard
-        type: shell
-        commands:
-          - rm -rf /FsGuard
-          - rm -f ./minisign.pub ./minisign.key
-          - chmod +x /usr/share/init.d/010-fsguard.sh
