@@ -99,3 +99,9 @@ stages:
     - rsync -a /etc/ /sysconf/
     cleanup:
     - /sysconf/resolv.conf
+
+- id: initrd
+  base: build
+  runs:
+    commands:
+      - touch $(readlink -f /initrd.img)
