@@ -3,7 +3,7 @@ type: dpkg-buildpackage
 source:
   type: git
   url: https://github.com/Vanilla-OS/vanilla-gnome-default-settings.git
-  tag: v0.1
+  tag: v0.1.1
   paths:
   - vanilla-gnome-default-settings
 modules:
