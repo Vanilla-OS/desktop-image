@@ -3,7 +3,7 @@ type: dpkg-buildpackage
 source:
   type: git
   url: https://github.com/Vanilla-OS/vanilla-backgrounds.git
-  tag: v1.0.4
+  tag: v1.0.5
   paths:
   - vanilla-backgrounds
 modules:

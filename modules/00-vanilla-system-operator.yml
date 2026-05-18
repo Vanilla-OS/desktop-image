@@ -50,7 +50,7 @@ modules:
   source:
     type: git
     url: https://github.com/Vanilla-OS/AdwDialog.git
-    tag: v0.2.0
+    tag: v0.2.1
     paths:
       - adwdialog
   modules:
