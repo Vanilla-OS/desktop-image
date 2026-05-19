@@ -1,4 +1,4 @@
-name: vso-pico
+name: vso-native
 base: ghcr.io/vanilla-os/vso:main
 packages: []
 pkgmanager: apt

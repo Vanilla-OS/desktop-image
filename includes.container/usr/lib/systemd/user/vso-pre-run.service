@@ -5,7 +5,7 @@ After=podman.service podman-restart.service podman-auto-update.service
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-ExecStart=/usr/bin/vso pico run --no-reset echo vso container started
+ExecStart=/usr/bin/vso native run --no-reset echo vso container started
 
 [Install]
 WantedBy=default.target

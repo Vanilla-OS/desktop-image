@@ -4,7 +4,7 @@ After=vso-pre-run.service
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/vso pico run --no-reset /usr/bin/sudo bash /run/host/usr/share/vso/scripts/watch-resolv
+ExecStart=/usr/bin/vso native run --no-reset /usr/bin/sudo bash /run/host/usr/share/vso/scripts/watch-resolv
 Restart=on-failure
 RestartSec=60s
 
