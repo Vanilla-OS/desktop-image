@@ -1,0 +1,5 @@
+name: vso-native
+base: ghcr.io/vanilla-os/vso:latest
+packages: []
+pkgmanager: apt
+builtin: true
