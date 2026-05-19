@@ -16,7 +16,7 @@ else
     fi
 fi
 
-CONTAINER_ID=$(podman ps -a --filter name=apx-vso-pico --no-trunc -q)
+CONTAINER_ID=$(podman ps -a --filter name=apx-vso-native --no-trunc -q)
 if [ -n "$CONTAINER_ID" ]; then
     PTYXIS_DEFAULT_PROFILE_UUID=$(gsettings get org.gnome.Ptyxis default-profile-uuid 2>/dev/null | tr -d "'" || echo "")
     if [ -n "$PTYXIS_DEFAULT_PROFILE_UUID" ]; then
@@ -26,7 +26,7 @@ if [ -n "$CONTAINER_ID" ]; then
         fi
     fi
 fi
-podman rm -f apx-vso-pico
+podman rm -f apx-vso-native
 
 if [ "$1" == "--tty" ]; then
     echo "VSO subsystem has been removed successfully. Do you want to re-initialize it now? [y/N]"
@@ -44,4 +44,4 @@ else
     fi
 fi
 
-vso pico init
+vso native init

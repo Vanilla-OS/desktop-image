@@ -1,8 +1,8 @@
 #!/bin/bash
 
-CONTAINER_ID=$(podman ps -a --filter name=apx-vso-pico --no-trunc -q)
+CONTAINER_ID=$(podman ps -a --filter name=apx-vso-native --no-trunc -q)
 if [ -z "$CONTAINER_ID" ]; then
-    vso pico init
+    vso native init
     exit
 fi
 
