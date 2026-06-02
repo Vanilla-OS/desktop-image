@@ -1,0 +1,6 @@
+#!/bin/bash
+
+url=$(jq -r '.registry + "/" + .name + ":" + .tag' /etc/abroot/abroot.json)
+if [ $url = "ghcr.io/vanilla-os/desktop:main" ]; then
+	abroot rebase ghcr.io/vanilla-os/gnome:latest --rebase-only
+fi
