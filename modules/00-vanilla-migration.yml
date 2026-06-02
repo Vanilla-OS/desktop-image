@@ -1,0 +1,5 @@
+name: vanilla-migration
+type: shell
+commands:
+  - mkdir -p /usr/lib/systemd/system/multi-user.target.wants/
+  - ln -s /usr/lib/systemd/system/abroot-image-migration.service /usr/lib/systemd/system/multi-user.target.wants/
