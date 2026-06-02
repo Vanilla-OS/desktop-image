@@ -1,6 +1,6 @@
-# Vanilla OS Desktop Image
+# Vanilla OS GNOME Image
 
-Containerfile for building a Vanilla OS Desktop image.
+Containerfile for building a Vanilla OS GNOME image.
 
 This image is based on top of [`vanillaos/core`](https://github.com/Vanilla-OS/core-image/pkgs/container/core) and offers the default
 Vanilla OS Desktop experience with GNOME.
@@ -9,7 +9,7 @@ Vanilla OS Desktop experience with GNOME.
 
 ```bash
 vib build recipe.yml
-podman image build -t vanillaos/desktop .
+podman image build -t vanillaos/gnome .
 ```
 
 ## Verify Image Build Provenance Attestation
@@ -17,5 +17,5 @@ podman image build -t vanillaos/desktop .
 All the image builds/pushes are attested for build provenance and integrity using the [attest-build-provenance](https://github.com/actions/attest-build-provenance) action. The attestations can be verified [here](https://github.com/Vanilla-OS/desktop-image/attestations) or by having the latest version of [GitHub CLI](https://github.com/cli/cli/releases/latest) installed in your system. Then, execute the following command:
 
 ```sh
-gh attestation verify oci://ghcr.io/vanilla-os/desktop:main --owner Vanilla-OS
+gh attestation verify oci://ghcr.io/vanilla-os/gnome:latest --owner Vanilla-OS
 ```

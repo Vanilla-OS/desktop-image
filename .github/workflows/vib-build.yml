@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - 'dev'
+      - 'vision'
     tags:
       - '*'
   workflow_dispatch:
@@ -20,7 +21,7 @@ jobs:
     - name: Verify Base Image Integrity
       if: ${{ github.ref_type == 'tag' }}
       run:
-        gh attestation verify oci://ghcr.io/vanilla-os/core:main --owner Vanilla-OS
+        gh attestation verify oci://ghcr.io/vanilla-os/core:latest --owner Vanilla-OS
       env:
         GH_TOKEN: ${{ github.token }}
 
@@ -44,9 +45,14 @@ jobs:
     - uses: actions/checkout@v6
 
     - name: Change tag in recipe.
-      if: ${{ github.ref_type == 'tag' }}
+      if: ${{ github.ref_type != 'tag' }}
       run: |
-        sed 's/ghcr.io\/vanilla-os\/core:dev/ghcr.io\/vanilla-os\/core:main/' -i recipe.yml
+        if [ -n "${{ github.base_ref }}" ]; then
+          TAG="${{ github.base_ref }}"
+        else
+          TAG="${{ github.ref_name }}"
+        fi
+        sed "s/ghcr.io\/vanilla-os\/core:latest/ghcr.io\/vanilla-os\/core:$TAG/" -i recipe.yml
 
     - uses: vanilla-os/vib-gh-action@v1.1.0
       with:
@@ -62,7 +68,7 @@ jobs:
       run: |
         REPO_OWNER_LOWERCASE="$(echo ${{ github.repository_owner }} | tr '[:upper:]' '[:lower:]')"
         echo "REPO_OWNER_LOWERCASE=$REPO_OWNER_LOWERCASE" >> "$GITHUB_ENV"
-        echo "IMAGE_URL=ghcr.io/$REPO_OWNER_LOWERCASE/desktop" >> "$GITHUB_ENV"
+        echo "IMAGE_URL=ghcr.io/$REPO_OWNER_LOWERCASE/gnome" >> "$GITHUB_ENV"
 
     - name: Docker meta
       id: meta
@@ -139,7 +145,7 @@ jobs:
       run: |
         REPO_OWNER_LOWERCASE="$(echo ${{ github.repository_owner }} | tr '[:upper:]' '[:lower:]')"
         echo "REPO_OWNER_LOWERCASE=$REPO_OWNER_LOWERCASE" >> "$GITHUB_ENV"
-        echo "IMAGE_URL=ghcr.io/$REPO_OWNER_LOWERCASE/desktop" >> "$GITHUB_ENV"
+        echo "IMAGE_URL=ghcr.io/$REPO_OWNER_LOWERCASE/gnome" >> "$GITHUB_ENV"
 
     - name: Download digests
       uses: actions/download-artifact@v8
@@ -156,7 +162,8 @@ jobs:
     - name: Extra image tag release
       if: ${{ github.ref_type == 'tag' }}
       run: |
-        echo "EXTRA_TAG=raw,main" >> "$GITHUB_ENV"
+        echo "EXTRA_TAG=raw,latest" >> "$GITHUB_ENV"
+        echo "IMAGE_TAG_LEGACY=${IMAGE_URL/gnome/desktop}:main" >> "$GITHUB_ENV"
 
     - name: Docker meta
       id: meta
@@ -184,6 +191,7 @@ jobs:
       working-directory: ${{ runner.temp }}/digests
       run: |
         docker buildx imagetools create $(jq -cr '.tags | map("-t " + .) | join(" ")' <<< "$DOCKER_METADATA_OUTPUT_JSON") \
+          ${IMAGE_TAG_LEGACY:+-t $IMAGE_TAG_LEGACY} \
           $(printf '${{ env.IMAGE_URL }}@sha256:%s ' *)
 
   differ:
@@ -191,7 +199,7 @@ jobs:
     if: github.repository == 'vanilla-os/desktop-image' && github.ref_type == 'tag'
     needs: merge
     container:
-      image: ghcr.io/vanilla-os/desktop:main
+      image: ghcr.io/vanilla-os/gnome:latest
 
     steps:
       - uses: actions/checkout@v6
@@ -204,10 +212,15 @@ jobs:
           IMAGE_DIGEST=$(curl -s -L -H "Accept: application/vnd.github+json" \
           -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
           -H "X-GitHub-Api-Version: 2022-11-28" \
-          https://api.github.com/orgs/Vanilla-OS/packages/container/desktop/versions | grep -m1 name | sed -E 's/^\s*"name": "(.+)".*$/\1/')
+          https://api.github.com/orgs/Vanilla-OS/packages/container/gnome/versions | grep -m1 name | sed -E 's/^\s*"name": "(.+)".*$/\1/')
           curl -X POST \
           -H 'Accept:application/json' \
           -H "Authorization:Basic $(echo -n "${{ secrets.DIFFER_USER }}:${{ secrets.DIFFER_PSW }}" | base64)" \
           -d "{\"digest\":\"${IMAGE_DIGEST}\",${PACKAGE_LIST}}" \
           ${{ vars.DIFFER_URL }}/images/desktop/new
+          curl -X POST \
+          -H 'Accept:application/json' \
+          -H "Authorization:Basic $(echo -n "${{ secrets.DIFFER_USER }}:${{ secrets.DIFFER_PSW }}" | base64)" \
+          -d "{\"digest\":\"${IMAGE_DIGEST}\",${PACKAGE_LIST}}" \
+          ${{ vars.DIFFER_URL }}/images/gnome/new
           lpkg --lock
