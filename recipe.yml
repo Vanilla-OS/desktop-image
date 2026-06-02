@@ -1,10 +1,10 @@
-name: Vanilla Desktop
-id: desktop
+name: Vanilla GNOME
+id: gnome
 vibversion: 1.1.0
 
 stages:
 - id: build
-  base: ghcr.io/vanilla-os/core:dev
+  base: ghcr.io/vanilla-os/core:latest
   addincludes: true
   singlelayer: false
   labels:
