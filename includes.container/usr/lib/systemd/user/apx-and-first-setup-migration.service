@@ -1,0 +1,7 @@
+[Unit]
+Description=Apx and First Setup Migration
+Before=graphical-session-pre.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/bash /usr/libexec/apx-and-first-setup-migration
