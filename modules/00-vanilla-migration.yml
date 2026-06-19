@@ -2,4 +2,6 @@ name: vanilla-migration
 type: shell
 commands:
   - mkdir -p /usr/lib/systemd/system/multi-user.target.wants/
+  - mkdir -p /usr/lib/systemd/user/graphical-session-pre.target.wants/
   - ln -s /usr/lib/systemd/system/abroot-image-migration.service /usr/lib/systemd/system/multi-user.target.wants/
+  - ln -s /usr/lib/systemd/user/apx-and-first-setup-migration.service /usr/lib/systemd/user/graphical-session-pre.target.wants/

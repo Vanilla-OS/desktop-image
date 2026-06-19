@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Apx
+SOURCE_DIR="$HOME/.local/share/apx"
+DEST_DIR="$HOME/.var/app/org.vanillaos.ApxGUI/data/apx"
+if [ ! -d "$DEST_DIR" ] && [ -d "$SOURCE_DIR" ]; then
+	mkdir -p "$DEST_DIR" && \
+	mv "$SOURCE_DIR/package-managers" "$SOURCE_DIR/stacks" "$DEST_DIR/" && \
+	rm -rf "$SOURCE_DIR"
+fi
+
+# First Setup
+FIRST_SETUP_DIR="$HOME/.local/share/vanilla-first-setup"
+SEEN_APP_IDS_FILE="$FIRST_SETUP_DIR/seen_app_ids.json"
+if [ ! -f "$SEEN_APP_IDS_FILE" ] && podman container exists apx-vso-pico; then
+	mkdir -p "$FIRST_SETUP_DIR" && \
+	echo '{"install": ["org.gnome.Calculator", "org.gnome.Calendar", "org.gnome.Characters", "org.gnome.clocks", "org.gnome.Connections", "org.gnome.Contacts", "org.gnome.baobab", "org.gnome.SimpleScan", "org.gnome.Evince", "org.gnome.FileRoller", "org.gnome.font-viewer", "org.gnome.Loupe", "org.gnome.Logs", "org.gnome.Maps", "org.gnome.Music", "org.gnome.Photos", "org.gnome.Snapshot", "org.gnome.TextEditor", "org.gnome.Totem", "org.gnome.Weather", "org.mozilla.firefox", "com.google.Chrome", "org.chromium.Chromium", "com.brave.Browser", "com.microsoft.Edge", "com.vivaldi.Vivaldi", "org.gnome.Epiphany", "com.usebottles.bottles", "com.mattjakeman.ExtensionManager", "com.heroicgameslauncher.hgl", "net.lutris.Lutris", "org.gnome.Boxes", "org.gnome.DejaDup", "com.github.tchx84.Flatseal", "fr.romainvigier.MetadataCleaner", "com.github.flxzt.rnote", "de.haeckerfelix.Shortwave", "org.gnome.SoundRecorder", "org.libreoffice.LibreOffice"]}' > "$SEEN_APP_IDS_FILE"
+fi
