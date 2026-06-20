@@ -2,12 +2,12 @@ name: vso
 type: shell
 sources:
   - type: tar
-    url: https://github.com/Vanilla-OS/vanilla-system-operator/releases/download/v3.0.0/vso-amd64.tar.gz
-    checksum: 1cbb94bba609915e4c9ebda0cafdd7ca2e3244ff4fc028c6532e77afe7486428
+    url: https://github.com/Vanilla-OS/vanilla-system-operator/releases/download/v3.1.0/vso-amd64.tar.gz
+    checksum: 403a8d4e8a6387e54fd1dc8d5f9bf38f865557e78e70d9900f058c199814982e
     only-arches: [amd64]
   - type: tar
-    url: https://github.com/Vanilla-OS/vanilla-system-operator/releases/download/v3.0.0/vso-arm64.tar.gz
-    checksum: 06304270f168d06fa573200b5d7d93cd911de7d885955d533b808459b6552c34
+    url: https://github.com/Vanilla-OS/vanilla-system-operator/releases/download/v3.1.0/vso-arm64.tar.gz
+    checksum: 0984beabbb58238782e2bd249e9df26c1e5b3e837e804c7de8031c9e375da061
     only-arches: [arm64]
 commands:
 - mkdir -p /usr/bin
@@ -18,8 +18,8 @@ modules:
   type: shell
   sources:
     - type: tar
-      url: https://github.com/Vanilla-OS/vanilla-system-operator/releases/download/v3.0.0/vso-man.tar.gz
-      checksum: eb2b95bd4bd904286c7e37d3f7cb42ab0694ce8073993d7057c7102a9aa2d4c2
+      url: https://github.com/Vanilla-OS/vanilla-system-operator/releases/download/v3.1.0/vso-man.tar.gz
+      checksum: a684de2438f41e7c2d1359d97a8a9791f07c211bbc4875a7c84567d2610295e9
   commands:
   - mv /sources/vso-manpage/vso-man/man/man1/vso.1 /usr/share/man/man1/
 
