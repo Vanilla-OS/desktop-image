@@ -17,7 +17,7 @@ jobs:
     steps:
     - name: Verify Base Image Integrity
       run:
-        gh attestation verify oci://ghcr.io/vanilla-os/core:main --owner Vanilla-OS
+        gh attestation verify oci://ghcr.io/vanilla-os/core:latest --owner Vanilla-OS
       env:
         GH_TOKEN: ${{ github.token }}
 
@@ -28,16 +28,12 @@ jobs:
       contents: write # Allow actions to create release
       attestations: write # To create and write attestations
       id-token: write # Additional permissions for the persistence of the attestations
-    
+
     steps:
       - name: Checkout
         uses: actions/checkout@v6
         with:
           fetch-depth: 0
-
-      - name: Change tag in recipe.
-        run: |
-          sed 's/ghcr.io\/vanilla-os\/core:dev/ghcr.io\/vanilla-os\/core:main/' -i recipe.yml
 
       - uses: vanilla-os/vib-gh-action@v1.1.0
         with:
