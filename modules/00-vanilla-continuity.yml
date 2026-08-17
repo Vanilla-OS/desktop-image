@@ -1,0 +1,15 @@
+name: continuity
+type: shell
+sources:
+  - type: tar
+    url: https://github.com/Vanilla-OS/continuity/releases/download/v1.0.0/continuity-amd64.tar.gz
+    checksum: bfd024de329abfa43dfd45a0821e29120580880eaf5fceb8706488cfa337c25d
+    only-arches: [amd64]
+  - type: tar
+    url: https://github.com/Vanilla-OS/continuity/releases/download/v1.0.0/continuity-arm64.tar.gz
+    checksum: 2535949defe920c31f647f5d6a508f62dadf1a19b1c69432f824883e88ab4ccf
+    only-arches: [arm64]
+commands:
+- mkdir -p /usr/bin
+- cp /sources/continuity/continuity*/continuity /usr/bin/continuity
+- chmod +x /usr/bin/continuity
