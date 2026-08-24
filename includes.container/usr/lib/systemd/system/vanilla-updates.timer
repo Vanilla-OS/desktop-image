@@ -1,6 +1,8 @@
-Requires=vanilla-updates.service
-After=vanilla-updates.service
+[Unit]
+Description=Vanilla OS update timer
 [Timer]
 OnBootSec=1h
 OnUnitActiveSec=1h
 Unit=vanilla-updates.service
+[Install]
+WantedBy=timer.target
