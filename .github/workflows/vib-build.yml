@@ -38,8 +38,6 @@ jobs:
     needs: verify-image
     permissions:
       packages: write # Allow pushing images to GHCR
-      attestations: write # To create and write attestations
-      id-token: write # Additional permissions for the persistence of the attestations
 
     steps:
     - uses: actions/checkout@v7
@@ -107,15 +105,6 @@ jobs:
       env:
         SOURCE_DATE_EPOCH: ${{ env.TIMESTAMP }}
 
-    - name: Attest pushed image
-      uses: actions/attest-build-provenance@v4
-      id: attest
-      if: ${{ github.event_name != 'pull_request' }}
-      with:
-        subject-name: ${{ env.IMAGE_URL }}
-        subject-digest: ${{ steps.build.outputs.digest }}
-        push-to-registry: false
-
     - name: Export digest
       if: ${{ github.event_name != 'pull_request' }}
       run: |
@@ -139,6 +128,8 @@ jobs:
     permissions:
       contents: write # Allow actions to create release
       packages: write # Allow pushing images to GHCR
+      attestations: write # To create and write attestations
+      id-token: write # Additional permissions for the persistence of the attestations
 
     steps:
     - name: Generate image name
@@ -193,6 +184,17 @@ jobs:
         docker buildx imagetools create $(jq -cr '.tags | map("-t " + .) | join(" ")' <<< "$DOCKER_METADATA_OUTPUT_JSON") \
           ${IMAGE_TAG_LEGACY:+-t $IMAGE_TAG_LEGACY} \
           $(printf '${{ env.IMAGE_URL }}@sha256:%s ' *)
+
+    - name: Export digest
+      id: export
+      run: echo "digest=$(docker buildx imagetools inspect ${{ env.IMAGE_URL }}:${{ steps.meta.outputs.version }} --format '{{json .Manifest}}' | jq -cr '.digest')" >> $GITHUB_OUTPUT
+
+    - name: Attest pushed image
+      uses: actions/attest@v4
+      with:
+        subject-name: ${{ env.IMAGE_URL }}
+        subject-digest: ${{ steps.export.outputs.digest }}
+        push-to-registry: false
 
   differ:
     runs-on: ubuntu-latest
