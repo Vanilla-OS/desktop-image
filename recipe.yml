@@ -55,6 +55,25 @@ stages:
     - chmod +x /usr/bin/lpkg
     - chmod +x /usr/bin/cur-gpu
 
+  - name: init-system
+    type: shell
+    commands:
+    - groupadd -g 1201 vanilla-first-setup
+    - useradd -m -u 1200 -g vanilla-first-setup -G sudo,lpadmin,vanilla-first-setup -s /bin/bash -c "vanilla" vanilla
+    - echo "vanilla:vanilla" | chpasswd
+    
+    - mkdir -p /etc/gdm3
+    - echo -e '[daemon]\nAutomaticLogin=vanilla\nAutomaticLoginEnable=True' > /etc/gdm3/daemon.conf
+    
+    - mkdir -p /home/vanilla/.config/dconf
+    - chmod 700 /home/vanilla/.config/dconf
+    - mkdir -p /var/lib/AccountsService/users
+    - echo -e '[User]\nSession=firstsetup' > /var/lib/AccountsService/users/vanilla
+    - mkdir -p /home/vanilla/.config/autostart
+    - cp /usr/share/applications/org.vanillaos.FirstSetup.desktop /home/vanilla/.config/autostart
+    
+    - chown -R vanilla:vanilla /home/vanilla
+
   - name: packages-modules
     type: includes
     includes:
