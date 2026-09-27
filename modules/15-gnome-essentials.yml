@@ -24,3 +24,6 @@ sources:
     - gnome-online-accounts
 
     - ptyxis
+
+    - ibus
+    - ibus-table
