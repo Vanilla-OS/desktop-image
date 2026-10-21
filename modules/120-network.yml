@@ -2,7 +2,7 @@ name: network
 type: apt
 sources:
   - packages:
-    - network-manager-gnome
+    - network-manager-applet
     - network-manager-l2tp-gnome
     - network-manager-openconnect-gnome
     - network-manager-openvpn-gnome
