@@ -105,11 +105,44 @@ jobs:
       env:
         SOURCE_DATE_EPOCH: ${{ env.TIMESTAMP }}
 
+    - name: Convert to zstd:chunked
+      id: chunked
+      env:
+        IMAGE_URL: ${{ env.IMAGE_URL }}
+        SOURCE_DIGEST: ${{ steps.build.outputs.digest }}
+        ARCH: ${{ matrix.arch }}
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y skopeo
+
+        set -euo pipefail
+
+        printf '%s' "$GH_TOKEN" |
+          skopeo login ghcr.io \
+            --username "$GITHUB_ACTOR" \
+            --password-stdin
+
+        TAG="chunked-${GITHUB_SHA}-${ARCH}"
+
+        skopeo copy \
+          --format oci \
+          --dest-compress-format zstd:chunked \
+          --dest-force-compress-format \
+          "docker://${IMAGE_URL}@${SOURCE_DIGEST}" \
+          "docker://${IMAGE_URL}:${TAG}"
+
+        DIGEST="$(skopeo inspect \
+          --format '{{.Digest}}' \
+          "docker://${IMAGE_URL}:${TAG}")"
+
+        echo "digest=${DIGEST}" >> "$GITHUB_OUTPUT"
+
     - name: Export digest
       if: ${{ github.event_name != 'pull_request' }}
       run: |
         mkdir -p ${{ runner.temp }}/digests
-        digest="${{ steps.build.outputs.digest }}"
+        digest="${{ steps.chunked.outputs.digest }}"
         touch "${{ runner.temp }}/digests/${digest#sha256:}"
 
     - name: Upload digest
