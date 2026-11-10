@@ -2,18 +2,8 @@ name: libs-extra
 type: apt
 sources:
   - packages:
-    - libatk-adaptor
-    - libnotify-bin
-
     - ibus-gtk
     - ibus-gtk3
     - ibus-gtk4
 
     - libpam-gnome-keyring
-    - libwmf-0.2-7-gtk
-    - libwacom9
-
-    - libavif-gdk-pixbuf
-    - ffmpegthumbnailer
-    - gnome-epub-thumbnailer
-    - ooo-thumbnailer

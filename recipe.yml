@@ -4,7 +4,7 @@ vibversion: 1.1.0
 
 stages:
 - id: build
-  base: ghcr.io/vanilla-os/core:latest
+  base: ghcr.io/vanilla-os/base:latest
   addincludes: true
   singlelayer: false
   labels:
@@ -32,6 +32,7 @@ stages:
     commands:
     - echo 'PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"' > /etc/environment
     - sed -i '4,10d' /etc/profile
+    - lpkg --unlock
     - apt update
     - apt clean
     - apt-mark hold snapd gnome-software-plugin-snap
@@ -58,33 +59,15 @@ stages:
   - name: packages-modules
     type: includes
     includes:
-      - modules/00-vanilla-desktop-base.yml
       - modules/00-vanilla-backgrounds.yml
-      - modules/00-vanilla-first-setup.yml
       - modules/00-vanilla-gnome-default-settings.yml
-      - modules/00-vanilla-system-operator.yml
-      - modules/00-vanilla-apx-wrapper.yml
       - modules/00-vanilla-tour.yml
-      - modules/00-vanilla-sideload.yml
-      - modules/00-vanilla-updates-utility.yml
-      - modules/00-vanilla-prime-utility.yml
-      - modules/00-vanilla-migration.yml
-      - modules/03-fswarn.yml
-      - modules/10-vanilla-abroot-rollback-notifier.yml
       - modules/15-gnome-essentials.yml
       - modules/18-libs-extra.yml
       - modules/21-gnome-control-center.yml
       - modules/35-nautilus-terminal-rightclick.yml
       - modules/40-gnome-appearance.yml
-      - modules/50-laptop-goodies.yml
-      - modules/60-media.yml
-      - modules/80-printers.yml
-      - modules/100-accessibility.yml
-      - modules/110-fonts.yml
       - modules/120-network.yml
-      - modules/121-disable-ssh-daemon.yml
-      - modules/130-plymouth.yml
-      - modules/131-plymouth-theme-vanilla.yml
       - modules/140-password.yml
       - modules/160-utilities.yml
       - modules/170-gnome-software-vso-plugin.yml

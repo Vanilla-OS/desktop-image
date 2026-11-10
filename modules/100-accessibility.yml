@@ -1,9 +1,0 @@
-name: accessibility
-type: apt
-sources:
-  - packages:
-    - espeak-ng
-    - orca
-
-    - speech-dispatcher
-    - speech-dispatcher-espeak-ng
