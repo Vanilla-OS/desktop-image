@@ -1,21 +1,11 @@
 #!/bin/bash
 
-run_apx() {
-    exec flatpak run --command=apx org.vanillaos.ApxGUI "$@"
-}
-
-if run_apx "$@" || \
-    flatpak info org.vanillaos.ApxGUI &>/dev/null; then
-    exit
-fi
-
-echo "Looks like Apx is missing from your system. Do you want to install it now? [y/N]"
-read -r answer
-if [ "$answer" == "y" ]; then
-    if flatpak install -y org.vanillaos.ApxGUI && \
-        run_apx "$@"; then
-        exit
+if ! flatpak info org.vanillaos.ApxGUI &>/dev/null; then
+    echo "Looks like Apx is missing from your system. Do you want to install it now? [y/N]"
+    read -r answer
+    if [ "$answer" != "y" ] || ! flatpak install -y org.vanillaos.ApxGUI; then
+        exit 1
     fi
 fi
 
-exit 1
+exec flatpak run --command=apx org.vanillaos.ApxGUI "$@"
