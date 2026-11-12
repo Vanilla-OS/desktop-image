@@ -4,11 +4,7 @@ sources:
   - packages:
     - gnome-disk-utility
     - gnome-sushi
-    - ghostscript
-    - zenity
-    - flatpak
     - gnome-software-plugin-flatpak
-    - locales-all
 
     - gnome-user-docs
     - rygel

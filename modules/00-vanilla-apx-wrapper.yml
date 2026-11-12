@@ -1,4 +1,0 @@
-name: apx-wrapper
-type: shell
-commands:
-  - chmod +x /usr/bin/apx

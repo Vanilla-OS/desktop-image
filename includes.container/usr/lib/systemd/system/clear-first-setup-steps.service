@@ -1,7 +1,0 @@
-[Unit]
-Description=Cleans up First Setup steps
-After=local-fs.target
-
-[Service]
-Type=oneshot
-ExecStart=/usr/bin/sh -c '/usr/bin/echo "" > /etc/org.vanillaos.FirstSetup.commands'

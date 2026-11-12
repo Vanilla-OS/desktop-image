@@ -2,7 +2,7 @@
 
 Containerfile for building a Vanilla OS GNOME image.
 
-This image is based on top of [`vanillaos/core`](https://github.com/Vanilla-OS/core-image/pkgs/container/core) and offers the default
+This image is based on top of [`vanillaos/base`](https://github.com/Vanilla-OS/base-image/pkgs/container/base) and offers the default
 Vanilla OS Desktop experience with GNOME.
 
 ## Build

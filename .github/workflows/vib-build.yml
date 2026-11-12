@@ -21,7 +21,7 @@ jobs:
     - name: Verify Base Image Integrity
       if: ${{ github.ref_type == 'tag' }}
       run:
-        gh attestation verify oci://ghcr.io/vanilla-os/core:latest --owner Vanilla-OS
+        gh attestation verify oci://ghcr.io/vanilla-os/base:latest --owner Vanilla-OS
       env:
         GH_TOKEN: ${{ github.token }}
 
@@ -50,7 +50,7 @@ jobs:
         else
           TAG="${{ github.ref_name }}"
         fi
-        sed "s/ghcr.io\/vanilla-os\/core:latest/ghcr.io\/vanilla-os\/core:$TAG/" -i recipe.yml
+        sed "s/ghcr.io\/vanilla-os\/base:latest/ghcr.io\/vanilla-os\/base:$TAG/" -i recipe.yml
 
     - uses: vanilla-os/vib-gh-action@v1.1.0
       with:
